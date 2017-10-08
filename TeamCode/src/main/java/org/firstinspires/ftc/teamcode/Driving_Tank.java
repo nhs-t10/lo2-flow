@@ -6,12 +6,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by user on 10/5/17.
  */
-
 public class Driving_Tank extends OpMode{
 
 
-    DcMotor leftmotor, rightmotor;
-    double wheelSpeed;
+    private DcMotor leftmotor, rightmotor;
+    private double wheelSpeed;
 
     @Override
     public void init() {
@@ -23,20 +22,18 @@ public class Driving_Tank extends OpMode{
 
     @Override
     public void loop(){
-        if(gamepad1.left_stick_y>0.5){
-            leftmotor.setPower(1f);
+        if(gamepad1.left_stick_y > 0.5)
+            leftmotor.setPower(1);
+        else
+        if (gamepad1.left_stick_y < -0.5)
+            leftmotor.setPower(-1);
 
-        }
-        if(gamepad1.right_stick_y>0.5){
-            rightmotor.setPower(1f);
-        }
-        if (gamepad1.left_stick_y<-0.5){
-            leftmotor.setPower(-1f);
+        if(gamepad1.right_stick_y > 0.5)
+            rightmotor.setPower(1);
+        else
+        if (gamepad1.right_stick_y < -0.5)
+            rightmotor.setPower(-1);
 
-        }
-        if (gamepad1.right_stick_y<-0.5){
-            rightmotor.setPower(-1f);
-        }
         telemetry.addData("Left motor value",gamepad1.left_stick_y);
         telemetry.addData("Right motor value",gamepad1.right_stick_y);
 
