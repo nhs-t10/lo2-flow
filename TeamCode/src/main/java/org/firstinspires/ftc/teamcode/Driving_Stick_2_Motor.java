@@ -16,7 +16,7 @@ public class Driving_Stick_2_Motor extends OpMode {
     public void init(){
         rightmotor = hardwareMap.dcMotor.get("m2");
         leftmotor = hardwareMap.dcMotor.get("m1");
-        // add two more motors and have 2 to side to side and 2 do forward and backward
+
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
 
@@ -39,6 +39,7 @@ public class Driving_Stick_2_Motor extends OpMode {
         }
         if(gamepad1.left_stick_x>0.5){
             leftmotor.setPower(1f);
+            rightmotor.setPower(-1f);
         }
         if(gamepad1.left_stick_x<0.5){
             leftmotor.setPower(-1f);
