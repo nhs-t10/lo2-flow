@@ -24,13 +24,13 @@ public class Driving_Tank extends OpMode{
     public void loop(){
         if(gamepad1.left_stick_y > 0.5)
             leftmotor.setPower(1);
-        else
+        
         if (gamepad1.left_stick_y < -0.5)
             leftmotor.setPower(-1);
 
         if(gamepad1.right_stick_y > 0.5)
             rightmotor.setPower(1);
-        else
+        
         if (gamepad1.right_stick_y < -0.5)
             rightmotor.setPower(-1);
 
