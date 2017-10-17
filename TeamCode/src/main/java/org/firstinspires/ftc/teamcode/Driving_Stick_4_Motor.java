@@ -29,34 +29,34 @@ public class Driving_Stick_4_Motor extends OpMode {
     }
 
     public void loop(){
-        if (gamepad1.left_stick_y>0.1){
+        if (gamepad1.left_stick_y>0.25){
             wheelSpeed = 1;
             lf.setPower(wheelSpeed);
             rb.setPower(wheelSpeed);
         }
 
-        if(gamepad1.left_stick_y<0.1){
+        if(gamepad1.left_stick_y<0.25){
             wheelSpeed = -1;
             lf.setPower(wheelSpeed);
             rb.setPower(wheelSpeed);
 
         }
-        if(gamepad1.left_stick_x>0.1){
+        if(gamepad1.left_stick_x>0.25){
             wheelSpeed = 1;
             lb.setPower(wheelSpeed);
             lf.setPower(wheelSpeed);
         }
-        if(gamepad1.left_stick_x>0.1){
+        if(gamepad1.left_stick_x>0.25){
             wheelSpeed = -1;
             rf.setPower(wheelSpeed);
             rb.setPower(wheelSpeed);
         }
-        if(gamepad1.left_stick_x<0.1){
+        if(gamepad1.left_stick_x<0.25){
             wheelSpeed = -1;
             lb.setPower(wheelSpeed);
             lf.setPower(wheelSpeed);
         }
-        if (gamepad1.left_stick_x<0.1){
+        if (gamepad1.left_stick_x<0.25){
             wheelSpeed = 1;
             rf.setPower(wheelSpeed);
             rb.setPower(wheelSpeed);
