@@ -1,12 +1,14 @@
+
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-
+@TeleOp(name = "FourMotor")
 public class Driving_Stick_4_Motor extends OpMode {
     DcMotor lf, rf, lb, rb;
     double wheelSpeed;
