@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by tripszewczak on 10/5/17.
  */
 @TeleOp(name = "FourMotor")
-public class Driving_Stick_4_Motor extends OpMode {
+public class FourMotor extends OpMode {
     DcMotor lf, rf, lb, rb;
     double wheelSpeed = 0;
 
