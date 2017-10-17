@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp(name = "FourMotor")
 public class Driving_Stick_4_Motor extends OpMode {
     DcMotor lf, rf, lb, rb;
-    double wheelSpeed;
+    double wheelSpeed = 0;
 
 
     @Override
@@ -29,32 +29,41 @@ public class Driving_Stick_4_Motor extends OpMode {
     }
 
     public void loop(){
-        if (gamepad1.left_stick_y>0.5){
-            lf.setPower(1f);
-            rb.setPower(1f);
+        if (gamepad1.left_stick_y>0.1){
+            wheelSpeed = 1;
+            lf.setPower(wheelSpeed);
+            rb.setPower(wheelSpeed);
+        }
+
+        if(gamepad1.left_stick_y<0.1){
+            wheelSpeed = -1;
+            lf.setPower(wheelSpeed);
+            rb.setPower(wheelSpeed);
+
+        }
+        if(gamepad1.left_stick_x>0.1){
+            wheelSpeed = 1;
+            lb.setPower(wheelSpeed);
+            lf.setPower(wheelSpeed);
+        }
+        if(gamepad1.left_stick_x>0.1){
+            wheelSpeed = -1;
+            rf.setPower(wheelSpeed);
+            rb.setPower(wheelSpeed);
+        }
+        if(gamepad1.left_stick_x<0.1){
+            wheelSpeed = -1;
+            lb.setPower(wheelSpeed);
+            lf.setPower(wheelSpeed);
+        }
+        if (gamepad1.left_stick_x<0.1){
+            wheelSpeed = 1;
+            rf.setPower(wheelSpeed);
+            rb.setPower(wheelSpeed);
         }
 
 
 
-        if(gamepad1.left_stick_y<0.5){
-            lf.setPower(-1f);
-            rb.setPower(-1f);
-
-        }
-        if(gamepad1.left_stick_x>0.5){
-            lb.setPower(1f);
-            rf.setPower(1f);
-        }
-        if(gamepad1.left_stick_x<0.5){
-            lb.setPower(-1f);
-            rf.setPower(-1f);
-        }
-        if (wheelSpeed>0.5 && wheelSpeed<1){
-            rf.setPower(1);
-            lf.setPower(1);
-            rb.setPower(1);
-            lb.setPower(1);
-        }
         telemetry.addData("Left motor values",gamepad1.left_stick_y);
         telemetry.addData("Right motor values",gamepad1.right_stick_y);
 
