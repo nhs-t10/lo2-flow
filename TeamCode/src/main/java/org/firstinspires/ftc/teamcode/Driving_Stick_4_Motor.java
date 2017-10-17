@@ -53,7 +53,7 @@ public class Driving_Stick_4_Motor extends OpMode {
         }
         if(gamepad1.left_stick_x<0.1){
             wheelSpeed = -1;
-            lb.setPower(wheelSpeed;
+            lb.setPower(wheelSpeed);
             lf.setPower(wheelSpeed);
         }
         if (gamepad1.left_stick_x<0.1){
