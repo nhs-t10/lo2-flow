@@ -24,19 +24,35 @@ public class Driving_Tank extends OpMode{
 
     @Override
     public void loop(){
-        if(gamepad1.left_stick_y > 0.5)
+        if(gamepad1.left_stick_y > 0.5 && gamepad1.left_stick_y < 0.75)
+            leftmotor.setPower(.5);
+            leftmotor2.setPower(.5);
+        
+        if (gamepad1.left_stick_y < -0.5 && gamepad1.left_stick_y > -0.75)
+            leftmotor.setPower(-.5);
+            leftmotor2.setPower(-.5);
+
+        if(gamepad1.right_stick_y > 0.5 && gamepad1.left_stick_y < 0.75)
+            rightmotor.setPower(.5);
+            rightmotor2.setPower(.5);
+        
+        if (gamepad1.right_stick_y < -0.5 && gamepad1.left_stick_y > -0.75)
+            rightmotor.setPower(-.5);
+            rightmotor2.setPower(-.5);
+
+        if(gamepad1.left_stick_y >= 0.75)
             leftmotor.setPower(1);
             leftmotor2.setPower(1);
-        
-        if (gamepad1.left_stick_y < -0.5)
+
+        if (gamepad1.left_stick_y <= -0.75)
             leftmotor.setPower(-1);
             leftmotor2.setPower(-1);
 
-        if(gamepad1.right_stick_y > 0.5)
+        if(gamepad1.right_stick_y >= 0.75)
             rightmotor.setPower(1);
             rightmotor2.setPower(1);
-        
-        if (gamepad1.right_stick_y < -0.5)
+
+        if (gamepad1.right_stick_y <= -0.75)
             rightmotor.setPower(-1);
             rightmotor2.setPower(-1);
 
