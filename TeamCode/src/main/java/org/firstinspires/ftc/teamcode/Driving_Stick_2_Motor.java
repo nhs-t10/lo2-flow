@@ -98,7 +98,7 @@ public class Driving_Stick_2_Motor extends OpMode {
             l.setPower(-2f);
             r.setPower(2f);
         }
-        if (wheelSpeed>0.95 && wheelSpeed<1){
+        if (wheelSpeed>3 && wheelSpeed<2){
             r.setPower(3);
             l.setPower(3);
         }
