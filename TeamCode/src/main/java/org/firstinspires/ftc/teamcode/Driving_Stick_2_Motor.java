@@ -25,9 +25,22 @@ public class Driving_Stick_2_Motor extends OpMode {
     }
 
     public void loop(){
+
+        if (gamepad1.left_stick_y>0.25) {
+            l.setPower(0.5f);
+            r.setPower(0.5f);
+        }
         if (gamepad1.left_stick_y>0.5){
             l.setPower(1f);
             r.setPower(1f);
+        }
+        if (gamepad1.left_stick_y>0.75){
+            l.setPower(1.5f);
+            r.setPower(1.5f);
+        }
+        if (gamepad1.left_stick_y>0.9){
+            l.setPower(2f);
+            r.setPower(2f);
         }
 
 
@@ -36,18 +49,58 @@ public class Driving_Stick_2_Motor extends OpMode {
             l.setPower(-1f);
             r.setPower(-1f);
 
+
+        }
+
+        if(gamepad1.left_stick_y<0.75) {
+            l.setPower(-1.5f);
+            r.setPower(-1.5f);
+        }
+
+        if(gamepad1.left_stick_y<0.9) {
+            l.setPower(-2f);
+            r.setPower(-2f);
+        }
+
+        if(gamepad1.left_stick_y<0.25) {
+            l.setPower(-0.5f);
+            r.setPower(-0.5f);
         }
         if(gamepad1.left_stick_x>0.5){
             l.setPower(1f);
             r.setPower(-1f);
         }
+        if(gamepad1.left_stick_x>0.25){
+            l.setPower(0.5f);
+            r.setPower(-0.5f);
+        }
+        if(gamepad1.left_stick_x>0.75){
+            l.setPower(1.5f);
+            r.setPower(-1.5f);
+        }
+        if(gamepad1.left_stick_x>0.9){
+            l.setPower(2f);
+            r.setPower(-2f);
+        }
         if(gamepad1.left_stick_x<0.5){
             l.setPower(-1f);
             r.setPower(1f);
         }
-        if (wheelSpeed>0.5 && wheelSpeed<1){
-            r.setPower(1);
-            l.setPower(1);
+        if(gamepad1.left_stick_x<0.25){
+            l.setPower(-0.5f);
+            r.setPower(0.5f);
+        }
+        if(gamepad1.left_stick_x<0.75){
+            l.setPower(-1.5f);
+            r.setPower(1.5f);
+        }
+        if(gamepad1.left_stick_x<0.9){
+            l.setPower(-2f);
+            r.setPower(2f);
+        }
+        if (wheelSpeed>0.95 && wheelSpeed<1){
+            r.setPower(3);
+            l.setPower(3);
         }
         telemetry.addData("Left motor value",gamepad1.left_stick_y);
         telemetry.addData("Right motor value",gamepad1.right_stick_y);
