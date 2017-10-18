@@ -11,7 +11,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 @TeleOp(name = "FourMotor")
 public class FourMotor extends OpMode {
     DcMotor lf, rf, lb, rb;
-    double wheelSpeed = 0;
 
 
     @Override
@@ -29,39 +28,36 @@ public class FourMotor extends OpMode {
     }
 
     public void loop(){
+        double wheelSpeed = 0;
         if (gamepad1.left_stick_y>0.25){
             wheelSpeed = 1;
             lf.setPower(wheelSpeed);
-            rb.setPower(wheelSpeed);
-            lb.setPower(wheelSpeed);
             rf.setPower(wheelSpeed);
+            rb.setPower(-wheelSpeed);
+            lb.setPower(-wheelSpeed);
         }
 
         if(gamepad1.left_stick_y<0.25){
             wheelSpeed = -1;
             lf.setPower(wheelSpeed);
-            rb.setPower(wheelSpeed);
             rf.setPower(wheelSpeed);
-            lb.setPower(wheelSpeed);
+            rb.setPower(-wheelSpeed);
+            lb.setPower(-wheelSpeed);
 
         }
-        if(gamepad1.left_stick_x>0.25){
-            wheelSpeed = 1;
-            lb.setPower(wheelSpeed);
-            lf.setPower(wheelSpeed);
-        }
+
         if(gamepad1.left_stick_x>0.25){
             wheelSpeed = -1;
-            rf.setPower(wheelSpeed);
+            lb.setPower(wheelSpeed);
+            lf.setPower(wheelSpeed);
+            rf.setPower(-wheelSpeed);
             rb.setPower(wheelSpeed);
+
         }
         if(gamepad1.left_stick_x<0.25){
             wheelSpeed = -1;
             lb.setPower(wheelSpeed);
-            lf.setPower(wheelSpeed);
-        }
-        if (gamepad1.left_stick_x<0.25){
-            wheelSpeed = 1;
+            lf.setPower(-wheelSpeed);
             rf.setPower(wheelSpeed);
             rb.setPower(wheelSpeed);
         }
