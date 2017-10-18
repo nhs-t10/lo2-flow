@@ -48,7 +48,7 @@ public class FourMotor extends OpMode {
 
         if(gamepad1.left_stick_x>0.25){
             wheelSpeed = -1;
-            lb.setPower(wheelSpeed);
+            lb.setPower(-wheelSpeed);
             lf.setPower(wheelSpeed);
             rf.setPower(-wheelSpeed);
             rb.setPower(wheelSpeed);
@@ -59,7 +59,7 @@ public class FourMotor extends OpMode {
             lb.setPower(wheelSpeed);
             lf.setPower(-wheelSpeed);
             rf.setPower(wheelSpeed);
-            rb.setPower(wheelSpeed);
+            rb.setPower(-wheelSpeed);
         }
 
 
