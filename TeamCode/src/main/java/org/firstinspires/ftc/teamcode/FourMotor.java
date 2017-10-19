@@ -27,8 +27,8 @@ public class FourMotor extends OpMode {
 
     @Override
     public void loop(){
-        double forward = gamepad1.left_stick_y;
-        double turning = gamepad1.left_stick_x;
+        double forward = gamepad1.left_stick_x;
+        double turning = gamepad1.left_stick_y;
 
         forward = Range.clip(forward,-1,1);
         turning = Range.clip(turning,-1,1);
@@ -40,34 +40,41 @@ public class FourMotor extends OpMode {
         if (forward>0.25){
 
             lf.setPower(forward);
-            rf.setPower(forward);
-            rb.setPower(-forward);
-            lb.setPower(-forward);
+            rf.setPower(-forward);
+            rb.setPower(forward);
+            lb.setPower(forward);
         }
 
         if (forward<-0.25){
 
             lf.setPower(forward);
-            rf.setPower(forward);
-            rb.setPower(-forward);
-            lb.setPower(-forward);
+            rf.setPower(-forward);
+            rb.setPower(forward);
+            lb.setPower(forward);
 
         }
 
         if (turning>0.25){
 
-            lb.setPower(-turning);
+            lb.setPower(turning);
             lf.setPower(turning);
-            rf.setPower(-turning);
-            rb.setPower(turning);
+            rf.setPower(turning);
+            rb.setPower(-turning);
 
         }
         if (turning<-0.25) {
 
-            lb.setPower(turning);
+            lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(turning);
-            rb.setPower(-turning);
+            rf.setPower(-turning);
+            rb.setPower(turning);
+        }
+
+        if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
+            lb.setPower(0);
+            lf.setPower(0);
+            rf.setPower(0);
+            rb.setPower(0);
         }
 
 
@@ -89,7 +96,7 @@ public class FourMotor extends OpMode {
         // get the corresponding index for the scaleInput array.
         int index = (int) (dVal * 16.0);
 
-        // index should be positive.    
+        // index should be positive.
         if (index < 0) {
             index = -index;
         }
