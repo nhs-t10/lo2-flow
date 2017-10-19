@@ -39,9 +39,9 @@ public class FourMotor extends OpMode {
 
         if (forward>0.25){
 
-            lf.setPower(forward);
-            rf.setPower(forward);
-            rb.setPower(forward);
+            lf.setPower(-forward);
+            rf.setPower(-forward);
+            rb.setPower(-forward);
             lb.setPower(forward);
         }
 
@@ -50,7 +50,7 @@ public class FourMotor extends OpMode {
             lf.setPower(forward);
             rf.setPower(forward);
             rb.setPower(forward);
-            lb.setPower(forward);
+            lb.setPower(-forward);
 
         }
 
