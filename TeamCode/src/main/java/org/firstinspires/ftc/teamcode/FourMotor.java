@@ -19,6 +19,10 @@ public class FourMotor extends OpMode {
         lf = hardwareMap.dcMotor.get("m1");
         rb = hardwareMap.dcMotor.get("m4");
         lb = hardwareMap.dcMotor.get("m3");
+        rf.setPower(0);
+        lf.setPower(0);
+        rb.setPower(0);
+        lb.setPower(0);
 
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
@@ -28,38 +32,35 @@ public class FourMotor extends OpMode {
     }
 
     public void loop(){
-        double wheelSpeed = 0;
+
         if (gamepad1.left_stick_y>0.25){
-            wheelSpeed = 1;
-            lf.setPower(wheelSpeed);
-            rf.setPower(wheelSpeed);
-            rb.setPower(-wheelSpeed);
-            lb.setPower(-wheelSpeed);
+
+            lf.setPower(1);
+            rf.setPower(1;
+            rb.setPower(-1);
+            lb.setPower(-1);
         }
 
-        if(gamepad1.left_stick_y<0.25){
-            wheelSpeed = -1;
-            lf.setPower(wheelSpeed);
-            rf.setPower(wheelSpeed);
-            rb.setPower(-wheelSpeed);
-            lb.setPower(-wheelSpeed);
+        if (gamepad1.left_stick_y<0.25){
+            lf.setPower(1);
+            rf.setPower(1);
+            rb.setPower(-1);
+            lb.setPower(-1);
 
         }
 
-        if(gamepad1.left_stick_x>0.25){
-            wheelSpeed = -1;
-            lb.setPower(-wheelSpeed);
-            lf.setPower(wheelSpeed);
-            rf.setPower(-wheelSpeed);
-            rb.setPower(wheelSpeed);
+        if (gamepad1.left_stick_x>0.25){
+            lb.setPower(-1);
+            lf.setPower(1);
+            rf.setPower(-1);
+            rb.setPower(1);
 
         }
-        if(gamepad1.left_stick_x<0.25){
-            wheelSpeed = -1;
-            lb.setPower(wheelSpeed);
-            lf.setPower(-wheelSpeed);
-            rf.setPower(wheelSpeed);
-            rb.setPower(-wheelSpeed);
+        if (gamepad1.left_stick_x<0.25){
+            lb.setPower(1);
+            lf.setPower(-1);
+            rf.setPower(1);
+            rb.setPower(-1);
         }
 
 
