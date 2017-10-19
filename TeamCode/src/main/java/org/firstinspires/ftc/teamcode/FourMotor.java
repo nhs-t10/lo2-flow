@@ -36,7 +36,7 @@ public class FourMotor extends OpMode {
         if (gamepad1.left_stick_y>0.25){
 
             lf.setPower(1);
-            rf.setPower(1;
+            rf.setPower(1);
             rb.setPower(-1);
             lb.setPower(-1);
         }
