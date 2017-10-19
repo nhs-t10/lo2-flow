@@ -12,11 +12,16 @@ public class Gyro extends OpMode {
 
 
     private GyroSensor gyro;
-
+    private DcMotor leftmotor, rightmotor, leftmotor2, rightmotor2;
+    private double wheelSpeed;
 
     @Override
     public void init() {
-        gyro = hardwareMap.gyroSensor.get("???"); //TODO: Find real name!!!
+        gyro = hardwareMap.gyroSensor.get("Gyro1");
+        rightmotor = hardwareMap.dcMotor.get("m2");
+        leftmotor = hardwareMap.dcMotor.get("m1");
+        leftmotor2 = hardwareMap.dcMotor.get("m3");
+        rightmotor2 = hardwareMap.dcMotor.get("m4");
 
 
     }
@@ -27,15 +32,46 @@ public class Gyro extends OpMode {
         int y = gyro.rawY();
         int x = gyro.rawX();
         int z = gyro.rawZ();
-        if( y > 0) {
-            if ( x > 0) {
-                //if Y is changing, then we know platform is moving
+        if (y < 0) {
+            if (x > 0) {
+                if (z > 0) {
+
+                } else if (z < 0) {
+
+                } else {
+
+                }
+            } else if (x < 0) {
+                if ( z < 0){
+
+
+                }else if (z > 0) {
+
+                }else {
+                    
+                }
+
+
+            }else if (z < 0) {
+                leftmotor.setPower(1);
+                leftmotor2.setPower(1);
+                rightmotor.setPower(1);
+                rightmotor2.setPower(1);
+
+            } else if (z > 0) {
+                leftmotor.setPower(-1);
+                leftmotor2.setPower(-1);
+                rightmotor.setPower(-1);
+                rightmotor2.setPower(-1);
+
             }
-            if ( z > 0) {
-                //then we need to figure out which direction the robot is moving
-                // we will move the opposite of that direction
-                // need to figure out how to turn
-            }
+
         }
+
+
     }
+
+
 }
+
+
