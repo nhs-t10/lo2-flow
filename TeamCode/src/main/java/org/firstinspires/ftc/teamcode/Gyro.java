@@ -13,7 +13,6 @@ public class Gyro extends OpMode {
 
     private GyroSensor gyro;
     private DcMotor leftmotor, rightmotor, leftmotor2, rightmotor2;
-    private double wheelSpeed;
 
     @Override
     public void init() {
@@ -48,7 +47,7 @@ public class Gyro extends OpMode {
                 }else if (z > 0) {
 
                 }else {
-                    
+
                 }
 
 
