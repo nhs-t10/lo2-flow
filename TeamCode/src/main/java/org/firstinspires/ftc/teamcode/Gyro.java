@@ -4,11 +4,13 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.GyroSensor;
 import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.DcMotor;
+
 /**
  * Created by Alex on 10/17/2017.
  */
 
 public class Gyro extends OpMode {
+
 
 
     private GyroSensor gyro;
@@ -21,8 +23,6 @@ public class Gyro extends OpMode {
         leftmotor = hardwareMap.dcMotor.get("m1");
         leftmotor2 = hardwareMap.dcMotor.get("m3");
         rightmotor2 = hardwareMap.dcMotor.get("m4");
-
-
     }
 
     @Override
@@ -41,36 +41,27 @@ public class Gyro extends OpMode {
 
                 }
             } else if (x < 0) {
-                if ( z < 0){
+                if (z < 0) {
 
 
-                }else if (z > 0) {
+                } else if (z > 0) {
 
-                }else {
+                } else {
 
                 }
-
-
-            }else if (z < 0) {
+            } else if (z < 0) {
                 leftmotor.setPower(1);
                 leftmotor2.setPower(1);
                 rightmotor.setPower(1);
                 rightmotor2.setPower(1);
-
             } else if (z > 0) {
                 leftmotor.setPower(-1);
                 leftmotor2.setPower(-1);
                 rightmotor.setPower(-1);
                 rightmotor2.setPower(-1);
-
             }
-
         }
-
-
     }
-
-
 }
 
 
