@@ -62,6 +62,24 @@ public class FourMotorMecanum extends OpMode {
             rb.setPower(side);
 
         }
+        if (side>0.3 && forward>0.3) {
+            rf.setPower(-forward);
+            lb.setPower(-forward);
+        }
+        if (side<-0.3 && forward<-0.3) {
+            rf.setPower(-forward);
+            lb.setPower(-forward);
+        }
+        if (side>0.3 && forward<-0.3) {
+            rf.setPower(-forward);
+            lb.setPower(-forward);
+        }
+        if (side<-0.3 && forward>0.3) {
+            rf.setPower(-forward);
+            lb.setPower(-forward);
+        }
+        
+
 
         if ((side>-0.25 && side<0.25) || (forward>-0.25 && forward<0.25 || ((turning>-0.25 && turning<0.25)))) {
             lb.setPower(0);
