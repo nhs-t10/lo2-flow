@@ -25,14 +25,18 @@ public class Color_Balls extends LinearOpMode {
        super.waitForStart();
    }
 
+    @Override
+    public void init(){
+        colorKnocker = hardwareMap.servo.get("s1");
+        color = hardwareMap.colorSensor.get("color");
+        leftmotor = hardwareMap.dcMotor.get("m1");
+        rightmotor = hardwareMap.dcMotor.get("m2");
+
+        telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
+    }
+
 
    public void runOpMode() {
-       colorKnocker = hardwareMap.servo.get("s1");
-       color = hardwareMap.colorSensor.get("color");
-       leftmotor = hardwareMap.dcMotor.get("m1");
-       rightmotor = hardwareMap.dcMotor.get("m2");
-
-       telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
 
        color.enableLed(true);
 
