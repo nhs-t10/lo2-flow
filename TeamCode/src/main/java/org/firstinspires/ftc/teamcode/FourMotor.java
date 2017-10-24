@@ -17,18 +17,18 @@ public class FourMotor extends OpMode {
 
     @Override
     public void init(){
-        rf = hardwareMap.dcMotor.get("m2");
-        lf = hardwareMap.dcMotor.get("m1");
-        rb = hardwareMap.dcMotor.get("m4");
-        lb = hardwareMap.dcMotor.get("m3");
+        lf = hardwareMap.dcMotor.get("m0");
+        rf = hardwareMap.dcMotor.get("m1");
+        lb = hardwareMap.dcMotor.get("m2");
+        rb = hardwareMap.dcMotor.get("m3");
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
     }
 
     @Override
     public void loop(){
-        double forward = gamepad1.left_stick_x;
-        double turning = gamepad1.left_stick_y;
+        double forward = gamepad1.left_stick_y;
+        double turning = gamepad1.left_stick_x;
 
         forward = Range.clip(forward,-1,1);
         turning = Range.clip(turning,-1,1);
@@ -41,33 +41,33 @@ public class FourMotor extends OpMode {
 
             lf.setPower(forward);
             rf.setPower(-forward);
-            rb.setPower(forward);
-            lb.setPower(forward);
+            rb.setPower(-forward);
+            lb.setPower(-forward);
         }
 
         if (forward<-0.25){
 
             lf.setPower(forward);
             rf.setPower(-forward);
-            rb.setPower(forward);
-            lb.setPower(forward);
+            rb.setPower(-forward);
+            lb.setPower(-forward);
 
         }
 
         if (turning>0.25){
 
             lb.setPower(turning);
-            lf.setPower(turning);
-            rf.setPower(turning);
+            lf.setPower(-turning);
+            rf.setPower(-turning);
             rb.setPower(-turning);
 
         }
         if (turning<-0.25) {
 
-            lb.setPower(-turning);
+            lb.setPower(turning);
             lf.setPower(-turning);
             rf.setPower(-turning);
-            rb.setPower(turning);
+            rb.setPower(-turning);
         }
 
         if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
