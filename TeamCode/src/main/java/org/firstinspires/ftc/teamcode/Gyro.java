@@ -2,13 +2,11 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.HardwareDevice;
+//import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.Range;
+//import com.qualcomm.robotcore.util.Range;
 
-/**
- * Created by Alex on 10/17/2017.
- */
+
 
 public class Gyro extends OpMode {
 
@@ -38,7 +36,7 @@ public class Gyro extends OpMode {
     }
 
     @Override
-    while (timeCheck = 0; timeCheck < 30; ) {
+    public void loop () {
         int y = gyro.rawY();
         int x = gyro.rawX();
         int z = gyro.rawZ();
