@@ -102,7 +102,7 @@ public class Max_Mecanum_Test_Thingy extends LinearOpMode {
             double turn  =  gamepad1.right_stick_x;
             double strife = gamepad1.left_stick_x;
             leftBackPower    = drive + turn - strife;
-            rightBackPower   = Range.clip(drive - turn, -1.0, 1.0) ;
+            rightBackPower   = drive - turn + strife;
             leftFrontPower   = drive + turn + strife;
             rightFrontPower  = drive - turn - strife;
 
@@ -113,8 +113,10 @@ public class Max_Mecanum_Test_Thingy extends LinearOpMode {
             // rightPower = -gamepad1.right_stick_y ;
 
             // Send calculated power to wheels
-            leftBack.setPower(leftPower);
-            rightBack.setPower(rightPower);
+            leftBack.setPower(leftBackPower);
+            rightBack.setPower(rightBackPower);
+            leftFront.setPower(leftFrontPower);
+            rightFront.setPower(rightFrontPower);
 
             // Show the elapsed game time and wheel power.
             telemetry.addData("Status", "Run Time: " + runtime.toString());
