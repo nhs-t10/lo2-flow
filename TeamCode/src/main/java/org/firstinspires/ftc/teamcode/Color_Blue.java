@@ -62,7 +62,7 @@ public class Color_Blue extends LinearOpMode {
             }
 
             //the problem with this code is that it goes on forever and does not stop
-            //once we get it to stop we would need to bring the arm up
+            //once we get it to stop we would need to bring the arm up and then go on to other programs for autonomous period
 
         }
 
