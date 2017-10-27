@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
 
-public class Color_Red extends LinearOpMode {
+public class Color_Blue extends LinearOpMode {
 
 
     private Servo colorKnocker;
@@ -42,14 +42,14 @@ public class Color_Red extends LinearOpMode {
             colorKnocker.setPosition(1);
             //I have no real clue if this will set the arm correctly but if it does no need to fix it
 
-            //In this code we are on the red team.
-            //This means we need to knock down the blue ball.
+            //In this code we are on the blue team.
+            //This means we need to knock down the red ball.
             //The sensor will be on the right of the arm
-            // If it senses the red ball then it needs to go backwards to knock off the blue ball
-            //the reverse if it senses a non red ball (blue)
+            // If it senses the blue ball then it needs to go backwards to knock off the red ball
+            //the reverse if it senses a non blue ball (red)
 
-            if (color.red() < 255 && color.red() > 100) {
-                //color is not correct and needs to be changed to sense red
+            if (color.blue() < 255 && color.blue() > 100) {
+                //color is not correct and needs to be changed to sense color blue
                 rf.setPower(-1);
                 lf.setPower(-1);
                 rb.setPower(-1);
@@ -62,7 +62,7 @@ public class Color_Red extends LinearOpMode {
             }
 
             //the problem with this code is that it goes on forever and does not stop
-            //once we get it to stop we would need to bring the arm up and then go on to other autonomous programs
+            //once we get it to stop we would need to bring the arm up and then go on to other programs for autonomous period
 
         }
 
