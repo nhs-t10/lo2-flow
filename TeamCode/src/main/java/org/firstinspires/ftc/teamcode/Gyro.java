@@ -13,6 +13,7 @@ public class Gyro extends OpMode {
 
     private GyroSensor gyro;
     private DcMotor lf, rf, lb, rb;
+    private  DcMotor rtriger;
 
 
 
@@ -23,6 +24,7 @@ public class Gyro extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
+
     }
 
     public void setGyro(GyroSensor gyro) {
@@ -34,9 +36,9 @@ public class Gyro extends OpMode {
     public double getRuntime() {
         return super.getRuntime();
     }
-
+//can copy paste
     @Override
-    public void loop () {
+   if (/*binding for right trigger*/) {
         int y = gyro.rawY();
         int x = gyro.rawX();
         int z = gyro.rawZ();
