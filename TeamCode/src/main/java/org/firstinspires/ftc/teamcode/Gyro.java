@@ -2,18 +2,20 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-//import com.qualcomm.robotcore.hardware.HardwareDevice;
+import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.DcMotor;
-//import com.qualcomm.robotcore.util.Range;
+import com.qualcomm.robotcore.util.Range;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
 
+@TeleOp(name = "hecking hecker")
 public class Gyro extends OpMode {
 
 
     private GyroSensor gyro;
     private DcMotor lf, rf, lb, rb;
-    private  DcMotor rtriger;
+    private  DcMotor ;
 
 
 
@@ -38,60 +40,60 @@ public class Gyro extends OpMode {
     }
 //can copy paste
     @Override
-   if (/*binding for right trigger*/) {
-        int y = gyro.rawY();
-        int x = gyro.rawX();
-        int z = gyro.rawZ();
-        if (y < 0) {
-            if (x > 0) {
-                if (z > 0) {
-                    lf.setPower(1);
-                    lb.setPower(0);
-                    rf.setPower(0);
-                    rb.setPower(1);
+    public void loop() {
+        if (gamepad1.right_bumper) {
+            int y = gyro.rawY();
+            int x = gyro.rawX();
+            int z = gyro.rawZ();
+            if (y < 0) {
+                if (x > 0) {
+                    if (z > 0) {
+                        lf.setPower(1);
+                        lb.setPower(0);
+                        rf.setPower(0);
+                        rb.setPower(1);
 
+                    } else if (z < 0) {
+                        lf.setPower(0);
+                        lb.setPower(-1);
+                        rf.setPower(-1);
+                        rb.setPower(0);
+                    } else {
+                        lf.setPower(-1);
+                        lb.setPower(1);
+                        rf.setPower(-1);
+                        rb.setPower(1);
+
+                    }
+                } else if (x < 0) {
+                    if (z < 0) {
+                        lf.setPower(-1);
+                        lb.setPower(0);
+                        rf.setPower(0);
+                        rb.setPower(-1);
+                    } else if (z > 0) {
+                        lf.setPower(0);
+                        lb.setPower(1);
+                        rf.setPower(1);
+                        rb.setPower(0);
+                    } else {
+                        lf.setPower(1);
+                        lb.setPower(-1);
+                        rf.setPower(1);
+                        rb.setPower(-1);
+                    }
                 } else if (z < 0) {
-                    lf.setPower(0);
-                    lb.setPower(-1);
-                    rf.setPower(-1);
-                    rb.setPower(0);
-                } else {
-                    lf.setPower(-1);
-                    lb.setPower(1);
-                    rf.setPower(-1);
-                    rb.setPower(1);
-
-                }
-            } else if (x < 0) {
-                if (z < 0) {
-                    lf.setPower(-1);
-                    lb.setPower(0);
-                    rf.setPower(0);
-                    rb.setPower(-1);
-                } else if (z > 0) {
-                    lf.setPower(0);
-                    lb.setPower(1);
-                    rf.setPower(1);
-                    rb.setPower(0);
-                } else {
                     lf.setPower(1);
-                    lb.setPower(-1);
+                    lb.setPower(1);
                     rf.setPower(1);
+                    rb.setPower(1);
+                } else if (z > 0) {
+                    lf.setPower(-1);
+                    lb.setPower(-1);
+                    rf.setPower(-1);
                     rb.setPower(-1);
                 }
-            } else if (z < 0) {
-                lf.setPower(1);
-                lb.setPower(1);
-                rf.setPower(1);
-                rb.setPower(1);
-            } else if (z > 0) {
-                lf.setPower(-1);
-                lb.setPower(-1);
-                rf.setPower(-1);
-                rb.setPower(-1);
             }
         }
     }
 }
-
-
