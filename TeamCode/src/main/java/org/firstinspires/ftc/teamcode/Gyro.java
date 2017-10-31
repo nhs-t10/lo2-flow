@@ -15,7 +15,6 @@ public class Gyro extends OpMode {
 
     private GyroSensor gyro;
     private DcMotor lf, rf, lb, rb;
-    private  DcMotor ;
 
 
 
