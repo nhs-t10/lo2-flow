@@ -38,7 +38,7 @@ public class Gyro extends OpMode {
     }
 //can copy paste
     @Override
-   if (/*binding for right trigger*/) {
+   if () {
         int y = gyro.rawY();
         int x = gyro.rawX();
         int z = gyro.rawZ();

@@ -20,3 +20,7 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 }
+
+android {
+    buildToolsVersion '26.0.2'
+}
