@@ -40,7 +40,7 @@ public class FourMotorMecanum extends OpMode {
         turning = (double)scaleInput(turning);
         side = (double)scaleInput(side);
 
-        if (forward>0.25 || forward<0.25){
+        if (forward>0.25 || forward<-0.25){
 
             lf.setPower(forward);
             rf.setPower(-forward);
@@ -64,19 +64,19 @@ public class FourMotorMecanum extends OpMode {
         }
         if (side>0.3 && forward>0.3) {
             rf.setPower(-forward);
-            lb.setPower(-forward);
+            lb.setPower(forward);
         }
         if (side<-0.3 && forward<-0.3) {
             rf.setPower(-forward);
-            lb.setPower(-forward);
+            lb.setPower(forward);
         }
         if (side>0.3 && forward<-0.3) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
+            lf.setPower(-forward);
+            rb.setPower(-forward);
         }
         if (side<-0.3 && forward>0.3) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
+            rb.setPower(-forward);
+            lf.setPower(-forward);
         }
 
 
