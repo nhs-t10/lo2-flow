@@ -35,19 +35,28 @@ public class FourMotorMecanum extends OpMode {
         turning = Range.clip(turning,-1,1);
         side = Range.clip(side,-1,1);
 
-
         forward = (double)scaleInput(forward);
         turning = (double)scaleInput(turning);
         side = (double)scaleInput(side);
 
-        if (forward>0.25 || forward<0.25){
+        if (forward>0.25){
 
             lf.setPower(forward);
             rf.setPower(-forward);
             rb.setPower(-forward);
             lb.setPower(-forward);
         }
-        if (turning>0.25 || turning<-0.25){
+
+        if (forward<-0.25){
+
+            lf.setPower(forward);
+            rf.setPower(-forward);
+            rb.setPower(-forward);
+            lb.setPower(-forward);
+
+        }
+
+        if (turning>0.25){
 
             lb.setPower(turning);
             lf.setPower(-turning);
@@ -55,29 +64,36 @@ public class FourMotorMecanum extends OpMode {
             rb.setPower(-turning);
 
         }
-        if (side>0.25 || side<-0.25) {
-            lb.setPower(side);
-            lf.setPower(side);
-            rf.setPower(side);
-            rb.setPower(side);
+        if (turning<-0.25) {
 
+            lb.setPower(turning);
+            lf.setPower(-turning);
+            rf.setPower(-turning);
+            rb.setPower(-turning);
         }
-        if (side>0.3 && forward>0.3) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
+
+        if (side>0.25) {
+            lb.setPower(side);
+            lf.setPower(-side);
+            rb.setPower(-side);
+            rf.setPower(-side);
         }
-        if (side<-0.3 && forward<-0.3) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
+        if (side<-0.25) {
+            lb.setPower(side);
+            lf.setPower(-side);
+            rb.setPower(-side);
+            rf.setPower(-side);
         }
-        if (side>0.3 && forward<-0.3) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
+
+        if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
+            lb.setPower(0);
+            lf.setPower(0);
+            rf.setPower(0);
+            rb.setPower(0);
         }
-        if (side<-0.3 && forward>0.3) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
-        }
+
+
+
 
 
 
