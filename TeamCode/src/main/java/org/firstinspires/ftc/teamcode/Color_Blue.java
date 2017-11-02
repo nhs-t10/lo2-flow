@@ -36,7 +36,7 @@ public class Color_Blue extends LinearOpMode {
         rb = hardwareMap.dcMotor.get("m3");
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
 
-        {
+    
 
             color.enableLed(true);
             colorKnocker.setPosition(1);
@@ -50,20 +50,29 @@ public class Color_Blue extends LinearOpMode {
 
             if (color.blue() < 255 && color.blue() > 100) {
                 //color is not correct and needs to be changed to sense color blue
-                rf.setPower(-1);
-                lf.setPower(-1);
-                rb.setPower(-1);
-                lb.setPower(-1);
-            } else {
+           long t = System.currentTimeMillis();
+           long end = t+2000;
+           while(System.currentTimeMillis() < end) {
                 rf.setPower(1);
                 lf.setPower(1);
                 rb.setPower(1);
                 rf.setPower(1);
+               Thread.sleep(100);
+            } else {
+           long t = System.currentTimeMillis();
+           long end = t+2000;
+           while(System.currentTimeMillis() < end) {
+                rf.setPower(-1);
+                lf.setPower(-1);
+                rb.setPower(-1);
+                lb.setPower(-1);
+               Thread.sleep(100);
             }
 
             //the problem with this code is that it goes on forever and does not stop
             //once we get it to stop we would need to bring the arm up and then go on to other programs for autonomous period
-
+colorKnocker.setPosition(0);
+               
         }
 
 

@@ -36,34 +36,35 @@ public class Color_Red extends LinearOpMode {
         rb = hardwareMap.dcMotor.get("m3");
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
 
-        {
+   
 
             color.enableLed(true);
             colorKnocker.setPosition(1);
             //I have no real clue if this will set the arm correctly but if it does no need to fix it
-
-            //In this code we are on the red team.
-            //This means we need to knock down the blue ball.
-            //The sensor will be on the right of the arm
-            // If it senses the red ball then it needs to go backwards to knock off the blue ball
-            //the reverse if it senses a non red ball (blue)
-
             if (color.red() < 255 && color.red() > 100) {
-                //color is not correct and needs to be changed to sense red
-                rf.setPower(-1);
-                lf.setPower(-1);
-                rb.setPower(-1);
-                lb.setPower(-1);
-            } else {
+           long t = System.currentTimeMillis();
+           long end = t+2000;
+           while(System.currentTimeMillis() < end) {
                 rf.setPower(1);
                 lf.setPower(1);
                 rb.setPower(1);
                 rf.setPower(1);
+               Thread.sleep(100);
+            } else {
+           long t = System.currentTimeMillis();
+           long end = t+2000;
+           while(System.currentTimeMillis() < end) {
+                rf.setPower(-1);
+                lf.setPower(-1);
+                rb.setPower(-1);
+                lb.setPower(-1);
+               Thread.sleep(100);
             }
 
             //the problem with this code is that it goes on forever and does not stop
-            //once we get it to stop we would need to bring the arm up and then go on to other autonomous programs
-
+            //once we get it to stop we would need to bring the arm up and then go on to other programs for autonomous period
+colorKnocker.setPosition(0);
+               
         }
 
 
