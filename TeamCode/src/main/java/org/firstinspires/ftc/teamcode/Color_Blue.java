@@ -36,7 +36,7 @@ public class Color_Blue extends LinearOpMode {
         rb = hardwareMap.dcMotor.get("m3");
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
 
-        {
+    
 
             color.enableLed(true);
             colorKnocker.setPosition(1);
