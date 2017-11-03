@@ -14,6 +14,7 @@ import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
 
+/**
 public class Color_Red extends LinearOpMode {
 
 
@@ -70,7 +71,7 @@ colorKnocker.setPosition(0);
 
     }
 }
-
+*/
 
 
 
