@@ -23,19 +23,18 @@ public class Gyro extends OpMode {
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
     }
+
     private void wheelSet(double a0, double a1, double a2, double a3){
         lf.setPower(a0);
         lb.setPower(a1);
         rf.setPower(a2);
         rb.setPower(a3);
     }
+
     private void resetGyro() {
         gyro.calibrate();
     }
-    @Override
-    public double getRuntime() {
-        return super.getRuntime();
-    }
+
     @Override
     public void loop() {
         if (gamepad1.right_trigger > 0) {
