@@ -11,10 +11,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.NormalizedRGBA;
+// import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+// import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 
-import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
+// import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
 
 public class Color_Blue extends LinearOpMode {
