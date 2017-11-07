@@ -2,20 +2,16 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.GyroSensor;
-import com.qualcomm.robotcore.hardware.HardwareDevice;
+//import com.qualcomm.robotcore.hardware.HardwareDevice;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.util.Range;
+//import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-
-
 
 @TeleOp(name = "hecking hecker")
 public class Gyro extends OpMode {
 
-
     private GyroSensor gyro;
     private DcMotor lf, rf, lb, rb;
-    private  DcMotor ;
 
 
 
@@ -26,72 +22,51 @@ public class Gyro extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-
     }
 
-    public void setGyro(GyroSensor gyro) {
-        this.gyro = gyro;
+    private void wheelSet(double a0, double a1, double a2, double a3){
+        lf.setPower(a0);
+        lb.setPower(a1);
+        rf.setPower(a2);
+        rb.setPower(a3);
+    }
+
+    private void resetGyro() {
         gyro.calibrate();
     }
 
     @Override
-    public double getRuntime() {
-        return super.getRuntime();
-    }
-//can copy paste
-    @Override
     public void loop() {
-        if (gamepad1.right_bumper) {
-            int y = gyro.rawY();
-            int x = gyro.rawX();
-            int z = gyro.rawZ();
-            if (y < 0) {
-                if (x > 0) {
-                    if (z > 0) {
-                        lf.setPower(1);
-                        lb.setPower(0);
-                        rf.setPower(0);
-                        rb.setPower(1);
-
+        if (gamepad1.right_trigger > 0) {
+            while (gamepad1.right_trigger > .2) {
+                int y = gyro.rawY();
+                int x = gyro.rawX();
+                int z = gyro.rawZ();
+                if (y > 0){
+                    resetGyro();
+                }
+                if (y < 0) {
+                    if (x > 0) {
+                        if (z > 0) {
+                            wheelSet(1, 0, 0, 1);
+                        } else if (z < 0) {
+                            wheelSet(0, -1, -1, 0);
+                        } else {
+                            wheelSet(-1, 1, -1, 1);
+                        }
+                    } else if (x < 0) {
+                        if (z < 0) {
+                            wheelSet(-1, 0, 0, -1);
+                        } else if (z > 0) {
+                            wheelSet(0, 1, 1, 0);
+                        } else {
+                            wheelSet(1, -1, -1, 1);
+                        }
                     } else if (z < 0) {
-                        lf.setPower(0);
-                        lb.setPower(-1);
-                        rf.setPower(-1);
-                        rb.setPower(0);
-                    } else {
-                        lf.setPower(-1);
-                        lb.setPower(1);
-                        rf.setPower(-1);
-                        rb.setPower(1);
-
-                    }
-                } else if (x < 0) {
-                    if (z < 0) {
-                        lf.setPower(-1);
-                        lb.setPower(0);
-                        rf.setPower(0);
-                        rb.setPower(-1);
+                        wheelSet(1, 1, 1, 1);
                     } else if (z > 0) {
-                        lf.setPower(0);
-                        lb.setPower(1);
-                        rf.setPower(1);
-                        rb.setPower(0);
-                    } else {
-                        lf.setPower(1);
-                        lb.setPower(-1);
-                        rf.setPower(1);
-                        rb.setPower(-1);
+                        wheelSet(-1, -1, -1, -1);
                     }
-                } else if (z < 0) {
-                    lf.setPower(1);
-                    lb.setPower(1);
-                    rf.setPower(1);
-                    rb.setPower(1);
-                } else if (z > 0) {
-                    lf.setPower(-1);
-                    lb.setPower(-1);
-                    rf.setPower(-1);
-                    rb.setPower(-1);
                 }
             }
         }

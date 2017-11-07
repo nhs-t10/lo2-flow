@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 /**
  * Created by user on 10/5/17.
  */
-@TeleOp(name = "TankDrive")
 public class Driving_Tank extends OpMode{
 
 
