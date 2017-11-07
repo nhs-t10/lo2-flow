@@ -32,9 +32,11 @@ public class Gyro extends OpMode {
     }
 
     private void resetGyro() {
-        gyro.calibrate();
-    }
+        if (!gyro.isCalibrating()){
+            resetGyro();
+        }
 
+    }
     @Override
     public void loop() {
         if (gamepad1.right_trigger > 0) {
