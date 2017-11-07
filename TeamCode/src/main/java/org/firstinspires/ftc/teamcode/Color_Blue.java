@@ -4,8 +4,7 @@ package org.firstinspires.ftc.teamcode;
  * Created by dvw24 on 10/10/17.
  */
 
-/***
- *
+
 
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -82,7 +81,7 @@ colorKnocker.setPosition(0);
 
     }
 }
-*/
+
 
 
 
