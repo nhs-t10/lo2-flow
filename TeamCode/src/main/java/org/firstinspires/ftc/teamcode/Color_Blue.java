@@ -11,10 +11,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-// import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-// import com.qualcomm.robotcore.hardware.NormalizedRGBA;
-
-// import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
+//import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+//import com.qualcomm.robotcore.hardware.NormalizedRGBA;
+//
+//import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
 
 public class Color_Blue extends LinearOpMode {
@@ -29,6 +29,14 @@ public class Color_Blue extends LinearOpMode {
         super.waitForStart();
     }
 
+    private void setMotor(double a0, double a1, double a2, double a3) {
+        lf.setPower(a0);
+        lb.setPower(a1);
+        rf.setPower(a2);
+        rb.setPower(a3);
+
+    }
+
 
     public void runOpMode() {
         colorKnocker = hardwareMap.servo.get("s1");
@@ -39,49 +47,36 @@ public class Color_Blue extends LinearOpMode {
         rb = hardwareMap.dcMotor.get("m3");
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
 
-    
 
-            color.enableLed(true);
-            colorKnocker.setPosition(1);
-            //I have no real clue if this will set the arm correctly but if it does no need to fix it
+        color.enableLed(true);
+        colorKnocker.setPosition(1);
+        //I have no real clue if this will set the arm correctly but if it does no need to fix it
 
-            //In this code we are on the blue team.
-            //This means we need to knock down the red ball.
-            //The sensor will be on the right of the arm
-            // If it senses the blue ball then it needs to go backwards to knock off the red ball
-            //the reverse if it senses a non blue ball (red)
+        //In this code we are on the blue team.
+        //This means we need to knock down the red ball.
+        //The sensor will be on the right of the arm
+        // If it senses the blue ball then it needs to go backwards to knock off the red ball
+        //the reverse if it senses a non blue ball (red)
 
-            if (color.blue() <= 255 && color.blue() > 100) {
-                //color is not correct and needs to be changed to sense color blue
-           long t = System.currentTimeMillis();
-           long end = t+2000;
-           while(System.currentTimeMillis() < end) {
-                rf.setPower(1);
-                lf.setPower(1);
-                rb.setPower(1);
-                rf.setPower(1);
-               Thread.sleep(100);
-            } else {
-           long t = System.currentTimeMillis();
-           long end = t+2000;
-           while(System.currentTimeMillis() < end) {
-                rf.setPower(-1);
-                lf.setPower(-1);
-                rb.setPower(-1);
-                lb.setPower(-1);
-               Thread.sleep(100);
+        if (color.blue() < 255 && color.blue() > 100) {
+            //color is not correct and needs to be changed to sense color blue
+            long t = System.currentTimeMillis();
+            long end = t + 2000;
+            while (System.currentTimeMillis() < end) {
+                setMotor(1, 1, 1, 1);
             }
 
-            //the problem with this code is that it goes on forever and does not stop
-            //once we get it to stop we would need to bring the arm up and then go on to other programs for autonomous period
-colorKnocker.setPosition(0);
-               
+        } else {
+            long t = System.currentTimeMillis();
+            long end = t + 2000;
+            while (System.currentTimeMillis() < end) {
+                setMotor(-1, -1, -1, -1);
+            }
+
+
         }
 
-
+        colorKnocker.setPosition(0);
     }
 }
-
-
-
 
