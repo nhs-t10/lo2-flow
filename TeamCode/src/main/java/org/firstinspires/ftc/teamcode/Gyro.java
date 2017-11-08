@@ -24,16 +24,11 @@ import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 import java.util.Locale;
 
 @TeleOp(name = "Gyro program balance don't kill me trip")
-public class Gyro extends OpMode {
-    @Autonomous(name = "Sensor: BNO055 IMU", group = "Sensor")
-    @Disabled                            // Comment this out to add to the opmode list
-    public class SensorBNO055IMU extends LinearOpMode
-    {
-        //----------------------------------------------------------------------------------------------
-        // State
-        //----------------------------------------------------------------------------------------------
 
-        // The IMU sensor object
+@Autonomous(name = "Sensor: BNO055 IMU", group = "Sensor")
+@Disabled                            // Comment this out to add to the opmode list
+public class SensorBNO055IMU extends LinearOpMode {
+
         BNO055IMU imu;
 
         // State used for updating telemetry
@@ -216,4 +211,4 @@ public class Gyro extends OpMode {
             }
         }
     }
-}
+
