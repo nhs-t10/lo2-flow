@@ -7,6 +7,7 @@ package org.firstinspires.ftc.teamcode;
 
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -17,7 +18,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //
 //import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
-@TeleOp(name = "JewelRed")
+@Autonomous(name = "JewelRed")
 public class Color_Red extends LinearOpMode {
 
 

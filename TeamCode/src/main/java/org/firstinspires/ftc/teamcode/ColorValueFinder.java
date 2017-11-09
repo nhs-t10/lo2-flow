@@ -5,10 +5,11 @@ package org.firstinspires.ftc.teamcode;
  */
 import android.graphics.Color;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
-@TeleOp (name = "colorFinder")
+@Autonomous(name = "colorFinder")
 public class ColorValueFinder extends OpMode {
 
     public static ColorSensor color;
@@ -19,6 +20,9 @@ public class ColorValueFinder extends OpMode {
 
     }
     public void loop() {
+        color.red();
+        color.blue();
+        color.green();
         telemetry.addData("Red", color.red());
         telemetry.addData("Blue", color.blue());
         telemetry.addData("Green", color.green());
