@@ -11,18 +11,18 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 @TeleOp (name = "colorFinder")
 public class ColorValueFinder extends OpMode {
 
-    public static ColorSensor finder;
+    public static ColorSensor color;
 
     public void init() {
-        finder = hardwareMap.colorSensor.get("color");
-        finder.enableLed(true);
+        color = hardwareMap.colorSensor.get("color");
+        color.enableLed(true);
 
     }
     public void loop() {
-        telemetry.addData("Red", finder.red());
-        telemetry.addData("Blue", finder.blue());
-        telemetry.addData("Green", finder.green());
-        telemetry.addData("All", finder.argb());
+        telemetry.addData("Red", color.red());
+        telemetry.addData("Blue", color.blue());
+        telemetry.addData("Green", color.green());
+        telemetry.addData("All", color.argb());
     }
     public void stop() {
 
