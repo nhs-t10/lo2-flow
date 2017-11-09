@@ -8,6 +8,7 @@ package org.firstinspires.ftc.teamcode;
 
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -16,7 +17,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //
 //import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
-
+@TeleOp(name = "JewelBlue")
 public class Color_Blue extends LinearOpMode {
 
 
