@@ -15,7 +15,8 @@ public class ColorValueFinder extends OpMode {
     public static ColorSensor color;
 
     public void init() {
-        color = hardwareMap.colorSensor.get("c1");
+        color = hardwareMap.colorSensor.get("color");
+//        color = hardwareMap.'''''''''
         color.enableLed(true);
 
     }
@@ -30,8 +31,8 @@ public class ColorValueFinder extends OpMode {
         telemetry.addData("Green", green);
         telemetry.addData("All", all);
     }
-//    public void stop() {
+        public void stop() {
 //
-//    }
+      }
 
 }
