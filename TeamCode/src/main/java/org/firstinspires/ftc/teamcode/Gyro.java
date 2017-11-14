@@ -4,10 +4,10 @@ import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.GyroSensor;
+//import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+//import com.qualcomm.robotcore.hardware.GyroSensor;
 //import com.qualcomm.robotcore.hardware.HardwareDevice;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.util.Range;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
@@ -23,23 +23,31 @@ import org.firstinspires.ftc.robotcore.external.navigation.Velocity;
 
 import java.util.Locale;
 
-@TeleOp(name = "Gyro program balance don't kill me trip")
+@TeleOp(name = "dontKillMeTrip")
 
 @Autonomous(name = "Sensor: BNO055 IMU", group = "Sensor")
 @Disabled                            // Comment this out to add to the opmode list
-public class SensorBNO055IMU extends LinearOpMode {
+public class SensorIMU extends OpMode{
 
-        BNO055IMU imu;
+   private SensorIMU imuSensor = new SensorIMU();
+
+    @Override
+    public void init() {
+        lf = hardwareMap.dcMotor.get("m0");
+        rf = hardwareMap.dcMotor.get("m1");
+        lb = hardwareMap.dcMotor.get("m2");
+        rb = hardwareMap.dcMotor.get("m3");
+    }
+
+
+    BNO055IMU imu;
 
         // State used for updating telemetry
-        Orientation angles;
-        Acceleration gravity;
+        private Orientation angles;
+        private Acceleration gravity;
 
-        //----------------------------------------------------------------------------------------------
         // Main logic
-        //----------------------------------------------------------------------------------------------
-
-        @Override public void runOpMode() {
+         public void runOpMode() {
 
             // Set up the parameters with which we will use our IMU. Note that integration
             // algorithm here just reports accelerations to the logcat log; it doesn't actually
@@ -58,19 +66,9 @@ public class SensorBNO055IMU extends LinearOpMode {
             imu = hardwareMap.get(BNO055IMU.class, "imu");
             imu.initialize(parameters);
 
-            // Set up our telemetry dashboard
-            composeTelemetry();
-
-            // Wait until we're told to go
-            waitForStart();
-
-            // Start the logging of measured acceleration
             imu.startAccelerationIntegration(new Position(), new Velocity(), 1000);
 
-            // Loop and update the dashboard
-            while (opModeIsActive()) {
-                telemetry.update();
-            }
+
         }
 
         //----------------------------------------------------------------------------------------------
@@ -83,9 +81,7 @@ public class SensorBNO055IMU extends LinearOpMode {
             // from the IMU that we will then display in separate lines.
             telemetry.addAction(new Runnable() { @Override public void run()
             {
-                // Acquiring the angles is relatively expensive; we don't want
-                // to do that in each of the three items that need that info, as that's
-                // three times the necessary expense.
+
                 angles   = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
                 gravity  = imu.getGravity();
             }
@@ -140,51 +136,39 @@ public class SensorBNO055IMU extends LinearOpMode {
         // Formatting
         //----------------------------------------------------------------------------------------------
 
-        String formatAngle(AngleUnit angleUnit, double angle) {
+        private String formatAngle(AngleUnit angleUnit, double angle) {
             return formatDegrees(AngleUnit.DEGREES.fromUnit(angleUnit, angle));
         }
 
-        String formatDegrees(double degrees){
+        private String formatDegrees(double degrees){
             return String.format(Locale.getDefault(), "%.1f", AngleUnit.DEGREES.normalize(degrees));
         }
-    }
+
 
     private DcMotor lf, rf, lb, rb;
 
 
 
-    @Override
-    public void init() {
-        gyro = hardwareMap.gyroSensor.get("Gyro1");
-        lf = hardwareMap.dcMotor.get("m0");
-        rf = hardwareMap.dcMotor.get("m1");
-        lb = hardwareMap.dcMotor.get("m2");
-        rb = hardwareMap.dcMotor.get("m3");
-    }
-
-    private void wheelSet(double a0, double a1, double a2, double a3){
+private void wheelSet(double a0, double a1, double a2, double a3){
         lf.setPower(a0);
         lb.setPower(a1);
         rf.setPower(a2);
         rb.setPower(a3);
     }
 
-    private void resetGyro() {
-        if (!gyro.isCalibrating()){
-            resetGyro();
-        }
+    //runOpMode();
 
-    }
     @Override
     public void loop() {
-        if (gamepad1.right_trigger > 0) {
+        if (gamepad1.x) {
             while (gamepad1.right_trigger > .2) {
-                int y = gyro.rawY();
-                int x = gyro.rawX();
-                int z = gyro.rawZ();
-                if (y > 0){
-                    resetGyro();
+                int y = imuSensor.gravity
+                int x = imuSensor.();
+                int z = imuSensor.rawZ();
+                if (y > 0) {
+                    imu.startAccelerationIntegration(new Position(), new Velocity(), 1000);
                 }
+                // Math.sign() // -1 0 1
                 if (y < 0) {
                     if (x > 0) {
                         if (z > 0) {
@@ -211,4 +195,4 @@ public class SensorBNO055IMU extends LinearOpMode {
             }
         }
     }
-
+}
