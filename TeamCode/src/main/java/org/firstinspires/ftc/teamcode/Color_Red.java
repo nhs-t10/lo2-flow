@@ -61,7 +61,6 @@ public class Color_Red extends LinearOpMode {
         //the reverse if it senses a non blue ball (red)
 
         if (color.red() > 90 ){
-            //color is not correct and needs to be changed to sense color blue
             long t = System.currentTimeMillis();
             long end = t + 2000;
             while (System.currentTimeMillis() < end) {
