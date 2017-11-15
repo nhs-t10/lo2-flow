@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "FINALmovement")
-public class FINALmovement extends OpMode {
+@TeleOp(name = "FINALmecanum")
+public class FINALmecanum extends OpMode {
     DcMotor lf, rf, lb, rb;
 
 
@@ -40,14 +40,14 @@ public class FINALmovement extends OpMode {
         turning = (double)scaleInput(turning);
         side = (double)scaleInput(side);
 
-        if (forward>0.5 || forward<-0.5){
+        if (forward>0.25|| forward<-0.25){
 
             lf.setPower(-forward);
             rf.setPower(-forward);
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-        if (turning>0.5) {
+        if (turning>0.25) {
 
             lb.setPower(turning);
             lf.setPower(turning);
@@ -55,20 +55,20 @@ public class FINALmovement extends OpMode {
             rb.setPower(turning);
 
         }
-        if (turning<-0.5) {
+        if (turning<-0.25) {
             lb.setPower(turning);
             lf.setPower(turning);
             rf.setPower(-turning);
             rb.setPower(turning);
         }
-        if (side>0.5) {
+        if (side>0.25) {
             lb.setPower(-side);
             lf.setPower(side);
             rf.setPower(-side);
             rb.setPower(-side);
 
         }
-        if (side <-0.5) {
+        if (side <-0.25) {
             lb.setPower(-side);
             lf.setPower(side);
             rf.setPower(-side);

@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "FourMotor")
-public class FourMotor extends OpMode {
+@TeleOp(name = "FINALnonmecanum")
+public class FINALnonmecanum extends OpMode {
     DcMotor lf, rf, lb, rb;
 
 
@@ -39,35 +39,35 @@ public class FourMotor extends OpMode {
 
         if (forward>0.25){
 
-            lf.setPower(forward);
+            lf.setPower(-forward);
             rf.setPower(-forward);
-            rb.setPower(-forward);
+            rb.setPower(forward);
             lb.setPower(-forward);
         }
 
         if (forward<-0.25){
 
-            lf.setPower(forward);
+            lf.setPower(-forward);
             rf.setPower(-forward);
-            rb.setPower(-forward);
+            rb.setPower(forward);
             lb.setPower(-forward);
 
         }
 
         if (turning>0.25){
 
-            lb.setPower(turning);
+            lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning);
+            rf.setPower(turning);
             rb.setPower(-turning);
 
         }
         if (turning<-0.25) {
 
             lb.setPower(turning);
-            lf.setPower(-turning);
+            lf.setPower(turning);
             rf.setPower(-turning);
-            rb.setPower(-turning);
+            rb.setPower(turning);
         }
 
         if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
