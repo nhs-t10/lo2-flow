@@ -7,7 +7,9 @@ package org.firstinspires.ftc.teamcode;
 
 
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -16,7 +18,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //
 //import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
-
+@Autonomous(name = "JewelBlue")
 public class Color_Blue extends LinearOpMode {
 
 
@@ -58,8 +60,7 @@ public class Color_Blue extends LinearOpMode {
         // If it senses the blue ball then it needs to go backwards to knock off the red ball
         //the reverse if it senses a non blue ball (red)
 
-        if (color.blue() > 250) {
-            //color is not correct and needs to be changed to sense color blue
+        if (color.blue() > 90) {
             long t = System.currentTimeMillis();
             long end = t + 2000;
             while (System.currentTimeMillis() < end) {

@@ -26,10 +26,10 @@ public class Glyphs extends OpMode {
     @Override
     public void loop(){
         if(gamepad1.right_trigger > 0){
-            lift1.setPower(1);
+            lift1.setPower(gamepad1.right_trigger);
         }
         if(gamepad1.left_trigger > 0){
-            lift1.setPower(-1);
+            lift1.setPower(-gamepad1.right_trigger);
         }else{
             lift1.setPower(0);
         }

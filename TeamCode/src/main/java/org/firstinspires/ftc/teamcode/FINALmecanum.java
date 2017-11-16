@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "FourMotorMecanum")
-public class FINALmovement extends OpMode {
+@TeleOp(name = "FINALmecanum")
+public class FINALmecanum extends OpMode {
     DcMotor lf, rf, lb, rb;
 
 
@@ -40,7 +40,7 @@ public class FINALmovement extends OpMode {
         turning = (double)scaleInput(turning);
         side = (double)scaleInput(side);
 
-        if (forward>0.25 || forward<-0.25){
+        if (forward>0.25|| forward<-0.25){
 
             lf.setPower(-forward);
             rf.setPower(-forward);
@@ -62,19 +62,19 @@ public class FINALmovement extends OpMode {
             rb.setPower(turning);
         }
         if (side>0.25) {
-            lb.setPower(side);
-            lf.setPower(-side);
-            rf.setPower(side);
-            rb.setPower(side);
+            lb.setPower(-side);
+            lf.setPower(side);
+            rf.setPower(-side);
+            rb.setPower(-side);
 
         }
         if (side <-0.25) {
-            lb.setPower(side);
-            lf.setPower(-side);
-            rf.setPower(side);
-            rb.setPower(side);
+            lb.setPower(-side);
+            lf.setPower(side);
+            rf.setPower(-side);
+            rb.setPower(-side);
         }
-        if (side>0.75 && forward>0.75) {
+        /*if (side>0.75 && forward>0.75) {
             rf.setPower(-forward);
             lb.setPower(-forward);
             rb.setPower(0);
@@ -98,7 +98,7 @@ public class FINALmovement extends OpMode {
             lb.setPower(0);
             rf.setPower(0);
         }
-
+**/
 
 
         if ((side>-0.25 && side<0.25) || (forward>-0.25 && forward<0.25) || ((turning>-0.25 && turning<0.25))) {
