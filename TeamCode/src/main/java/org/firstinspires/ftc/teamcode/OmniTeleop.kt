@@ -13,7 +13,7 @@ import java.lang.Math.abs
 
 //fun cube(x : Float) : Double { return Math.pow(x.toDouble(), 3.0) }
 
-@TeleOp(name = "Omni Drive")
+//@TeleOp(name = "Omni Drive")
 class OmniTeleop : OpMode() {
     var lf : DcMotor? = null
     var lr : DcMotor? = null
