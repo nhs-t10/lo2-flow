@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.DcMotor
 import com.qualcomm.robotcore.hardware.DcMotorSimple
 
 
-@TeleOp(name = "Basic Mecanum")
+//@TeleOp(name = "Basic Mecanum")
 class MecanumTeleop : OpMode() {
     var lf : DcMotor? = null
     var lr : DcMotor? = null
