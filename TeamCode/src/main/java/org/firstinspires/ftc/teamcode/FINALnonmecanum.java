@@ -56,10 +56,10 @@ public class FINALnonmecanum extends OpMode {
 
         if (turning>0.25){
 
-            lb.setPower(-turning);
-            lf.setPower(-turning);
-            rf.setPower(turning);
-            rb.setPower(-turning);
+            lb.setPower(turning);
+            lf.setPower(turning);
+            rf.setPower(-turning);
+            rb.setPower(turning);
 
         }
         if (turning<-0.25) {
