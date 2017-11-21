@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "FINALmecanum")
+//@TeleOp(name = "FINALmecanum")
 public class FINALmecanum extends OpMode {
     DcMotor lf, rf, lb, rb;
 

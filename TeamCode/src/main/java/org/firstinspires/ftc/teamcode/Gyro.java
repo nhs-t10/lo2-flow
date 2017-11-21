@@ -1,4 +1,6 @@
+/*
 package org.firstinspires.ftc.teamcode;
+
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
@@ -27,9 +29,9 @@ import java.util.Locale;
 
 @Autonomous(name = "Sensor: BNO055 IMU", group = "Sensor")
 @Disabled                            // Comment this out to add to the opmode list
-public class SensorIMU extends OpMode{
+public class Gyro extends OpMode{
 
-   private SensorIMU imuSensor = new SensorIMU();
+   private Gyro imuSensor = new Gyro();
 
     @Override
     public void init() {
@@ -162,9 +164,9 @@ private void wheelSet(double a0, double a1, double a2, double a3){
     public void loop() {
         if (gamepad1.x) {
             while (gamepad1.right_trigger > .2) {
-                int y = imuSensor.gravity
-                int x = imuSensor.();
-                int z = imuSensor.rawZ();
+                int x = imuSensor.;
+                int y = imuSensor.rawY;
+                int z = imuSensor.rawZ;
                 if (y > 0) {
                     imu.startAccelerationIntegration(new Position(), new Velocity(), 1000);
                 }
@@ -196,3 +198,4 @@ private void wheelSet(double a0, double a1, double a2, double a3){
         }
     }
 }
+**/
