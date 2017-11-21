@@ -25,11 +25,11 @@ public class Clamp extends OpMode {
 
 
         if(gamepad1.right_stick_y > 0){
-            x = x + .1;
+            x = x + 1;
             squeeze.setPosition(x);
         }
         if(gamepad1.right_stick_y < 0){
-            x = x - .1;
+            x = x - 1;
             squeeze.setPosition(x);
         }
 
