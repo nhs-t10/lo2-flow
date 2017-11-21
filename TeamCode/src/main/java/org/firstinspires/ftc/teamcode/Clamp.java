@@ -16,7 +16,7 @@ public class Clamp extends OpMode {
     @Override
     public void init() {
         squeeze = hardwareMap.servo.get("s1");
-
+        squeeze.setPosition(x);
 
         telemetry.addData("Message 1", "Servos declared! All Systems go!");
     }
