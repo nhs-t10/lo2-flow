@@ -1,4 +1,4 @@
-/**
+
 
 package org.firstinspires.ftc.teamcode;
 
@@ -9,13 +9,14 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 /**
  * Created by dvw25 on 10/24/17.
+ */
 
 
 
 @TeleOp(name = "glyph arm")
 public class Glyphs extends OpMode {
 
-    private DcMotor lift1,lift2;
+    private DcMotor lift1,lift2,lift3;
 
     @Override
     public void init() {
@@ -63,5 +64,3 @@ public class Glyphs extends OpMode {
     }
 
 }
-*
-*/
