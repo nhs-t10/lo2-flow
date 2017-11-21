@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by dvw25 on 11/21/17.
  */
-
+@TeleOp(name = "Clamp")
 public class Clamp extends OpMode {
     private Servo squeeze;
     double x = 0;
