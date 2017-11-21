@@ -34,7 +34,7 @@ public class AutonomousTest extends LinearOpMode  {
     }
 
 
-     public void runOPMode() throws InterruptedException{
+     public void runOpMode() throws InterruptedException{
 
         lf = hardwareMap.dcMotor.get("m0");
         lb = hardwareMap.dcMotor.get("m1");
@@ -50,7 +50,10 @@ public class AutonomousTest extends LinearOpMode  {
          wait(5000);
          wheelSet(1,1,1,1);
          wait(3000);
-         wheelSet(0,0,0,0,);
+         wheelSet(0,0,0,0);
+    }
+    public void stopOpMode() {
+
     }
 
 }
