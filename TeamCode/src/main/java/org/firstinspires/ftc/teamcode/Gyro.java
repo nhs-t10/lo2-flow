@@ -164,9 +164,9 @@ private void wheelSet(double a0, double a1, double a2, double a3){
     public void loop() {
         if (gamepad1.x) {
             while (gamepad1.right_trigger > .2) {
-                int y = imuSensor.gravity
-                int x = imuSensor.();
-                int z = imuSensor.rawZ();
+                int x = imuSensor.;
+                int y = imuSensor.rawY;
+                int z = imuSensor.rawZ;
                 if (y > 0) {
                     imu.startAccelerationIntegration(new Position(), new Velocity(), 1000);
                 }

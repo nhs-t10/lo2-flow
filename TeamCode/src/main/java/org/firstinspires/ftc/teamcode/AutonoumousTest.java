@@ -2,12 +2,12 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+//import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
-import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
-import com.qualcomm.robotcore.util.Range;
+//import com.qualcomm.robotcore.hardware.DcMotorController;
+//import com.qualcomm.robotcore.hardware.Servo;
+//import com.qualcomm.robotcore.hardware.DcMotorSimple;
+//import com.qualcomm.robotcore.util.Range;
 
 /**
  * Created by Alex on 11/14/2017.
@@ -16,17 +16,10 @@ import com.qualcomm.robotcore.util.Range;
 
 @Autonomous(name = "autonomous movement text")
 
-public class AutonoumousTest extends LinearOpMode {
-    AutonoumousTest hecker = new AutonoumousTest();
+public class AutonomousTest extends LinearOpMode  {
+    AutonomousTest heck = new AutonomousTest();
 
     DcMotor lf, lb, rf, rb;
-
-
-
-    @Override public synchronized void waitForStart(){
-        super.waitForStart();
-    }
-
 
     private void wheelSet(double a0, double a1, double a2, double a3) {
         lf.setPower(a0);
@@ -34,7 +27,15 @@ public class AutonoumousTest extends LinearOpMode {
         rf.setPower(a2);
         rb.setPower(a3);
     }
-     public void main(){
+
+
+    @Override public synchronized void waitForStart(){
+        super.waitForStart();
+    }
+
+
+     public void runOPMode() throws InterruptedException{
+
         lf = hardwareMap.dcMotor.get("m0");
         lb = hardwareMap.dcMotor.get("m1");
         rf = hardwareMap.dcMotor.get("m2");
@@ -45,12 +46,11 @@ public class AutonoumousTest extends LinearOpMode {
         //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
         lf.setDirection(DcMotor.Direction.REVERSE);
         lb.setDirection(DcMotor.Direction.REVERSE);
-
+         heck.waitForStart();
+         wait(5000);
+         wheelSet(1,1,1,1);
+         wait(3000);
+         wheelSet(0,0,0,0,);
     }
-    hecker.waitForStart();
-
-
-
-
 
 }
