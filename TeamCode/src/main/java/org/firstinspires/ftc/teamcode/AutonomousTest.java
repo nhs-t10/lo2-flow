@@ -9,17 +9,15 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.hardware.DcMotorSimple;
 //import com.qualcomm.robotcore.util.Range;
 
-/**
- * Created by Alex on 11/14/2017.
- */
+
 
 
 @Autonomous(name = "autonomous movement text")
 
 public class AutonomousTest extends LinearOpMode  {
-    AutonomousTest heck = new AutonomousTest();
+    private AutonomousTest  heck = new AutonomousTest();
 
-    DcMotor lf, lb, rf, rb;
+    private DcMotor lf, lb, rf, rb;
 
     private void wheelSet(double a0, double a1, double a2, double a3) {
         lf.setPower(a0);
@@ -48,12 +46,22 @@ public class AutonomousTest extends LinearOpMode  {
         lb.setDirection(DcMotor.Direction.REVERSE);
          heck.waitForStart();
          wait(5000);
-         wheelSet(1,1,1,1);
+         wheelSet(1,1,-1,1);
+         wait(1000);
+         wheelSet(0,0,0,0);
+         wait(4000);
+         wheelSet(1,1,-1,1);
+         wait(2000);
+         wheelSet(0,0,0,0);
+         wait(4000);
+         wheelSet(1,1,-1,1);
          wait(3000);
          wheelSet(0,0,0,0);
+         wait(4000);
+         wheelSet(1,1,-1,1);
+         wait(4000);
+         wheelSet(0,0,0,0);
     }
-    public void stopOpMode() {
 
-    }
 
 }
