@@ -54,7 +54,7 @@ public class Color_Blue extends LinearOpMode {
         colorKnocker.setPosition(1);
         //I have no real clue if this will set the arm correctly but if it does no need to fix it
 
-        //In this code we are on the blue team.
+        // In this code we are on the blue team.
         //This means we need to knock down the red ball.
         //The sensor will be on the right of the arm
         // If it senses the blue ball then it needs to go backwards to knock off the red ball
