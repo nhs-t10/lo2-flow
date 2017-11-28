@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 
-@TeleOp (name = "TwoMotor")
+//@TeleOp (name = "TwoMotor")
 public class TwoMotor extends OpMode {
     DcMotor l, r;
     double wheelSpeed;
@@ -110,3 +110,6 @@ public class TwoMotor extends OpMode {
     }
 
 }
+
+
+

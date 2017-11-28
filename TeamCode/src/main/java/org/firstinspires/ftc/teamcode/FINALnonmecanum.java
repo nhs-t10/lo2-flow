@@ -39,36 +39,40 @@ public class FINALnonmecanum extends OpMode {
 
         if (forward>0.25){
 
-            lf.setPower(-forward);
+            lf.setPower(forward);
             rf.setPower(-forward);
             rb.setPower(forward);
-            lb.setPower(-forward);
+            lb.setPower(forward);
         }
+
 
         if (forward<-0.25){
 
-            lf.setPower(-forward);
+            lf.setPower(forward);
             rf.setPower(-forward);
             rb.setPower(forward);
-            lb.setPower(-forward);
+            lb.setPower(forward);
 
         }
 
+
         if (turning>0.25){
 
-            lb.setPower(-turning);
-            lf.setPower(-turning);
+            lb.setPower(turning);
+            lf.setPower(turning);
             rf.setPower(turning);
             rb.setPower(-turning);
 
         }
+
         if (turning<-0.25) {
 
-            lb.setPower(turning);
-            lf.setPower(turning);
+            lb.setPower(-turning);
+            lf.setPower(-turning);
             rf.setPower(-turning);
             rb.setPower(turning);
         }
+
 
         if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
             lb.setPower(0);
@@ -90,8 +94,8 @@ public class FINALnonmecanum extends OpMode {
     }
 
     double scaleInput(double dVal)  {
-        double[] scaleArray = { 0.0, 0.05, 0.09, 0.10, 0.12, 0.15, 0.18, 0.24,
-                0.30, 0.36, 0.43, 0.50, 0.60, 0.72, 0.85, 1.00, 1.00 };
+        double[] scaleArray = { 0.0, 0.005, 0.009, 0.01, 0.02, 0.03, 0.07, 0.1,
+                0.230, 0.336, 0.443, 0.550, 0.660, 0.772, 0.85, 1.00, 1.00 };
 
         // get the corresponding index for the scaleInput array.
         int index = (int) (dVal * 16.0);
