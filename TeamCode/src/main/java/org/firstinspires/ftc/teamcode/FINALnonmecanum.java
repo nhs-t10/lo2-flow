@@ -40,7 +40,7 @@ public class FINALnonmecanum extends OpMode {
         if (forward>0.25){
 
             lf.setPower(forward);
-            rf.setPower(forward);
+            rf.setPower(-forward);
             rb.setPower(forward);
             lb.setPower(forward);
         }
@@ -49,7 +49,7 @@ public class FINALnonmecanum extends OpMode {
         if (forward<-0.25){
 
             lf.setPower(forward);
-            rf.setPower(forward);
+            rf.setPower(-forward);
             rb.setPower(forward);
             lb.setPower(forward);
 
@@ -60,7 +60,7 @@ public class FINALnonmecanum extends OpMode {
 
             lb.setPower(turning);
             lf.setPower(turning);
-            rf.setPower(-turning);
+            rf.setPower(turning);
             rb.setPower(-turning);
 
         }
@@ -69,7 +69,7 @@ public class FINALnonmecanum extends OpMode {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(turning);
+            rf.setPower(-turning);
             rb.setPower(turning);
         }
 
