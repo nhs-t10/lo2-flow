@@ -16,7 +16,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class AutonomousTest extends LinearOpMode  {
     private AutonomousTest  heck = new AutonomousTest();
-
     private DcMotor lf, lb, rf, rb;
 
     private void wheelSet(double a0, double a1, double a2, double a3) {
@@ -26,11 +25,9 @@ public class AutonomousTest extends LinearOpMode  {
         rb.setPower(a3);
     }
 
-
     @Override public synchronized void waitForStart(){
         super.waitForStart();
     }
-
 
      public void runOpMode() throws InterruptedException{
 
@@ -62,6 +59,4 @@ public class AutonomousTest extends LinearOpMode  {
          wait(4000);
          wheelSet(0,0,0,0);
     }
-
-
 }
