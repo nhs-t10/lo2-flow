@@ -34,7 +34,7 @@ public class Glyphs extends OpMode {
             lift2.setPower(-gamepad1.right_trigger);
             //up
         }
-        if(gamepad1.right_bumper = true){
+        if(gamepad1.right_bumper == true){
             lift1.setPower(-1);
             lift2.setPower(1);
             //down
