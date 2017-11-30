@@ -36,24 +36,26 @@ public class AutonomousTest extends LinearOpMode  {
          //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
          //rf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
          //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+         long timeSpent = System.currentTimeMillis();
+
          lf.setDirection(DcMotor.Direction.REVERSE);
          lb.setDirection(DcMotor.Direction.REVERSE);
          heck.waitForStart();
-         wait(5000);
+         sleep(5000);
          wheelSet(1, 1, -1, -1);
-         wait(1000);
+         sleep(1000);
          wheelSet(0, 0, 0, 0);
-         wait(4000);
+         sleep(4000);
          wheelSet(1, 1, -1, -1);
-         wait(2000);
+         sleep(2000);
          wheelSet(0, 0, 0, 0);
-         wait(4000);
+         sleep(4000);
          wheelSet(1, 1, -1, -1);
-         wait(3000);
+         sleep(3000);
          wheelSet(0, 0, 0, 0);
-         wait(4000);
+         sleep(4000);
          wheelSet(1, 1, -1, -1);
-         wait(4000);
+         sleep(4000);
          wheelSet(0, 0, 0, 0);
      }
 }
