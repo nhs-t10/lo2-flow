@@ -4,15 +4,13 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 //import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-//import com.qualcomm.robotcore.hardware.DcMotorController;
+import com.qualcomm.robotcore.hardware.DcMotorController;
 //import com.qualcomm.robotcore.hardware.Servo;
 //import com.qualcomm.robotcore.hardware.DcMotorSimple;
 //import com.qualcomm.robotcore.util.Range;
 
 
-
-
-@Autonomous(name = "autonomous movement text")
+@Autonomous(name = "autonomous movement test ")
 
 public class AutonomousTest extends LinearOpMode  {
     private AutonomousTest  heck = new AutonomousTest();
@@ -29,34 +27,33 @@ public class AutonomousTest extends LinearOpMode  {
         super.waitForStart();
     }
 
-     public void runOpMode() throws InterruptedException{
-
-        lf = hardwareMap.dcMotor.get("m0");
-        lb = hardwareMap.dcMotor.get("m1");
-        rf = hardwareMap.dcMotor.get("m2");
-        rb = hardwareMap.dcMotor.get("m3");
-        //lf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        //rf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-        lf.setDirection(DcMotor.Direction.REVERSE);
-        lb.setDirection(DcMotor.Direction.REVERSE);
+     public void runOpMode() throws InterruptedException {
+         lf = hardwareMap.dcMotor.get("m0");
+         lb = hardwareMap.dcMotor.get("m1");
+         rf = hardwareMap.dcMotor.get("m2");
+         rb = hardwareMap.dcMotor.get("m3");
+         //lf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+         //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+         //rf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+         //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+         lf.setDirection(DcMotor.Direction.REVERSE);
+         lb.setDirection(DcMotor.Direction.REVERSE);
          heck.waitForStart();
          wait(5000);
-         wheelSet(-1,-1,-1,1);
+         wheelSet(1, 1, -1, -1);
          wait(1000);
-         wheelSet(0,0,0,0);
+         wheelSet(0, 0, 0, 0);
          wait(4000);
-         wheelSet(-1,-1,-1,1);
+         wheelSet(1, 1, -1, -1);
          wait(2000);
-         wheelSet(0,0,0,0);
+         wheelSet(0, 0, 0, 0);
          wait(4000);
-         wheelSet(-1,-1,-1,1);
+         wheelSet(1, 1, -1, -1);
          wait(3000);
-         wheelSet(0,0,0,0);
+         wheelSet(0, 0, 0, 0);
          wait(4000);
-         wheelSet(-1,-1,-1,1);
+         wheelSet(1, 1, -1, -1);
          wait(4000);
-         wheelSet(0,0,0,0);
-    }
+         wheelSet(0, 0, 0, 0);
+     }
 }
