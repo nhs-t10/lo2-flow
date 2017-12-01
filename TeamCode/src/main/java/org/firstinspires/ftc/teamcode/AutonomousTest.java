@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 //import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorController;
+//import com.qualcomm.robotcore.hardware.DcMotorController;
 //import com.qualcomm.robotcore.hardware.Servo;
 //import com.qualcomm.robotcore.hardware.DcMotorSimple;
 //import com.qualcomm.robotcore.util.Range;
@@ -36,7 +36,7 @@ public class AutonomousTest extends LinearOpMode  {
          //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
          //rf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
          //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-         long timeSpent = System.currentTimeMillis();
+         //long timeSpent = System.currentTimeMillis();
 
          lf.setDirection(DcMotor.Direction.REVERSE);
          lb.setDirection(DcMotor.Direction.REVERSE);
