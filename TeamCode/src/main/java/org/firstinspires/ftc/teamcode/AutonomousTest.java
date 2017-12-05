@@ -43,27 +43,27 @@ public class AutonomousTest extends LinearOpMode  {
             lf.setDirection(DcMotor.Direction.REVERSE);
             lb.setDirection(DcMotor.Direction.REVERSE);
             waitForStart();
-            sleep(5000);
-            wheelSet(1, 1, -1, -1);
-            sleep(1000);
-            wheelSet(0, 0, 0, 0);
-            sleep(4000);
-            wheelSet(1, 1, -1, -1);
-            sleep(2000);
-            wheelSet(0, 0, 0, 0);
-            sleep(4000);
-            wheelSet(1, 1, -1, -1);
-            sleep(3000);
-            wheelSet(0, 0, 0, 0);
-            sleep(4000);
-            wheelSet(1, 1, -1, -1);
-            sleep(4000);
-            wheelSet(0, 0, 0, 0);
+           // sleep(5000);
+            //wheelSet(1, 1, -1, -1);
+            //sleep(1000);
+            //wheelSet(0, 0, 0, 0);
+            //sleep(4000);
+            //wheelSet(1, 1, -1, -1);
+            //sleep(2000);
+            //wheelSet(0, 0, 0, 0);
+            //sleep(4000);
+            //wheelSet(1, 1, -1, -1);
+            //sleep(3000);
+            //wheelSet(0, 0, 0, 0);
+            //sleep(4000);
+            //wheelSet(1, 1, -1, -1);
+            //sleep(4000);
+            //wheelSet(0, 0, 0, 0);
         }
         catch(RuntimeException heck){
             System.out.println("heck");
             telemetry.addData("message1","heck we suck");
-            
+
         }
 
      }
