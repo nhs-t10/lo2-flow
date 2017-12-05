@@ -62,6 +62,8 @@ public class AutonomousTest extends LinearOpMode  {
         }
         catch(RuntimeException heck){
             System.out.println("heck");
+            telemetry.addData("message1","heck we suck");
+            
         }
 
      }
