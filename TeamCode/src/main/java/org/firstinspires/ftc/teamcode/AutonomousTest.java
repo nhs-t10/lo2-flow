@@ -28,7 +28,7 @@ public class AutonomousTest extends LinearOpMode  {
     public static void Main(){
     }
 
-     public void runOpMode() throws InterruptedException {
+     public void runOpMode() /*throws InterruptedException*/ {
         try {
             lf = hardwareMap.dcMotor.get("m0");
             lb = hardwareMap.dcMotor.get("m1");
