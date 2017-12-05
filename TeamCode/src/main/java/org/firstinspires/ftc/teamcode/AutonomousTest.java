@@ -8,9 +8,9 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.hardware.Servo;
 //import com.qualcomm.robotcore.hardware.DcMotorSimple;
 //import com.qualcomm.robotcore.util.Range;
-
-
-@Autonomous(name = "autonomous movement test ")
+import java.lang.RuntimeException;
+import java.lang.InterruptedException;
+@Autonomous(name = "ZipZapZoop!")
 
 public class AutonomousTest extends LinearOpMode  {
     private AutonomousTest  heck = new AutonomousTest();
@@ -26,36 +26,44 @@ public class AutonomousTest extends LinearOpMode  {
     @Override public synchronized void waitForStart(){
         super.waitForStart();
     }
+    public static void Main(){
+    }
 
      public void runOpMode() throws InterruptedException {
-         lf = hardwareMap.dcMotor.get("m0");
-         lb = hardwareMap.dcMotor.get("m1");
-         rf = hardwareMap.dcMotor.get("m2");
-         rb = hardwareMap.dcMotor.get("m3");
-         //lf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-         //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-         //rf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-         //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
-         //long timeSpent = System.currentTimeMillis();
+        try {
+            lf = hardwareMap.dcMotor.get("m0");
+            lb = hardwareMap.dcMotor.get("m1");
+            rf = hardwareMap.dcMotor.get("m2");
+            rb = hardwareMap.dcMotor.get("m3");
+            //lf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+            //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+            //rf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+            //rb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
+            //long timeSpent = System.currentTimeMillis();
 
-         lf.setDirection(DcMotor.Direction.REVERSE);
-         lb.setDirection(DcMotor.Direction.REVERSE);
-         waitForStart();
-         sleep(5000);
-         wheelSet(1, 1, -1, -1);
-         sleep(1000);
-         wheelSet(0, 0, 0, 0);
-         sleep(4000);
-         wheelSet(1, 1, -1, -1);
-         sleep(2000);
-         wheelSet(0, 0, 0, 0);
-         sleep(4000);
-         wheelSet(1, 1, -1, -1);
-         sleep(3000);
-         wheelSet(0, 0, 0, 0);
-         sleep(4000);
-         wheelSet(1, 1, -1, -1);
-         sleep(4000);
-         wheelSet(0, 0, 0, 0);
+            lf.setDirection(DcMotor.Direction.REVERSE);
+            lb.setDirection(DcMotor.Direction.REVERSE);
+            waitForStart();
+            sleep(5000);
+            wheelSet(1, 1, -1, -1);
+            sleep(1000);
+            wheelSet(0, 0, 0, 0);
+            sleep(4000);
+            wheelSet(1, 1, -1, -1);
+            sleep(2000);
+            wheelSet(0, 0, 0, 0);
+            sleep(4000);
+            wheelSet(1, 1, -1, -1);
+            sleep(3000);
+            wheelSet(0, 0, 0, 0);
+            sleep(4000);
+            wheelSet(1, 1, -1, -1);
+            sleep(4000);
+            wheelSet(0, 0, 0, 0);
+        }
+        catch(RuntimeException){
+            System.out.println("heck");
+        }
+
      }
 }
