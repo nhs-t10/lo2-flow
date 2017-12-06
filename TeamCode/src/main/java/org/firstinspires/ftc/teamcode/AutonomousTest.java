@@ -51,7 +51,7 @@ public class AutonomousTest extends LinearOpMode  {
         catch(Exception e){
             System.err.println("Error handler:");
             e.printStackTrace();
-            telemetry.addData("!!!ERROR!!!","We have a problem " + e.getMessage());
+            telemetry.addData("we have an exception","We have a problem " + e.getMessage());
         }
 
      }
