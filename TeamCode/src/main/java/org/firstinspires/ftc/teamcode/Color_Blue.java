@@ -58,9 +58,9 @@ public class Color_Blue extends OpMode {
 
         //In this code we are on the blue team.
         //This means we need to knock down the red ball.
-        //The sensor will be on the right of the arm
+        //The sensor will be on the ?right? of the arm (if left reverse below)
         // If it senses the blue ball then it needs to go backwards to knock off the red ball
-        //the reverse if it senses a non blue ball (red)
+        //the reverse if it senses a red ball
 
         if (time == 0) {
             colorKnocker.setPosition(0);

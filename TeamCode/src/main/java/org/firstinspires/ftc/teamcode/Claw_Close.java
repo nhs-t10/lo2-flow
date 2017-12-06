@@ -23,11 +23,11 @@ public class Claw_Close  extends OpMode {
 
         if(gamepad1.y){
             if(toggle) {
-                claw.setPosition(0);
-                toggle = false;
+                claw.setPosition(1);
+                toggle = true;
             } else {
                 claw.setPosition(0);
-                toggle = true;
+                toggle = false;
             }
         }
     }
