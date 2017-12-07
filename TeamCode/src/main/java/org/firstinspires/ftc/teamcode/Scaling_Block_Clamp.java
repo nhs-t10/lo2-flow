@@ -26,7 +26,7 @@ public class Scaling_Block_Clamp extends OpMode {
         squeeze = Range.clip(squeeze, 0, 1);
 
         if (squeeze > 0 ){
-            lc.setPosition(-squeeze);
+            lc.setPosition(squeeze);
             rc.setPosition(squeeze);
         }
         if (squeeze <= 0){
