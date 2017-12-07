@@ -2,16 +2,15 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
+//import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
-/**
- * Created by tripszewczak on 12/7/17.
- */
+
 @TeleOp(name = "Scaling Clamp")
+@SuppressWarnings("unused")
 public class Scaling_Block_Clamp extends OpMode {
 
-    public Servo lc, rc;
+    private Servo lc, rc;
     @Override
     public void init(){
         lc = hardwareMap.servo.get("s0");
