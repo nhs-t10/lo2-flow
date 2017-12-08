@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "Finalmvmtclamp")
+@TeleOp(name = "FINALmvmtclamp")
 public class MVMTCLAMP extends OpMode {
     DcMotor lf, rf, lb, rb;
     private Servo lc, rc;
