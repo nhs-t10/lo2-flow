@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.Servo;
  * Created by dvw25 on 11/16/17.
  */
 
-@TeleOp(name = "glyph arm claw")
+//@TeleOp(name = "glyph arm claw")
 public class Claw_Close  extends OpMode {
     private Servo claw;
     boolean toggle = false;

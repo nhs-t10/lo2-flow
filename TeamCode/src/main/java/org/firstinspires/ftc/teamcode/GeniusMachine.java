@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 /**
  * Created by dvw25 on 11/21/17.
  */
-@TeleOp(name = "GM")
+//@TeleOp(name = "GM")
 public class GeniusMachine extends OpMode{
     private DcMotor GM;
 
