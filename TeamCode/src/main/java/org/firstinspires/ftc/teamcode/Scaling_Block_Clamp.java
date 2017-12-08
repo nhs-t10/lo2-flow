@@ -22,11 +22,11 @@ public class Scaling_Block_Clamp extends OpMode {
     public void loop(){
         double squeeze = gamepad1.right_trigger;
 
-        squeeze = Range.clip(squeeze, 0, 1);
+        squeeze = Range.clip(squeeze, -1, 1);
 
         if (squeeze > 0 ){
             lc.setPosition(squeeze);
-            rc.setPosition(squeeze);
+            rc.setPosition(-squeeze);
         }
         if (squeeze <= 0){
             lc.setPosition(0);
