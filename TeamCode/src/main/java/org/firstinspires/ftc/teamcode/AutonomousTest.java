@@ -53,6 +53,10 @@ public class AutonomousTest extends LinearOpMode  {
             e.printStackTrace();
             telemetry.addData("we have an exception","We have a problem " + e.getMessage());
         }
+        finally{
+            stop();
+        }
 
-     }
+    }
+
 }
