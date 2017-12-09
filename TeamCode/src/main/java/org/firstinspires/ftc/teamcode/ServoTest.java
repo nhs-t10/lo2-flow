@@ -4,9 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-/**
- * Created by Alex on 12/8/2017.
- */
+
 @TeleOp(name = "rvuch")
 @SuppressWarnings("unused")
 public class ServoTest extends OpMode{
@@ -20,17 +18,24 @@ public class ServoTest extends OpMode{
     @Override
     public void loop(){
         if(gamepad1.right_trigger>.5){
-            spinner.setPosition(135);
+            spinner.setPosition(90);
         }
         if(gamepad1.right_trigger>.1 && gamepad1.right_trigger<.5){
             spinner.setPosition(45);
         }
         if(gamepad1.left_trigger>.5){
-            spinner1.setPosition(135);
+            spinner1.setPosition(90);
         }
         if(gamepad1.left_trigger>.1 && gamepad1.left_trigger<.5){
             spinner.setPosition(45);
         }
+        if(gamepad1.left_bumper){
+            spinner1.setPosition(0);
+        }
+        if(gamepad1.right_bumper ){
+            spinner.setPosition(0);
+        }
+
 
     }
 
