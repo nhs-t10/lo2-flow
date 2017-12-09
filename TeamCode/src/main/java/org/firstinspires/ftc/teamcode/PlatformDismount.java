@@ -59,12 +59,12 @@ public class PlatformDismount extends OpMode {
 
         if (color.blue() >= 0 && time == 0){
             time = System.currentTimeMillis();
-            lf.setPower(-1);
-            lb.setPower(-1);
-            rf.setPower(1);
-            rb.setPower(1);
+            lf.setPower(1);
+            lb.setPower(1);
+            rf.setPower(-1);
+            rb.setPower(-1);
 
-        } else if(System.currentTimeMillis() >= time + 2000) {
+        } else if(System.currentTimeMillis() >= time + 500) {
             lf.setPower(0);
             lb.setPower(0);
             rf.setPower(0);
@@ -75,7 +75,7 @@ public class PlatformDismount extends OpMode {
         }
 
        // if (color.red() >= 0 && !sawRed && time == 0){
-            time = System.currentTimeMillis();
+            //time = System.currentTimeMillis();
             //sawRed = true;
         //} else if(sawRed && System.currentTimeMillis() >= time + 2000)
             //sawRed = false;
