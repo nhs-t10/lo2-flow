@@ -31,9 +31,9 @@ public class AutonomousTest extends LinearOpMode  {
             lf.setDirection(DcMotor.Direction.REVERSE);
             lb.setDirection(DcMotor.Direction.REVERSE);
             waitForStart();
-            sleep(5000);
-            wheelSet(1, 1, -1, -1);
-            sleep(1000);
+            //sleep(5000);
+            wheelSet(.5, .5, -.5, -.5);
+            sleep(3000);
             wheelSet(0, 0, 0, 0);
             //sleep(4000);
             //wheelSet(1, 1, -1, -1);
