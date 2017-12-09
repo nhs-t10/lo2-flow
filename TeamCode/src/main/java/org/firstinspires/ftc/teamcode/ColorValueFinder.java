@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
-@Autonomous(name = "colorFinder")
+//@Autonomous(name = "colorFinder")
 public class ColorValueFinder extends OpMode {
 
     public static ColorSensor color;

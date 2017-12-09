@@ -10,10 +10,10 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-//@TeleOp(name = "FINALnonmecanum")
-public class FINALnonmecanum extends OpMode {
+@TeleOp(name = "FINALmvmtclamp")
+public class MVMTCLAMP extends OpMode {
     DcMotor lf, rf, lb, rb;
-
+    private Servo lc, rc;
 
     @Override
     public void init(){
@@ -21,6 +21,10 @@ public class FINALnonmecanum extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
+        lc = hardwareMap.servo.get("s1");
+        rc = hardwareMap.servo.get("s0");
+
+        telemetry.addData("Ready", "Clamp Ready");
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
     }
@@ -29,7 +33,9 @@ public class FINALnonmecanum extends OpMode {
     public void loop(){
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
+        double squeeze = gamepad1.right_trigger;
 
+        squeeze = Range.clip(squeeze, -1, 1);
         forward = Range.clip(forward,-1,1);
         turning = Range.clip(turning,-1,1);
 
@@ -37,6 +43,10 @@ public class FINALnonmecanum extends OpMode {
         forward = (double)scaleInput(forward);
         turning = (double)scaleInput(turning);
 
+        if (squeeze >= 0 ){
+            lc.setPosition(squeeze);
+            rc.setPosition(Math.abs(squeeze-1));
+        }
         if (forward>0.25){
 
             lf.setPower(-forward);
@@ -58,19 +68,19 @@ public class FINALnonmecanum extends OpMode {
 
         if (turning>0.25){
 
-            lb.setPower(turning);
-            lf.setPower(turning);
-            rf.setPower(turning);
-            rb.setPower(turning);
+            lb.setPower(-turning);
+            lf.setPower(-turning);
+            rf.setPower(-turning);
+            rb.setPower(-turning);
 
         }
 
         if (turning<-0.25) {
 
-            lb.setPower(turning);
-            lf.setPower(turning);
-            rf.setPower(turning);
-            rb.setPower(turning);
+            lb.setPower(-turning);
+            lf.setPower(-turning);
+            rf.setPower(-turning);
+            rb.setPower(-turning);
         }
 
 

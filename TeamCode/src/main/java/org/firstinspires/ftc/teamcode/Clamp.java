@@ -14,7 +14,7 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by dvw25 on 11/21/17.
  */
-@TeleOp(name = "Clamp")
+//@TeleOp(name = "Clamp")
 public class Clamp extends OpMode {
     private Servo squeeze;
 
