@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name = "ZipZapZoop!")
+@Autonomous(name = "PlatformDismount")
 @SuppressWarnings("unused")
 public class AutonomousTest extends LinearOpMode  {
     private DcMotor lf, lb, rf, rb;
@@ -35,18 +35,18 @@ public class AutonomousTest extends LinearOpMode  {
             wheelSet(1, 1, -1, -1);
             sleep(1000);
             wheelSet(0, 0, 0, 0);
-            sleep(4000);
-            wheelSet(1, 1, -1, -1);
-            sleep(2000);
-            wheelSet(0, 0, 0, 0);
-            sleep(4000);
-            wheelSet(1, 1, -1, -1);
-            sleep(3000);
-            wheelSet(0, 0, 0, 0);
-            sleep(4000);
-            wheelSet(1, 1, -1, -1);
-            sleep(4000);
-            wheelSet(0, 0, 0, 0);
+            //sleep(4000);
+            //wheelSet(1, 1, -1, -1);
+            //sleep(2000);
+            //wheelSet(0, 0, 0, 0);
+           //sleep(4000);
+            //wheelSet(1, 1, -1, -1);
+            //sleep(3000);
+            //wheelSet(0, 0, 0, 0);
+            //sleep(4000);
+            //wheelSet(1, 1, -1, -1);
+           // sleep(4000);
+           // wheelSet(0, 0, 0, 0);
         }
         catch(Exception e){
             System.err.println("Error handler:");
