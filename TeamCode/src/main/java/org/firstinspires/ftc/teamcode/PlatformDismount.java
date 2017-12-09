@@ -64,7 +64,7 @@ public class PlatformDismount extends OpMode {
             rf.setPower(-1);
             rb.setPower(-1);
 
-        } else if(System.currentTimeMillis() >= time + 200) {
+        } else if(System.currentTimeMillis() >= time + 250) {
             lf.setPower(0);
             lb.setPower(0);
             rf.setPower(0);
