@@ -20,8 +20,8 @@ public class AutonomousTest extends LinearOpMode  {
     public void runOpMode() {
         try {
             lf = hardwareMap.dcMotor.get("m0");
-            lb = hardwareMap.dcMotor.get("m1");
-            rf = hardwareMap.dcMotor.get("m2");
+            lb = hardwareMap.dcMotor.get("m2");
+            rf = hardwareMap.dcMotor.get("m1");
             rb = hardwareMap.dcMotor.get("m3");
             //lf.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
             //lb.setChannelMode(DcMotorController.RunMode.RUN_WITHOUT_ENCODERS);
@@ -31,11 +31,15 @@ public class AutonomousTest extends LinearOpMode  {
             lf.setDirection(DcMotor.Direction.REVERSE);
             lb.setDirection(DcMotor.Direction.REVERSE);
             waitForStart();
+            long timePass = System.currentTimeMillis();
+            if (time + 2 <= System.currentTimeMillis()){
+                wheelSet(1,1,1,1);
+            }
 
-            wait(5000);
-            wheelSet(.5, .5, -.5, -.5);
-            wait(3000);
-            wheelSet(0, 0, 0, 0);
+            //wait(5000);
+            //wheelSet(.5, .5, -.5, -.5);
+            //wait(3000);
+            //wheelSet(0, 0, 0, 0);
             //sleep(4000);
             //wheelSet(1, 1, -1, -1);
             //sleep(2000);
