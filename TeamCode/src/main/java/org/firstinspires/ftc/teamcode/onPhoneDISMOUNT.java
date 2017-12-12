@@ -27,7 +27,7 @@ public class onPhoneDISMOUNT extends OpMode {
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
-
+    //Here we are just simply declaring motors
 
         //color.enableLed(true);
 
@@ -52,6 +52,8 @@ public class onPhoneDISMOUNT extends OpMode {
             rf.setPower(0);
             rb.setPower(0);
         }
+            //is program is very simple it goes and finds the system's current time,
+            //and then moves forward until it is .2 seconds later, then stops.
 
     }
     public void stop() {
