@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.Range;
  * Created by tripszewczak on 10/5/17.
  */
 //@TeleOp(name = "FINALnonmecanum")
-public class FINALnonmecanum extends OpMode {
+public class nonmecanum extends OpMode {
     DcMotor lf, rf, lb, rb;
 
 

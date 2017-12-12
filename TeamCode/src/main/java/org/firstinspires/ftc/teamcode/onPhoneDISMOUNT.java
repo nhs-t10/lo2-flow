@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
 @Autonomous(name = "Dismount")
-public class PlatformDismount extends OpMode {
+public class onPhoneDISMOUNT extends OpMode {
 
 
     //private Servo colorKnocker;
