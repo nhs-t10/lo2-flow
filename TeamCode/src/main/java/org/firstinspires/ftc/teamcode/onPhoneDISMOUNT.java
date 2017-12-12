@@ -39,7 +39,8 @@ public class onPhoneDISMOUNT extends OpMode {
 
 
         if (color.blue()  >= 0 && time == 0){
-            /**color sensor and time are used to intiate movement**/
+            /**color sensor and time are used to intiate movement*/
+
             time = System.currentTimeMillis();
             lf.setPower(1);
             lb.setPower(1);
@@ -52,8 +53,8 @@ public class onPhoneDISMOUNT extends OpMode {
             rf.setPower(0);
             rb.setPower(0);
         }
-            //is program is very simple it goes and finds the system's current time,
-            //and then moves forward until it is .2 seconds later, then stops.
+            /** this program is very simple it goes and finds the system's
+             current time,and then moves forward for .2 seconds.*/
 
     }
     public void stop() {
