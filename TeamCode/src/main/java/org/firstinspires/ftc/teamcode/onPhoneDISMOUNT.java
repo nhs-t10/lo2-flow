@@ -8,12 +8,11 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-
 @Autonomous(name = "Dismount")
 public class onPhoneDISMOUNT extends OpMode {
 
 
-    //private ColorSensor color;
+    private ColorSensor color;
     private DcMotor rf, lf, rb, lb;
 
 
@@ -21,7 +20,7 @@ public class onPhoneDISMOUNT extends OpMode {
 
     @Override
     public synchronized void init() {
-        //color = hardwareMap.colorSensor.get("color");
+        color = hardwareMap.colorSensor.get("color");
         rf = hardwareMap.dcMotor.get("m1");
         lf = hardwareMap.dcMotor.get("m0");
         lb = hardwareMap.dcMotor.get("m2");
@@ -29,7 +28,7 @@ public class onPhoneDISMOUNT extends OpMode {
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
     //Here we are just simply declaring motors
 
-        //color.enableLed(true);
+        color.enableLed(true);
 
     }
 
@@ -39,7 +38,7 @@ public class onPhoneDISMOUNT extends OpMode {
     public void loop() {
 
 
-        if (time == 0){
+        if (color.blue() >= 0 && time == 0){
             time = System.currentTimeMillis();
             lf.setPower(1);
             lb.setPower(1);
