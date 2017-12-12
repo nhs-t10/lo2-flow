@@ -27,6 +27,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         telemetry.addData("Ready", "Clamp Ready");
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
+        //declares 
     }
 
     @Override
