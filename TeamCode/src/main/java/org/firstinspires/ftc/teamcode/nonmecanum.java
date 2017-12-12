@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-//@TeleOp(name = "FINALmecanum")
-public class FINALmecanum extends OpMode {
+//@TeleOp(name = "FINALnonmecanum")
+public class nonmecanum extends OpMode {
     DcMotor lf, rf, lb, rb;
 
 
@@ -28,86 +28,59 @@ public class FINALmecanum extends OpMode {
     @Override
     public void loop(){
         double forward = gamepad1.left_stick_y;
-        double turning = gamepad1.right_stick_x;
-        double side = gamepad1.left_stick_x;
+        double turning = gamepad1.left_stick_x;
 
         forward = Range.clip(forward,-1,1);
         turning = Range.clip(turning,-1,1);
-        side = Range.clip(side,-1,1);
 
 
         forward = (double)scaleInput(forward);
         turning = (double)scaleInput(turning);
-        side = (double)scaleInput(side);
 
-        if (forward>0.25|| forward<-0.25){
+        if (forward>0.25){
 
             lf.setPower(-forward);
-            rf.setPower(-forward);
+            rf.setPower(forward);
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-        if (turning>0.25) {
+
+
+        if (forward<-0.25){
+
+            lf.setPower(-forward);
+            rf.setPower(forward);
+            rb.setPower(forward);
+            lb.setPower(-forward);
+
+        }
+
+
+        if (turning>0.25){
 
             lb.setPower(turning);
             lf.setPower(turning);
-            rf.setPower(-turning);
+            rf.setPower(turning);
             rb.setPower(turning);
 
         }
+
         if (turning<-0.25) {
+
             lb.setPower(turning);
             lf.setPower(turning);
-            rf.setPower(-turning);
+            rf.setPower(turning);
             rb.setPower(turning);
         }
-        if (side>0.25) {
-            lb.setPower(-side);
-            lf.setPower(side);
-            rf.setPower(-side);
-            rb.setPower(-side);
 
-        }
-        if (side <-0.25) {
-            lb.setPower(-side);
-            lf.setPower(side);
-            rf.setPower(-side);
-            rb.setPower(-side);
-        }
-        /*if (side>0.75 && forward>0.75) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
-            rb.setPower(0);
-            lf.setPower(0);
-        }
-        if (side<-0.75 && forward<-0.75) {
-            rf.setPower(-forward);
-            lb.setPower(-forward);
-            rb.setPower(0);
-            lf.setPower(0);
-        }
-        if (side>0.75 && forward<-0.75) {
-            lf.setPower(-forward);
-            rb.setPower(forward);
+
+        if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
             lb.setPower(0);
-            rf.setPower(0);
-        }
-        if (side<-0.75 && forward>0.75) {
-            rb.setPower(forward);
-            lf.setPower(-forward);
-            lb.setPower(0);
-            rf.setPower(0);
-        }
-**/
-
-
-        if ((side>-0.25 && side<0.25) || (forward>-0.25 && forward<0.25) || ((turning>-0.25 && turning<0.25))) {
-            lb.setPower(0);
-
             lf.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
         }
+
 
 
         telemetry.addData("Left motor values",forward);
@@ -121,8 +94,8 @@ public class FINALmecanum extends OpMode {
     }
 
     double scaleInput(double dVal)  {
-        double[] scaleArray = { 0.0, 0.05, 0.09, 0.10, 0.12, 0.15, 0.18, 0.24,
-                0.30, 0.36, 0.43, 0.50, 0.60, 0.72, 0.85, 1.00, 1.00 };
+        double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.,
+                0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
 
         // get the corresponding index for the scaleInput array.
         int index = (int) (dVal * 16.0);
