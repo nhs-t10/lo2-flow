@@ -31,27 +31,27 @@ public class AutonomousTest extends LinearOpMode  {
             lf.setDirection(DcMotor.Direction.REVERSE);
             lb.setDirection(DcMotor.Direction.REVERSE);
             waitForStart();
-            long timePass = System.currentTimeMillis();
-            if (time + 2 <= System.currentTimeMillis()){
-                wheelSet(1,1,1,1);
-            }
+            //long timePass = System.currentTimeMillis();
+            //if (time + 2 <= System.currentTimeMillis()){
+            //    wheelSet(1,1,1,1);
+            //}
 
-            //wait(5000);
-            //wheelSet(.5, .5, -.5, -.5);
-            //wait(3000);
-            //wheelSet(0, 0, 0, 0);
-            //sleep(4000);
-            //wheelSet(1, 1, -1, -1);
-            //sleep(2000);
-            //wheelSet(0, 0, 0, 0);
-           //sleep(4000);
-            //wheelSet(1, 1, -1, -1);
-            //sleep(3000);
-            //wheelSet(0, 0, 0, 0);
-            //sleep(4000);
-            //wheelSet(1, 1, -1, -1);
-           // sleep(4000);
-           // wheelSet(0, 0, 0, 0);
+
+            wheelSet(.5, .5, -.5, -.5);
+            wait(3000);
+            wheelSet(0, 0, 0, 0);
+            wait(4000);
+            wheelSet(1, 1, -1, -1);
+            wait(2000);
+            wheelSet(0, 0, 0, 0);
+           wait(4000);
+            wheelSet(1, 1, -1, -1);
+            wait(3000);
+            wheelSet(0, 0, 0, 0);
+            wait(4000);
+            wheelSet(1, 1, -1, -1);
+            wait(4000);
+           wheelSet(0, 0, 0, 0);
         }
         catch(Exception e){
             System.err.println("Error handler:");
