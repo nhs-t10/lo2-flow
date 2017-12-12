@@ -27,7 +27,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         telemetry.addData("Ready", "Clamp Ready");
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
-        //declares 
+        //declares motors and servos for movement and clamp
     }
 
     @Override
@@ -35,19 +35,23 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
+        //parts of controller responsible for movement and clamp
 
         squeeze = Range.clip(squeeze, -1, 1);
         forward = Range.clip(forward,-1,1);
         turning = Range.clip(turning,-1,1);
+        //clipping range
 
 
         forward = (double)scaleInput(forward);
         turning = (double)scaleInput(turning);
+        //refers to set values at the end of the code
 
         if (squeeze >= 0 ){
             lc.setPosition(squeeze);
             rc.setPosition(Math.abs(squeeze-1));
         }
+        //setting up the clamp so it uses the values of the trigger pull
         if (forward>0.25){
 
             lf.setPower(-forward);
@@ -55,8 +59,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-
-
+        //forward movement
         if (forward<-0.25){
 
             lf.setPower(-forward);
@@ -65,8 +68,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             lb.setPower(-forward);
 
         }
-
-
+        //backwards movement
         if (turning>0.25){
 
             lb.setPower(-turning);
@@ -75,7 +77,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(-turning);
 
         }
-
+        //turning right
         if (turning<-0.25) {
 
             lb.setPower(-turning);
@@ -83,21 +85,19 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rf.setPower(-turning);
             rb.setPower(-turning);
         }
-
-
+        //turning left
         if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
             lb.setPower(0);
             lf.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
         }
-
-
-
+        //making sure the robot stops moving
         telemetry.addData("Left motor values",forward);
         telemetry.addData("Right motor values",turning);
 
     }
+    //printing values the motors are using
 
     @Override
     public void stop(){
@@ -107,30 +107,29 @@ public class onPhoneMVMTCLAMP extends OpMode {
     double scaleInput(double dVal)  {
         double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.,
                 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
+        /**
+        values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
+        the stick is pushed or pulled
+        **/
 
-        // get the corresponding index for the scaleInput array.
         int index = (int) (dVal * 16.0);
 
-        // index should be positive.
         if (index < 0) {
             index = -index;
         }
-
-        // index cannot exceed size of array minus 1.
-        // James Says: This code works just fine, except you could also use "scaleArray.length"
         if (index > 16) {
             index = 16;
         }
 
-        // get value from the array.
         double dScale = 0.0;
         if (dVal < 0) {
             dScale = -scaleArray[index];
         } else {
             dScale = scaleArray[index];
         }
-        // return scaled value.
+
         return dScale;
+
     }
 
 
