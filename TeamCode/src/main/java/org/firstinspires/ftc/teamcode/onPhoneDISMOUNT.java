@@ -38,7 +38,8 @@ public class onPhoneDISMOUNT extends OpMode {
     public void loop() {
 
 
-        if (color.blue() >= 0 && time == 0){
+        if (color.blue()  >= 0 && time == 0){
+            /**color sensor and time are used to intiate movement**/
             time = System.currentTimeMillis();
             lf.setPower(1);
             lb.setPower(1);
