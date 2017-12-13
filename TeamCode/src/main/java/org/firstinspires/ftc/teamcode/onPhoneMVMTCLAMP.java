@@ -38,7 +38,6 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double squeeze = gamepad1.right_trigger;
         boolean B = gamepad1.b; /** speed boost **/
         //parts of controller responsible for movement and clamp
-        rc.setPosition(squeeze);
         squeeze = Range.clip(squeeze, 0, 0.5);
         forward = Range.clip(forward, -1, 1);
         turning = Range.clip(turning, -1, 1);
@@ -48,7 +47,6 @@ public class onPhoneMVMTCLAMP extends OpMode {
         forward = (double) scaleInput(forward);
         turning = (double) scaleInput(turning);
         //refers to set values at the end of the code
-
         if (squeeze >= 0) {
             lc.setPosition(squeeze);
             rc.setPosition(Math.abs(squeeze - 1));
