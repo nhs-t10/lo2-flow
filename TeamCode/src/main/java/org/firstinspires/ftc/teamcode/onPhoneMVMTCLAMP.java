@@ -28,6 +28,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
         //declares motors and servos for movement and clamp
+
     }
 
     @Override
@@ -36,8 +37,8 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
         //parts of controller responsible for movement and clamp
-
-        squeeze = Range.clip(squeeze, -1, 1);
+        rc.setPosition(squeeze);
+        squeeze = Range.clip(squeeze, 0, 0.5);
         forward = Range.clip(forward,-1,1);
         turning = Range.clip(turning,-1,1);
         //clipping range
@@ -110,7 +111,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         /**
         values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
         the stick is pushed or pulled
-        **/
+        */
 
         int index = (int) (dVal * 16.0);
 
