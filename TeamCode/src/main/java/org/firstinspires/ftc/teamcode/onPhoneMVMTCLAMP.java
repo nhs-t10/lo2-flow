@@ -36,7 +36,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
-        boolean A = gamepad1.a; /** speed boost **/
+        boolean B = gamepad1.b; /** speed boost **/
         //parts of controller responsible for movement and clamp
         rc.setPosition(squeeze);
         squeeze = Range.clip(squeeze, 0, 0.5);
@@ -61,7 +61,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-        if ((forward > 0.25) && (A = true)) {
+        if ((forward > 0.25) && (B = true)) {
 
             lf.setPower(-1);
             rf.setPower(1);
@@ -77,7 +77,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             lb.setPower(-forward);
 
         }
-        if ((forward < -0.25) && (A = true)) {
+        if ((forward < -0.25) && (B = true)) {
 
             lf.setPower(1);
             rf.setPower(-1);
@@ -94,7 +94,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(-turning);
 
         }
-        if ((turning > 0.25) && (A = true)) {
+        if ((turning > 0.25) && (B = true)) {
 
             lb.setPower(-1);
             lf.setPower(-1);
@@ -110,7 +110,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rf.setPower(-turning);
             rb.setPower(-turning);
         }
-        if ((turning < -0.25) && (A = true)) {
+        if ((turning < -0.25) && (B = true)) {
 
             lb.setPower(1);
             lf.setPower(1);
