@@ -32,74 +32,106 @@ public class onPhoneMVMTCLAMP extends OpMode {
     }
 
     @Override
-    public void loop(){
+    public void loop() {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
+        boolean A = gamepad1.a; /** speed boost **/
         //parts of controller responsible for movement and clamp
         rc.setPosition(squeeze);
         squeeze = Range.clip(squeeze, 0, 0.5);
-        forward = Range.clip(forward,-1,1);
-        turning = Range.clip(turning,-1,1);
+        forward = Range.clip(forward, -1, 1);
+        turning = Range.clip(turning, -1, 1);
         //clipping range
 
 
-        forward = (double)scaleInput(forward);
-        turning = (double)scaleInput(turning);
+        forward = (double) scaleInput(forward);
+        turning = (double) scaleInput(turning);
         //refers to set values at the end of the code
 
-        if (squeeze >= 0 ){
+        if (squeeze >= 0) {
             lc.setPosition(squeeze);
-            rc.setPosition(Math.abs(squeeze-1));
+            rc.setPosition(Math.abs(squeeze - 1));
         }
         //setting up the clamp so it uses the values of the trigger pull
-        if (forward>0.25){
+        if (forward > 0.25) {
 
             lf.setPower(-forward);
             rf.setPower(forward);
             rb.setPower(forward);
             lb.setPower(-forward);
         }
+        if ((forward > 0.25) && (A = true)) {
+
+            lf.setPower(-1);
+            rf.setPower(1);
+            rb.setPower(1);
+            lb.setPower(-1);
+        }
         //forward movement
-        if (forward<-0.25){
+        if (forward < -0.25) {
 
             lf.setPower(-forward);
             rf.setPower(forward);
             rb.setPower(forward);
             lb.setPower(-forward);
+
+        }
+        if ((forward < -0.25) && (A = true)) {
+
+            lf.setPower(1);
+            rf.setPower(-1);
+            rb.setPower(-1);
+            lb.setPower(1);
 
         }
         //backwards movement
-        if (turning>0.25){
+        if (turning > 0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
             rf.setPower(-turning);
             rb.setPower(-turning);
+
+        }
+        if ((turning > 0.25) && (A = true)) {
+
+            lb.setPower(-1);
+            lf.setPower(-1);
+            rf.setPower(-1);
+            rb.setPower(-1);
 
         }
         //turning right
-        if (turning<-0.25) {
+        if (turning < -0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
             rf.setPower(-turning);
             rb.setPower(-turning);
         }
+        if ((turning < -0.25) && (A = true)) {
+
+            lb.setPower(1);
+            lf.setPower(1);
+            rf.setPower(1);
+            rb.setPower(1);
+        }
         //turning left
-        if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
+        if ((turning > -0.25 && turning < 0.25) || (forward > -0.25 && forward < 0.25)) {
             lb.setPower(0);
             lf.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
         }
         //making sure the robot stops moving
-        telemetry.addData("Left motor values",forward);
-        telemetry.addData("Right motor values",turning);
+        telemetry.addData("Left motor values", forward);
+        telemetry.addData("Right motor values", turning);
+
+
+        //printing values the motors are using
 
     }
-    //printing values the motors are using
-
     @Override
     public void stop(){
 
