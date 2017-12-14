@@ -28,77 +28,108 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
         //declares motors and servos for movement and clamp
+
     }
 
     @Override
-    public void loop(){
+    public void loop() {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
+        boolean B = gamepad1.b; /** speed boost **/
         //parts of controller responsible for movement and clamp
-
-        squeeze = Range.clip(squeeze, -1, 1);
-        forward = Range.clip(forward,-1,1);
-        turning = Range.clip(turning,-1,1);
+        squeeze = Range.clip(squeeze, 0, 0.5);
+        forward = Range.clip(forward, -1, 1);
+        turning = Range.clip(turning, -1, 1);
         //clipping range
 
 
-        forward = (double)scaleInput(forward);
-        turning = (double)scaleInput(turning);
+        forward = (double) scaleInput(forward);
+        turning = (double) scaleInput(turning);
         //refers to set values at the end of the code
-
-        if (squeeze >= 0 ){
+        if (squeeze >= 0) {
             lc.setPosition(squeeze);
-            rc.setPosition(Math.abs(squeeze-1));
+            rc.setPosition(Math.abs(squeeze - 1));
         }
         //setting up the clamp so it uses the values of the trigger pull
-        if (forward>0.25){
+        if (forward > 0.25) {
 
             lf.setPower(-forward);
-            rf.setPower(forward);
+            rf.setPower(forward + 0.3);
             rb.setPower(forward);
             lb.setPower(-forward);
         }
+        if ((forward > 0.25) && (B == true)) {
+
+            lf.setPower(-1);
+            rf.setPower(1 + 0.3);
+            rb.setPower(1);
+            lb.setPower(-1);
+        }
         //forward movement
-        if (forward<-0.25){
+        if (forward < -0.25) {
 
             lf.setPower(-forward);
-            rf.setPower(forward);
+            rf.setPower(forward +0.7);
             rb.setPower(forward);
             lb.setPower(-forward);
+
+        }
+        if ((forward < -0.25) && (B == true)) {
+
+            lf.setPower(1);
+            rf.setPower(-1 - 0.7);
+            rb.setPower(-1);
+            lb.setPower(1);
 
         }
         //backwards movement
-        if (turning>0.25){
+        if (turning > 0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning);
+            rf.setPower(-turning - 0.3);
             rb.setPower(-turning);
+
+        }
+        if ((turning > 0.25) && (B == true)) {
+
+            lb.setPower(-1);
+            lf.setPower(-1);
+            rf.setPower(-1 -0.3);
+            rb.setPower(-1);
 
         }
         //turning right
-        if (turning<-0.25) {
+        if (turning < -0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning);
+            rf.setPower(-turning - 0.3);
             rb.setPower(-turning);
         }
+        if ((turning < -0.25) && (B == true)) {
+
+            lb.setPower(1);
+            lf.setPower(1);
+            rf.setPower(1 + 0.3);
+            rb.setPower(1);
+        }
         //turning left
-        if ((turning>-0.25 && turning<0.25) || (forward>-0.25 && forward<0.25)) {
+        if ((turning > -0.25 && turning < 0.25) || (forward > -0.25 && forward < 0.25)) {
             lb.setPower(0);
             lf.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
         }
         //making sure the robot stops moving
-        telemetry.addData("Left motor values",forward);
-        telemetry.addData("Right motor values",turning);
+        telemetry.addData("Left motor values", forward);
+        telemetry.addData("Right motor values", turning);
+
+
+        //printing values the motors are using
 
     }
-    //printing values the motors are using
-
     @Override
     public void stop(){
 
@@ -110,7 +141,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         /**
         values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
         the stick is pushed or pulled
-        **/
+        */
 
         int index = (int) (dVal * 16.0);
 
