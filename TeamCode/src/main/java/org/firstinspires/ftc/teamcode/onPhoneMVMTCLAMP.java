@@ -55,14 +55,14 @@ public class onPhoneMVMTCLAMP extends OpMode {
         if (forward > 0.25) {
 
             lf.setPower(-forward);
-            rf.setPower(forward);
+            rf.setPower(forward + 0.3);
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-        if ((forward > 0.25) && (B = true)) {
+        if ((forward > 0.25) && (B == true)) {
 
             lf.setPower(-1);
-            rf.setPower(1);
+            rf.setPower(1 + 0.3);
             rb.setPower(1);
             lb.setPower(-1);
         }
@@ -70,15 +70,15 @@ public class onPhoneMVMTCLAMP extends OpMode {
         if (forward < -0.25) {
 
             lf.setPower(-forward);
-            rf.setPower(forward);
+            rf.setPower(forward +0.7);
             rb.setPower(forward);
             lb.setPower(-forward);
 
         }
-        if ((forward < -0.25) && (B = true)) {
+        if ((forward < -0.25) && (B == true)) {
 
             lf.setPower(1);
-            rf.setPower(-1);
+            rf.setPower(-1 - 0.7);
             rb.setPower(-1);
             lb.setPower(1);
 
@@ -88,15 +88,15 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning);
+            rf.setPower(-turning - 0.3);
             rb.setPower(-turning);
 
         }
-        if ((turning > 0.25) && (B = true)) {
+        if ((turning > 0.25) && (B == true)) {
 
             lb.setPower(-1);
             lf.setPower(-1);
-            rf.setPower(-1);
+            rf.setPower(-1 -0.3);
             rb.setPower(-1);
 
         }
@@ -105,14 +105,14 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning);
+            rf.setPower(-turning - 0.3);
             rb.setPower(-turning);
         }
-        if ((turning < -0.25) && (B = true)) {
+        if ((turning < -0.25) && (B == true)) {
 
             lb.setPower(1);
             lf.setPower(1);
-            rf.setPower(1);
+            rf.setPower(1 + 0.3);
             rb.setPower(1);
         }
         //turning left
