@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 @TeleOp(name = "FINALteleOp")
 public class onPhoneMVMTCLAMP extends OpMode {
-    DcMotor lf, rf, lb, rb;
+    private DcMotor lf, rf, lb, rb;
     private Servo lc, rc, l2, l1;
 
     @Override
@@ -38,8 +38,8 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
-        boolean B = gamepad1.b; /** speed boost **/
-        boolean T = gamepad1.left_bumper;
+        boolean B = gamepad1.b; /* speed boost **/
+        boolean T = gamepad1.left_bumper; /* toggle switch for lifting the clamp */
 
         //parts of controller responsible for movement and clamp
         squeeze = Range.clip(squeeze, 0, 0.5);
@@ -152,7 +152,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
     double scaleInput(double dVal)  {
         double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.,
                 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
-        /**
+        /*
         values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
         the stick is pushed or pulled
         */
