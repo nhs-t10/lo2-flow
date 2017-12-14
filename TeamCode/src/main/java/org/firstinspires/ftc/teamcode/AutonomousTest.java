@@ -38,9 +38,9 @@ public class AutonomousTest extends LinearOpMode  {
 
 
             wheelSet(.5, .5, -.5, -.5);
-            wait(3000);
+            wait(200);
             wheelSet(0, 0, 0, 0);
-            wait(4000);
+           /* wait(4000);
             wheelSet(1, 1, -1, -1);
             wait(2000);
             wheelSet(0, 0, 0, 0);
@@ -51,7 +51,7 @@ public class AutonomousTest extends LinearOpMode  {
             wait(4000);
             wheelSet(1, 1, -1, -1);
             wait(4000);
-           wheelSet(0, 0, 0, 0);
+           wheelSet(0, 0, 0, 0);*/
         }
         catch(Exception e){
             System.err.println("Error handler:");
