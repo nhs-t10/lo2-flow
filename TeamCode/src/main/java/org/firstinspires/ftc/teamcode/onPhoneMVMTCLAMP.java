@@ -10,10 +10,10 @@ import com.qualcomm.robotcore.util.Range;
 /**
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "FINALmvmtclamp")
+@TeleOp(name = "FINALteleOp")
 public class onPhoneMVMTCLAMP extends OpMode {
     DcMotor lf, rf, lb, rb;
-    private Servo lc, rc;
+    private Servo lc, rc, l2, l1;
 
     @Override
     public void init(){
@@ -23,11 +23,13 @@ public class onPhoneMVMTCLAMP extends OpMode {
         rb = hardwareMap.dcMotor.get("m3");
         lc = hardwareMap.servo.get("s1");
         rc = hardwareMap.servo.get("s0");
+        l2 = hardwareMap.servo.get("s2");
+        l1 = hardwareMap.servo.get("s3");
 
         telemetry.addData("Ready", "Clamp Ready");
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
-        //declares motors and servos for movement and clamp
+        //declares motors and servos for movement and clamp etc
 
     }
 
@@ -37,6 +39,8 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
         boolean B = gamepad1.b; /** speed boost **/
+        boolean T = gamepad1.left_bumper;
+
         //parts of controller responsible for movement and clamp
         squeeze = Range.clip(squeeze, 0, 0.5);
         forward = Range.clip(forward, -1, 1);
@@ -47,6 +51,16 @@ public class onPhoneMVMTCLAMP extends OpMode {
         forward = (double) scaleInput(forward);
         turning = (double) scaleInput(turning);
         //refers to set values at the end of the code
+
+        T = ! T;
+
+        if (T == true) {
+            l1.setPosition(0.25);
+            l1.setPosition(0.25);
+        }   else {
+            l1.setPosition(0);
+            l2.setPosition(0);
+        }
         if (squeeze >= 0) {
             lc.setPosition(squeeze);
             rc.setPosition(Math.abs(squeeze - 1));
@@ -70,7 +84,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         if (forward < -0.25) {
 
             lf.setPower(-forward);
-            rf.setPower(forward +0.7);
+            rf.setPower(forward - 0.3);
             rb.setPower(forward);
             lb.setPower(-forward);
 
@@ -78,7 +92,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         if ((forward < -0.25) && (B == true)) {
 
             lf.setPower(1);
-            rf.setPower(-1 - 0.7);
+            rf.setPower(-1 - 0.3);
             rb.setPower(-1);
             lb.setPower(1);
 
@@ -105,7 +119,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning - 0.3);
+            rf.setPower(-turning + 0.3);
             rb.setPower(-turning);
         }
         if ((turning < -0.25) && (B == true)) {
