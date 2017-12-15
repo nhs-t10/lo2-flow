@@ -51,11 +51,10 @@ public class onPhoneMVMTCLAMP extends OpMode {
         forward = (double) scaleInput(forward);
         turning = (double) scaleInput(turning);
         //refers to set values at the end of the code
-        T = !T;
 
         if (T) {
-            l2.setPosition(0.25);
-            l1.setPosition(0.25);
+            l2.setPosition(0.15);
+            l1.setPosition(0.15);
         } else {
             l1.setPosition(0);
             l2.setPosition(0);
