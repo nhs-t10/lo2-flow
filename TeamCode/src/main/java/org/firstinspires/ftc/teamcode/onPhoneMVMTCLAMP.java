@@ -7,10 +7,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-/**
+/*
  * Created by tripszewczak on 10/5/17.
  */
 @TeleOp(name = "FINALteleOp")
+@SuppressWarnings("unused")
 public class onPhoneMVMTCLAMP extends OpMode {
     private DcMotor lf, rf, lb, rb;
     private Servo lc, rc, l2, l1;
@@ -47,19 +48,21 @@ public class onPhoneMVMTCLAMP extends OpMode {
         turning = Range.clip(turning, -1, 1);
         //clipping range
 
-
         forward = (double) scaleInput(forward);
         turning = (double) scaleInput(turning);
         //refers to set values at the end of the code
+        T = !T;
 
-        T = ! T;
-
-        if (T == true) {
+        if (T) {
+            l2.setPosition(0.25);
             l1.setPosition(0.25);
-            l1.setPosition(0.25);
-        }   else {
+        } else {
             l1.setPosition(0);
             l2.setPosition(0);
+        /*if (T2) {
+            l1.setPosition(0);
+            l2.setPosition(0);
+        }*/
         }
         if (squeeze >= 0) {
             lc.setPosition(squeeze);
@@ -73,7 +76,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-        if ((forward > 0.25) && (B == true)) {
+        if ((forward > 0.25) && (B)) {
 
             lf.setPower(-1);
             rf.setPower(1 + 0.3);
@@ -89,7 +92,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             lb.setPower(-forward);
 
         }
-        if ((forward < -0.25) && (B == true)) {
+        if ((forward < -0.25) && (B)) {
 
             lf.setPower(1);
             rf.setPower(-1 - 0.3);
@@ -106,7 +109,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(-turning);
 
         }
-        if ((turning > 0.25) && (B == true)) {
+        if ((turning > 0.25) && (B)) {
 
             lb.setPower(-1);
             lf.setPower(-1);
@@ -122,7 +125,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rf.setPower(-turning + 0.3);
             rb.setPower(-turning);
         }
-        if ((turning < -0.25) && (B == true)) {
+        if ((turning < -0.25) && (B)) {
 
             lb.setPower(1);
             lf.setPower(1);

@@ -28,7 +28,7 @@ public class Color_Blue extends OpMode {
 
     @Override
     public synchronized void init() {
-        colorKnocker = hardwareMap.servo.get("s2");
+        colorKnocker = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
         lf = hardwareMap.dcMotor.get("m0");
         rf = hardwareMap.dcMotor.get("m1");
