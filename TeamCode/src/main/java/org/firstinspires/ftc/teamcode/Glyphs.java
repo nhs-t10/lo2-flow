@@ -13,7 +13,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 
 
-@TeleOp(name = "glyph arm")
+//@TeleOp(name = "glyph arm")
 public class Glyphs extends OpMode {
 
     private DcMotor lift1,lift2,lift3;
