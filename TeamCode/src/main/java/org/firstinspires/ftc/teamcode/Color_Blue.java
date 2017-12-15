@@ -17,7 +17,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 @Autonomous(name = "JewelBlue")
 public class Color_Blue extends OpMode {
 
-
+//Declaring the servos, motors and colorsensor.
     private Servo colorKnocker;
     private ColorSensor color;
     private DcMotor rf, lf, rb, lb;
