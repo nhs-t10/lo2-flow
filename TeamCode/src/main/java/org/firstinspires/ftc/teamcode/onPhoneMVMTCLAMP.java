@@ -100,15 +100,15 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
         }
         //backwards movement
-        if (turning > 0.25) {
+        /*if (turning > 0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
             rf.setPower(-turning - 0.3);
             rb.setPower(-turning);
 
-        }
-        if ((turning > 0.25) && (B)) {
+       }*/
+        if (turning > 0.25) {
 
             lb.setPower(-1);
             lf.setPower(-1);
@@ -117,14 +117,14 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
         }
         //turning right
-        if (turning < -0.25) {
+        /*if (turning < -0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
             rf.setPower(-turning + 0.3);
             rb.setPower(-turning);
-        }
-        if ((turning < -0.25) && (B)) {
+        }*/
+        if (turning < -0.25) {
 
             lb.setPower(1);
             lf.setPower(1);
