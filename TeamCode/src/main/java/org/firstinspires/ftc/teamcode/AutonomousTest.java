@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
-@Autonomous(name = "PlatformDismount")
+@Autonomous(name = "test")
 @SuppressWarnings("unused")
 public class AutonomousTest extends LinearOpMode  {
     private DcMotor lf, lb, rf, rb;

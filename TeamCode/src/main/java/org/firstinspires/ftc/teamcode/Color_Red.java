@@ -18,7 +18,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 //import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
-@Autonomous(name = "JewelRed")
+//@Autonomous(name = "JewelRed")
 public class Color_Red extends OpMode {
 
 

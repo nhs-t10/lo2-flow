@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
-@Autonomous(name = "Dismount")
+@Autonomous(name = "CurrentDismount")
 public class onPhoneDISMOUNT extends OpMode {
 
 
