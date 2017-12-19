@@ -7,13 +7,16 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-/**
+import org.jetbrains.annotations.Contract;
+
+/*
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "FINALmvmtclamp")
+@TeleOp(name = "FINALteleOp")
+@SuppressWarnings("unused")
 public class onPhoneMVMTCLAMP extends OpMode {
-    DcMotor lf, rf, lb, rb;
-    private Servo lc, rc;
+    private DcMotor lf, rf, lb, rb;
+    private Servo lc, rc, l2, l1;
 
     @Override
     public void init(){
@@ -23,30 +26,46 @@ public class onPhoneMVMTCLAMP extends OpMode {
         rb = hardwareMap.dcMotor.get("m3");
         lc = hardwareMap.servo.get("s1");
         rc = hardwareMap.servo.get("s0");
+        l2 = hardwareMap.servo.get("s2");
+        l1 = hardwareMap.servo.get("s3");
 
         telemetry.addData("Ready", "Clamp Ready");
 
         telemetry.addData("Message 1", "Motors and Servos Declared! All Systems go!");
-        //declares motors and servos for movement and clamp
+        //declares motors and servos for movement and clamp etc
 
     }
 
     @Override
     public void loop() {
+        double sideways = gamepad1.left_stick_x;
         double forward = gamepad1.left_stick_y;
-        double turning = gamepad1.left_stick_x;
+        double turning = gamepad1.right_stick_x;
         double squeeze = gamepad1.right_trigger;
-        boolean B = gamepad1.b; /** speed boost **/
+        boolean B = gamepad1.b; /* speed boost **/
+        boolean T = gamepad1.left_bumper; /* toggle switch for lifting the clamp */
+
         //parts of controller responsible for movement and clamp
         squeeze = Range.clip(squeeze, 0, 0.5);
         forward = Range.clip(forward, -1, 1);
         turning = Range.clip(turning, -1, 1);
         //clipping range
 
-
-        forward = (double) scaleInput(forward);
-        turning = (double) scaleInput(turning);
+        forward = scaleInput(forward);
+        turning = scaleInput(turning);
         //refers to set values at the end of the code
+
+        if (T) {
+            l2.setPosition(0.15);
+            l1.setPosition(0.15);
+        } else {
+            l1.setPosition(0);
+            l2.setPosition(0);
+        /*if (T2) {
+            l1.setPosition(0);
+            l2.setPosition(0);
+        }*/
+        }
         if (squeeze >= 0) {
             lc.setPosition(squeeze);
             rc.setPosition(Math.abs(squeeze - 1));
@@ -59,7 +78,19 @@ public class onPhoneMVMTCLAMP extends OpMode {
             rb.setPower(forward);
             lb.setPower(-forward);
         }
-        if ((forward > 0.25) && (B == true)) {
+        if (sideways > 0.25) {
+            lf.setPower(-1);
+            rf.setPower(-1 - 0.3);
+            lb.setPower(1);
+            rb.setPower(1);
+        }
+        if (sideways < -0.25) {
+            lf.setPower(1);
+            rf.setPower(1 + 0.3);
+            rb.setPower(-1);
+            lb.setPower(-1);
+        }
+        if ((forward > 0.25) && (B)) {
 
             lf.setPower(-1);
             rf.setPower(1 + 0.3);
@@ -70,29 +101,29 @@ public class onPhoneMVMTCLAMP extends OpMode {
         if (forward < -0.25) {
 
             lf.setPower(-forward);
-            rf.setPower(forward +0.7);
+            rf.setPower(forward - 0.3);
             rb.setPower(forward);
             lb.setPower(-forward);
 
         }
-        if ((forward < -0.25) && (B == true)) {
+        if ((forward < -0.25) && (B)) {
 
             lf.setPower(1);
-            rf.setPower(-1 - 0.7);
+            rf.setPower(-1 - 0.3);
             rb.setPower(-1);
             lb.setPower(1);
 
         }
         //backwards movement
-        if (turning > 0.25) {
+        /*if (turning > 0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
             rf.setPower(-turning - 0.3);
             rb.setPower(-turning);
 
-        }
-        if ((turning > 0.25) && (B == true)) {
+       }*/
+        if (turning > 0.25) {
 
             lb.setPower(-1);
             lf.setPower(-1);
@@ -101,14 +132,14 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
         }
         //turning right
-        if (turning < -0.25) {
+        /*if (turning < -0.25) {
 
             lb.setPower(-turning);
             lf.setPower(-turning);
-            rf.setPower(-turning - 0.3);
+            rf.setPower(-turning + 0.3);
             rb.setPower(-turning);
-        }
-        if ((turning < -0.25) && (B == true)) {
+        }*/
+        if (turning < -0.25) {
 
             lb.setPower(1);
             lf.setPower(1);
@@ -135,10 +166,11 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
     }
 
-    double scaleInput(double dVal)  {
+    @Contract(pure = true)
+    private double scaleInput(double dVal)  {
         double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.,
                 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
-        /**
+        /*
         values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
         the stick is pushed or pulled
         */
@@ -152,7 +184,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
             index = 16;
         }
 
-        double dScale = 0.0;
+        double dScale;
         if (dVal < 0) {
             dScale = -scaleArray[index];
         } else {

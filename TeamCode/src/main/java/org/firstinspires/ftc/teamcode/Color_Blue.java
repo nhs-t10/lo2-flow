@@ -14,10 +14,10 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 //import com.qualcomm.robotcore.hardware.NormalizedRGBA;
 //import org.firstinspires.ftc.robotcontroller.external.samples.SensorColor;
 
-@Autonomous(name = "JewelBlue")
+//@Autonomous(name = "JewelBlue")
 public class Color_Blue extends OpMode {
 
-
+//Declaring the servos, motors and colorsensor.
     private Servo colorKnocker;
     private ColorSensor color;
     private DcMotor rf, lf, rb, lb;
@@ -28,7 +28,7 @@ public class Color_Blue extends OpMode {
 
     @Override
     public synchronized void init() {
-        colorKnocker = hardwareMap.servo.get("s2");
+        colorKnocker = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
         lf = hardwareMap.dcMotor.get("m0");
         rf = hardwareMap.dcMotor.get("m1");
