@@ -7,8 +7,6 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
 
-import org.jetbrains.annotations.Contract;
-
 /*
  * Created by tripszewczak on 10/5/17.
  */
@@ -170,7 +168,6 @@ public class onPhoneMVMTCLAMP extends OpMode {
 
     }
 
-    @Contract(pure = true)
     private double scaleInput(double dVal)  {
         double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.,
                 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
