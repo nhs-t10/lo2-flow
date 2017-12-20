@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Contract;
 @SuppressWarnings("unused")
 public class onPhoneMVMTCLAMP extends OpMode {
     private DcMotor lf, rf, lb, rb;
-    private Servo lc, rc, l2, l1;
+    private Servo ll, lr, l1, l2, tl, tr;
 
     @Override
     public void init(){
@@ -24,10 +24,12 @@ public class onPhoneMVMTCLAMP extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        lc = hardwareMap.servo.get("s1");
-        rc = hardwareMap.servo.get("s0");
+        ll = hardwareMap.servo.get("s1");
+        lr = hardwareMap.servo.get("s0");
         l2 = hardwareMap.servo.get("s2");
         l1 = hardwareMap.servo.get("s3");
+        //tl = hardwareMap.servo.get("s4");
+        //tr = hardwareMap.servo.get("s5");
 
         telemetry.addData("Ready", "Clamp Ready");
 
@@ -42,6 +44,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.right_stick_x;
         double squeeze = gamepad1.right_trigger;
+        double topsqueeze = gamepad1.left_trigger;
         boolean B = gamepad1.b; /* speed boost **/
         boolean T = gamepad1.left_bumper; /* toggle switch for lifting the clamp */
 
@@ -49,6 +52,7 @@ public class onPhoneMVMTCLAMP extends OpMode {
         squeeze = Range.clip(squeeze, 0, 0.5);
         forward = Range.clip(forward, -1, 1);
         turning = Range.clip(turning, -1, 1);
+        //topsqueeze = Range.clip(topsqueeze, -1, 1);
         //clipping range
 
         forward = scaleInput(forward);
@@ -61,14 +65,14 @@ public class onPhoneMVMTCLAMP extends OpMode {
         } else {
             l1.setPosition(0);
             l2.setPosition(0);
-        /*if (T2) {
-            l1.setPosition(0);
-            l2.setPosition(0);
-        }*/
         }
+        /*if (topsqueeze >=0) {
+            tl.setPosition(topsqueeze);
+            tr.setPosition(Math.abs(topsqueeze - 1));
+        }*/
         if (squeeze >= 0) {
-            lc.setPosition(squeeze);
-            rc.setPosition(Math.abs(squeeze - 1));
+            ll.setPosition(squeeze);
+            lr.setPosition(Math.abs(squeeze - 1));
         }
         //setting up the clamp so it uses the values of the trigger pull
         if (forward > 0.25) {

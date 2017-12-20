@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "Sasha-SriPlatformDismount")
+@Autonomous(name = "test2")
 @SuppressWarnings("unused")
 public class AutonoumousCornerStart extends LinearOpMode  {
     private DcMotor lf, lb, rf, rb;
