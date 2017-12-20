@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Contract;
 @SuppressWarnings("unused")
 public class onPhoneMVMTCLAMP extends OpMode {
     private DcMotor lf, rf, lb, rb;
-    private Servo lc, rc, l2, l1, t1, t2;
+    private Servo ll, lr, l1, l2, tl, tr;
 
     @Override
     public void init(){
@@ -24,12 +24,12 @@ public class onPhoneMVMTCLAMP extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        lc = hardwareMap.servo.get("s1");
-        rc = hardwareMap.servo.get("s0");
+        ll = hardwareMap.servo.get("s1");
+        lr = hardwareMap.servo.get("s0");
         l2 = hardwareMap.servo.get("s2");
         l1 = hardwareMap.servo.get("s3");
-        //t1 = hardwareMap.servo.get("s4");
-        //t2 = hardwareMap.servo.get("s5");
+        //tl = hardwareMap.servo.get("s4");
+        //tr = hardwareMap.servo.get("s5");
 
         telemetry.addData("Ready", "Clamp Ready");
 
@@ -67,12 +67,12 @@ public class onPhoneMVMTCLAMP extends OpMode {
             l2.setPosition(0);
         }
         /*if (topsqueeze >=0) {
-            lc.setPosition(topsqueeze);
-            rc.setPosition(Math.abs(topsqueeze - 1));
+            tl.setPosition(topsqueeze);
+            tr.setPosition(Math.abs(topsqueeze - 1));
         }*/
         if (squeeze >= 0) {
-            lc.setPosition(squeeze);
-            rc.setPosition(Math.abs(squeeze - 1));
+            ll.setPosition(squeeze);
+            lr.setPosition(Math.abs(squeeze - 1));
         }
         //setting up the clamp so it uses the values of the trigger pull
         if (forward > 0.25) {
