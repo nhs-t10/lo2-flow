@@ -68,7 +68,7 @@ public class AutonoumousCornerStart extends LinearOpMode  {
     private static void waitFor(long durationInMillis){
         long waitTime = System.currentTimeMillis() +durationInMillis;
         while (waitTime > System.currentTimeMillis()){
-            
+
         }
     }
 

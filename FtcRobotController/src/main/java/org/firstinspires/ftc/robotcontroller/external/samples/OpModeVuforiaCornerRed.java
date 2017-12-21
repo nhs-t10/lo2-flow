@@ -3,6 +3,7 @@ package org.firstinspires.ftc.robotcontroller.external.samples;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -24,7 +25,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous(name = "vuforia corner start red")
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
-public class vuforiaDetector extends LinearOpMode{
+public class OpModeVuroriaCornerRed extends OpMode{
     private DcMotor lf, lb, rf, rb;
     private Servo l, r, colorArm;
     private VuforiaLocalizer vuforia;

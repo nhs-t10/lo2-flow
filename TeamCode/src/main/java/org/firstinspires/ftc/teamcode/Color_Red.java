@@ -74,6 +74,7 @@ public class Color_Red extends OpMode {
             sawRed = false;
             colorKnocker.setPosition(1);
             //sets position up
+            //ill save you
         }
 
         if (color.blue() > 90 && !sawBlue && time == 0){

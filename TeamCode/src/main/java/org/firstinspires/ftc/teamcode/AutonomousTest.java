@@ -3,18 +3,34 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "test")
+@Autonomous(name = "CentralPlatformDismount")
 @SuppressWarnings("unused")
 public class AutonomousTest extends LinearOpMode  {
     private DcMotor lf, lb, rf, rb;
+    private Servo l,r;
 
-    private void wheelSet(double a0, double a1, double a2, double a3) {
-        lf.setPower(a0);
-        lb.setPower(a1);
-        rf.setPower(a2);
-        rb.setPower(a3);
+    private void wheelSet(double lfPower, double lbPower, double rfPower, double rbPower) {
+        lf.setPower(lfPower);
+        lb.setPower(lbPower);
+        rf.setPower(rfPower);
+        rb.setPower(rbPower);
+    }//overloaded method to make things easier for me
+    private void wheelSet(double lfPower, double lbPower, double rfPower, double rbPower, double lPower, double rPower ){
+        lf.setPower(lfPower);
+        lb.setPower(lbPower);
+        rf.setPower(rfPower);
+        rb.setPower(rbPower);
+        l.setPosition(lPower);
+        r.setPosition(rPower);
     }
+
+    private void servoSet(double lPower, double rPower ){
+        l.setPosition(lPower);
+        r.setPosition(rPower);
+    }
+
 
     @Override
     public void runOpMode() {
@@ -38,20 +54,9 @@ public class AutonomousTest extends LinearOpMode  {
 
 
             wheelSet(.5, .5, -.5, -.5);
-            wait(200);
+            waitFor(200);
             wheelSet(0, 0, 0, 0);
-           /* wait(4000);
-            wheelSet(1, 1, -1, -1);
-            wait(2000);
-            wheelSet(0, 0, 0, 0);
-           wait(4000);
-            wheelSet(1, 1, -1, -1);
-            wait(3000);
-            wheelSet(0, 0, 0, 0);
-            wait(4000);
-            wheelSet(1, 1, -1, -1);
-            wait(4000);
-           wheelSet(0, 0, 0, 0);*/
+
         }
         catch(Exception e){
             System.err.println("Error handler:");
@@ -64,4 +69,11 @@ public class AutonomousTest extends LinearOpMode  {
 
     }
 
+    private static void waitFor(int durationInMillis) {
+        long waitTime = System.currentTimeMillis() + durationInMillis;
+        while (System.currentTimeMillis() < waitTime) {
+            // do nothing just wait
+        }
+
+    }
 }
