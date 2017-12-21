@@ -12,7 +12,7 @@ import com.qualcomm.robotcore.util.Range;
  */
 @TeleOp(name = "FINALteleOp")
 @SuppressWarnings("unused")
-public class onPhoneMVMTCLAMP extends OpMode {
+public class FINALteleOp extends OpMode {
     private DcMotor lf, rf, lb, rb;
     private Servo ll, lr, l1, l2, tl, tr;
 
