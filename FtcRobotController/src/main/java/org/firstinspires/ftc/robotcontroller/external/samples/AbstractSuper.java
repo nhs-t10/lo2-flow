@@ -21,10 +21,26 @@ public abstract class AbstractSuper extends OpMode{
         color = hardwareMap.colorSensor.get("color");
     }
 
+    private void driveFor(long durationInMillis){
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis()<timePassed + durationInMillis){
+             wheelSet(1,1,1,1);
+        }
+
+        wheelSet(0,0,0,0);
+    }
     private void driveFor(long durationInMillis, double rServo, double lServo){
         long timePassed = System.currentTimeMillis();
         while (System.currentTimeMillis()<timePassed + durationInMillis){
             servoSet(lServo,rServo);
+        }
+
+        wheelSet(0,0,0,0);
+    }
+    private void driveFor(long durationInMillis, double lfPower, double rfPower, double lbPower, double rbPower){
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis()<timePassed + durationInMillis){
+            wheelSet(lfPower,rfPower,lbPower,rbPower);
         }
 
         wheelSet(0,0,0,0);
