@@ -3,7 +3,7 @@ package org.firstinspires.ftc.robotcontroller.external.samples;
 import org.firstinspires.ftc.robotcontroller.external.samples.AbstractSuper;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 //import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+//import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
@@ -26,7 +26,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 @Autonomous(name = "vuforia corner start red")
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
-public class OpModeVuroriaCornerRed extends OpMode implements AbstractSuper{
+final class OpModeVuroriaCornerRed extends AbstractSuper{
 
     private DcMotor lf, lb, rf, rb;
     private Servo l, r, colorArm;
@@ -60,7 +60,7 @@ public class OpModeVuroriaCornerRed extends OpMode implements AbstractSuper{
         VuforiaTrackables relicTrackables = this.vuforia.loadTrackablesFromAsset("RelicVuMark");
         VuforiaTrackable relicTemplate = relicTrackables.get(0);
 
-        parameters.vuforiaLicenseKey = "ATsODcD/////AAAAAVw2lR...d45oGpdljdOh5LuFB9nDNfckoxb8COxKSFX";
+        parameters.vuforiaLicenseKey = "AWotUTz/////AAAAmS/ZjdeSL0RtrbZlNB+fD7FAhuR6QgxdFnsswJ+dbEqWTwUV8rGPatpSxmoAvI2pZp9Tk1rqym/tCTId4mASyVo1es0cJ3cRI6WyHfCmZVBVrRkCIbmpHjJVviYcmHFdicFxaex6nFQUkuYTMSs/f3MRZfv+js8LvjdocGIZJxKD5Ud2DWU7Z83ONTE5cC+fyWrY/IK5i/SKFi70MPr0Skdx/qyBZ7DXPXWDI8BLrw4aoQNDRwQ7noE6u+JC7TVGphZ4j9wu2jv13BZUEsncZX5GeUyqJiXVdtf7QdoJJNe5sfyDB+WC/lD4+T6FSbLCIveeGK2fiyGMHk5+pyfQWkeo2FW24acwtHsgjProublN";
         parameters.cameraDirection = VuforiaLocalizer.CameraDirection.BACK;
         this.vuforia = ClassFactory.createVuforiaLocalizer(parameters);
         telemetry.addData("codeStatus","everything is initialized, ready to go");

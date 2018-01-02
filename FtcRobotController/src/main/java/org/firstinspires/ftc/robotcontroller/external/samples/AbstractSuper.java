@@ -21,7 +21,7 @@ public abstract class AbstractSuper extends OpMode{
         color = hardwareMap.colorSensor.get("color");
     }
 
-    private void driveFor(long durationInMillis){
+    public void driveFor(long durationInMillis){
         long timePassed = System.currentTimeMillis();
         while (System.currentTimeMillis()<timePassed + durationInMillis){
              wheelSet(1,1,1,1);
@@ -29,7 +29,7 @@ public abstract class AbstractSuper extends OpMode{
 
         wheelSet(0,0,0,0);
     }
-    private void driveFor(long durationInMillis, double rServo, double lServo){
+    public void driveFor(long durationInMillis, double rServo, double lServo){
         long timePassed = System.currentTimeMillis();
         while (System.currentTimeMillis()<timePassed + durationInMillis){
             servoSet(lServo,rServo);
@@ -37,7 +37,7 @@ public abstract class AbstractSuper extends OpMode{
 
         wheelSet(0,0,0,0);
     }
-    private void driveFor(long durationInMillis, double lfPower, double rfPower, double lbPower, double rbPower){
+    public void driveFor(long durationInMillis, double lfPower, double rfPower, double lbPower, double rbPower){
         long timePassed = System.currentTimeMillis();
         while (System.currentTimeMillis()<timePassed + durationInMillis){
             wheelSet(lfPower,rfPower,lbPower,rbPower);
@@ -45,14 +45,14 @@ public abstract class AbstractSuper extends OpMode{
 
         wheelSet(0,0,0,0);
     }
-    private void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower){
+    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower){
         lf.setPower(lfPower);
         lb.setPower(lbPower);
         rf.setPower(rfPower);
         rb.setPower(rbPower);
     }
 
-    private void servoSet(double lMove, double rMove){
+    public void servoSet(double lMove, double rMove){
         l.setPosition(lMove);
         r.setPosition(rMove);
     }
