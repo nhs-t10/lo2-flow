@@ -77,7 +77,7 @@ public class onPhoneDISMOUNT extends OpMode {
             rc.setPosition(1);
             lc.setPosition(0);
         }
-        if (color.blue() >= 0 && time == 220) {
+        if (color.blue() >= 0 && time == 260) {
             lf.setPower(-1);
             lb.setPower(-1);
             rf.setPower(1);
