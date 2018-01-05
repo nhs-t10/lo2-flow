@@ -50,7 +50,7 @@ public class DismountExample extends OpMode {
             lc.setPosition(1);
             rc.setPosition(1);
         }
-        if (color.blue()  >= 0 && time == 10) {
+        if (System.currentTimeMillis() >= time + 10) {
             l1.setPosition(0.15);
             l2.setPosition(0.15);
         }
@@ -68,6 +68,21 @@ public class DismountExample extends OpMode {
             l1.setPosition(0);
             l2.setPosition(0);
         }
+        if (System.currentTimeMillis() >= time + 230) {
+            lc.setPosition(0);
+            rc.setPosition(0);
+        }
+        if(System.currentTimeMillis() >= time + 240) {
+            lf.setPower(-1);
+            lb.setPower(-1);
+            rf.setPower(1);
+            rb.setPower(1);
+        }
+        if(System.currentTimeMillis() >= time + 250) {
+            lf.setPower(0);
+            lb.setPower(0);
+            rf.setPower(0);
+            rb.setPower(0);
     }
     public void stop() {
 
