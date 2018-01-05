@@ -14,8 +14,7 @@ import com.qualcomm.robotcore.util.Range;
 @SuppressWarnings("unused")
 public class FINALteleOp extends OpMode {
     private DcMotor lf, rf, lb, rb;
-    private Servo ll, lr, l1, l2, tl, tr;
-
+    private Servo ll, lr, l1, l2;
     @Override
     public void init(){
         lf = hardwareMap.dcMotor.get("m0");
@@ -26,8 +25,6 @@ public class FINALteleOp extends OpMode {
         lr = hardwareMap.servo.get("s0");
         l2 = hardwareMap.servo.get("s2");
         l1 = hardwareMap.servo.get("s3");
-        //tl = hardwareMap.servo.get("s4");
-        //tr = hardwareMap.servo.get("s5");
 
         telemetry.addData("Ready", "Clamp Ready");
 
