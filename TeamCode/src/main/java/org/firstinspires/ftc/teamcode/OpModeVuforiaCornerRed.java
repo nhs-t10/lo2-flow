@@ -32,7 +32,7 @@ final class OpModeVuroriaCornerRed extends AbstractSuper{
     private VuforiaLocalizer vuforia;
     private ColorSensor color;
     private long time = 0;
-    //settup of all nessisary things for autonoumous
+    //setup of all nessisary things for autonoumous
 
 
     @Override
