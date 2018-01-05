@@ -6,17 +6,20 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
+
 public abstract class AbstractSuper extends OpMode{
     public DcMotor lf, lb, rf, rb;
-    public Servo l, r, colorArm;
+    public Servo l, r, colorArm, ll, lr, l1, l2, tl, tr;
     public ColorSensor color;
     public void init(){
         lf = hardwareMap.dcMotor.get("m0");
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        l = hardwareMap.servo.get("s0");
-        r = hardwareMap.servo.get("s1");
+        ll = hardwareMap.servo.get("s1");
+        lr = hardwareMap.servo.get("s0");
+        l2 = hardwareMap.servo.get("s2");
+        l1 = hardwareMap.servo.get("s3");
         colorArm = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
     }
