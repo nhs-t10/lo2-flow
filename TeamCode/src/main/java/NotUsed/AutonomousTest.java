@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "test")
+//@Autonomous(name = "test")
 @SuppressWarnings("unused")
 public class AutonomousTest extends LinearOpMode  {
     private DcMotor lf, lb, rf, rb;
