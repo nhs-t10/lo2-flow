@@ -11,6 +11,7 @@ public abstract class AbstractSuper extends OpMode{
     public DcMotor lf, lb, rf, rb;
     public Servo l, r, colorArm, ll, lr, l1, l2/* ,tl, tr*/;
     public ColorSensor color;
+    @Override
     public void init(){
         lf = hardwareMap.dcMotor.get("m0");
         rf = hardwareMap.dcMotor.get("m1");
@@ -22,7 +23,10 @@ public abstract class AbstractSuper extends OpMode{
         l1 = hardwareMap.servo.get("s3");
         colorArm = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
+
+
     }
+    public abstract void prepare();
     @SuppressWarnings("all")
 
     public void driveFor(long durationInMillis){

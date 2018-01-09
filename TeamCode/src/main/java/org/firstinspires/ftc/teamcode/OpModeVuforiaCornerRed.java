@@ -22,10 +22,11 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 //import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "vuforia corner start red")
+
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
-final class OpModeVuroriaCornerRed extends AbstractSuper{
+@Autonomous(name = "vuforia corner start red")
+class OpModeVuroriaCornerRed extends AbstractSuper{
 
 
     private VuforiaLocalizer vuforia;
@@ -33,17 +34,16 @@ final class OpModeVuroriaCornerRed extends AbstractSuper{
     private long time = 0;
     //setup of all nessisary things for autonoumous
 
-
-    @Override
-    public void init(){
-        lf = hardwareMap.dcMotor.get("m0");
-        rf = hardwareMap.dcMotor.get("m1");
-        lb = hardwareMap.dcMotor.get("m2");
-        rb = hardwareMap.dcMotor.get("m3");
-        l = hardwareMap.servo.get("s0");
-        r  = hardwareMap.servo.get("s1");
-        colorArm = hardwareMap.servo.get("s4");
-        color = hardwareMap.colorSensor.get("color");
+    public void prepare(){
+        init();
+//        lf = hardwareMap.dcMotor.get("m0");
+//        rf = hardwareMap.dcMotor.get("m1");
+//        lb = hardwareMap.dcMotor.get("m2");
+//        rb = hardwareMap.dcMotor.get("m3");
+//        l = hardwareMap.servo.get("s0");
+//        r  = hardwareMap.servo.get("s1");
+//        colorArm = hardwareMap.servo.get("s4");
+//        color = hardwareMap.colorSensor.get("color");
         color.enableLed(true);
         //setting all nessisary things more + something I swyped from Lance
 
