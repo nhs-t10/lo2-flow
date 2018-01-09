@@ -44,7 +44,7 @@ public class DismountExample extends OpMode {
     public void loop() {
 
 
-        if (color.blue()  >= 0 && time == 0){
+        if (color.blue() >= 0 && time == 0) {
             /*color sensor and time are used to intiate movement*/
             time = System.currentTimeMillis();
             lc.setPosition(1);
@@ -54,13 +54,13 @@ public class DismountExample extends OpMode {
             l1.setPosition(0.15);
             l2.setPosition(0.15);
         }
-        if(System.currentTimeMillis() >= time + 20) {
+        if (System.currentTimeMillis() >= time + 20) {
             lf.setPower(1);
             lb.setPower(1);
             rf.setPower(-1);
             rb.setPower(-1);
         }
-        if(System.currentTimeMillis() >= time + 220) {
+        if (System.currentTimeMillis() >= time + 220) {
             lf.setPower(0);
             lb.setPower(0);
             rf.setPower(0);
@@ -72,17 +72,18 @@ public class DismountExample extends OpMode {
             lc.setPosition(0);
             rc.setPosition(0);
         }
-        if(System.currentTimeMillis() >= time + 240) {
+        if (System.currentTimeMillis() >= time + 240) {
             lf.setPower(-1);
             lb.setPower(-1);
             rf.setPower(1);
             rb.setPower(1);
         }
-        if(System.currentTimeMillis() >= time + 250) {
+        if (System.currentTimeMillis() >= time + 250) {
             lf.setPower(0);
             lb.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
+        }
     }
     public void stop() {
 
