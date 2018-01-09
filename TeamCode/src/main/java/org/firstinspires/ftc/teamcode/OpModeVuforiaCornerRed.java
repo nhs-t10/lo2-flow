@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 //import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 //import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.DcMotor;
+//import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.robotcore.external.ClassFactory;
 //import org.firstinspires.ftc.robotcore.external.matrices.OpenGLMatrix;
@@ -20,15 +20,14 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 //import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
 import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.Servo;
+//import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name = "vuforia corner start red")
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
 final class OpModeVuroriaCornerRed extends AbstractSuper{
 
-    private DcMotor lf, lb, rf, rb;
-    private Servo l, r, colorArm;
+
     private VuforiaLocalizer vuforia;
     private ColorSensor color;
     private long time = 0;
@@ -124,6 +123,7 @@ final class OpModeVuroriaCornerRed extends AbstractSuper{
         driveFor(50,1,1,1,1);
         telemetry.addData("codeStatus", "dropping glyph of now");
         //glyph goes in here (hopefully)
+        telemetry.addData("variableInfo", which_vumark);
 
         //driveFor(200,1,1,-1,-1);
         //driveFor(1);
