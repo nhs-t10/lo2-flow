@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "Sasha-SriPlatformDismount")
+//@Autonomous(name = "Sasha-SriPlatformDismount")
 @SuppressWarnings("unused")
 public class RobotStuff extends LinearOpMode  {
     private DcMotor motor0, motor1;
