@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package NotUsed;
 
 /**
  * Created by user on 1/2/18.
@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-@Autonomous(name = "CurrentDismount")
+//@Autonomous(name = "CurrentDismount")
 @SuppressWarnings("unused")
 public class DismountExample extends OpMode {
 
