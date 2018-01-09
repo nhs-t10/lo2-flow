@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 
 
-@TeleOp(name = "MotorTest")
+//@TeleOp(name = "MotorTest")
 @SuppressWarnings("unused")
 public class SashasNonMecanumMovment extends OpMode {
     public static final double POWER = .25;
