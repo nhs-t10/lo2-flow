@@ -35,9 +35,9 @@ public class FINALteleOp extends OpMode {
 
     @Override
     public void loop() {
-        double sideways = gamepad1.left_stick_x;
+        double sideways = gamepad1.right_stick_x;
         double forward = gamepad1.left_stick_y;
-        double turning = gamepad1.right_stick_x;
+        double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
         double topsqueeze = gamepad1.left_trigger;
         boolean B = gamepad1.b; /* speed boost **/
@@ -45,13 +45,13 @@ public class FINALteleOp extends OpMode {
 
         //parts of controller responsible for movement and clamp
         squeeze = Range.clip(squeeze, 0, 0.5);
-        forward = Range.clip(forward, -1, 1);
-        turning = Range.clip(turning, -1, 1);
+        forward = Range.clip(forward, -1, 2);
+        turning = Range.clip(turning, -1, 2);
         //topsqueeze = Range.clip(topsqueeze, -1, 1);
         //clipping range
 
         forward = scaleInput(forward);
-        turning = scaleInput(turning);
+        //turning = scaleInput(turning);
         //refers to set values at the end of the code
 
         if (T) {
@@ -72,18 +72,18 @@ public class FINALteleOp extends OpMode {
         //setting up the clamp so it uses the values of the trigger pull
         if (forward > 0.25) {
 
-            lf.setPower(forward);
-            rf.setPower(-forward);
-            rb.setPower(-forward);
-            lb.setPower(forward);
+            lf.setPower(1);
+            rf.setPower(-1);
+            rb.setPower(-1);
+            lb.setPower(1);
         }
-        if (sideways > 0.25) {
+        if (sideways > 0.85) {
             lf.setPower(1);
             rf.setPower(1);
             lb.setPower(-1);
             rb.setPower(-1);
         }
-        if (sideways < -0.25) {
+        if (sideways < -0.85) {
             lf.setPower(-1);
             rf.setPower(-1);
             rb.setPower(1);
@@ -91,21 +91,13 @@ public class FINALteleOp extends OpMode {
         }
         if ((forward > 0.25) && (B)) {
 
-            lf.setPower(1);
-            rf.setPower(-1);
-            rb.setPower(-1);
-            lb.setPower(1);
+            lf.setPower(2);
+            rf.setPower(-2);
+            rb.setPower(-2);
+            lb.setPower(2);
         }
         //forward movement
         if (forward < -0.25) {
-
-            lf.setPower(forward);
-            rf.setPower(-forward);
-            rb.setPower(-forward);
-            lb.setPower(forward);
-
-        }
-        if ((forward < -0.25) && (B)) {
 
             lf.setPower(-1);
             rf.setPower(1);
@@ -113,14 +105,22 @@ public class FINALteleOp extends OpMode {
             lb.setPower(-1);
 
         }
+        if ((forward < -0.25) && (B)) {
+
+            lf.setPower(-2);
+            rf.setPower(2);
+            rb.setPower(2);
+            lb.setPower(-2);
+
+        }
         //backwards movement
 
         if (turning > 0.25) {
 
-            lb.setPower(1);
-            lf.setPower(1);
-            rf.setPower(1);
-            rb.setPower(1);
+            lb.setPower(-1);
+            lf.setPower(-1);
+            rf.setPower(-1);
+            rb.setPower(-1);
 
         }
         //turning right
@@ -133,10 +133,10 @@ public class FINALteleOp extends OpMode {
         }*/
         if (turning < -0.25) {
 
-            lb.setPower(-1);
-            lf.setPower(-1);
-            rf.setPower(-1);
-            rb.setPower(-1);
+            lb.setPower(1);
+            lf.setPower(1);
+            rf.setPower(1);
+            rb.setPower(1);
         }
         //turning left
         if ((turning > -0.25 && turning < 0.25) || (forward > -0.25 && forward < 0.25 || (sideways < -0.25 && sideways > 0.25))) {
@@ -159,7 +159,7 @@ public class FINALteleOp extends OpMode {
     }
 
     private double scaleInput(double dVal)  {
-        double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
+        double[] scaleArray = { 0.0, 0.001, 0.0035, 0.005, 0.05, 0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
         /*
         values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
         the stick is pushed or pulled
