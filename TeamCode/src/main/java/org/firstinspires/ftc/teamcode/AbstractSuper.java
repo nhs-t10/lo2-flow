@@ -23,6 +23,7 @@ public abstract class AbstractSuper extends OpMode{
         l1 = hardwareMap.servo.get("s3");
         colorArm = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
+        prepare();
 
 
     }

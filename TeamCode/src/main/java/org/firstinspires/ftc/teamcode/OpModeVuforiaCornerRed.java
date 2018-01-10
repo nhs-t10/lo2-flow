@@ -35,7 +35,7 @@ class OpModeVuroriaCornerRed extends AbstractSuper{
     //setup of all nessisary things for autonoumous
 
     public void prepare(){
-        init();
+
 //        lf = hardwareMap.dcMotor.get("m0");
 //        rf = hardwareMap.dcMotor.get("m1");
 //        lb = hardwareMap.dcMotor.get("m2");
