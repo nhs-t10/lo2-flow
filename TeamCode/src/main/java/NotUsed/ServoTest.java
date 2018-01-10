@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name = "rvuch")
+//@TeleOp(name = "rvuch")
 @SuppressWarnings("unused")
 public class ServoTest extends OpMode{
     private Servo spinner,spinner1;

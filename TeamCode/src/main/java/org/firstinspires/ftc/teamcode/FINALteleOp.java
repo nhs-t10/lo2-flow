@@ -72,62 +72,55 @@ public class FINALteleOp extends OpMode {
         //setting up the clamp so it uses the values of the trigger pull
         if (forward > 0.25) {
 
-            lf.setPower(-forward);
-            rf.setPower(forward + 0.3);
-            rb.setPower(forward);
-            lb.setPower(-forward);
+            lf.setPower(forward);
+            rf.setPower(-forward);
+            rb.setPower(-forward);
+            lb.setPower(forward);
         }
         if (sideways > 0.25) {
-            lf.setPower(-1);
-            rf.setPower(-1 - 0.3);
-            lb.setPower(1);
-            rb.setPower(1);
+            lf.setPower(1);
+            rf.setPower(1);
+            lb.setPower(-1);
+            rb.setPower(-1);
         }
         if (sideways < -0.25) {
-            lf.setPower(1);
-            rf.setPower(1 + 0.3);
-            rb.setPower(-1);
-            lb.setPower(-1);
+            lf.setPower(-1);
+            rf.setPower(-1);
+            rb.setPower(1);
+            lb.setPower(1);
         }
         if ((forward > 0.25) && (B)) {
 
-            lf.setPower(-1);
-            rf.setPower(1 + 0.3);
-            rb.setPower(1);
-            lb.setPower(-1);
+            lf.setPower(1);
+            rf.setPower(-1);
+            rb.setPower(-1);
+            lb.setPower(1);
         }
         //forward movement
         if (forward < -0.25) {
 
-            lf.setPower(-forward);
-            rf.setPower(forward - 0.3);
-            rb.setPower(forward);
-            lb.setPower(-forward);
+            lf.setPower(forward);
+            rf.setPower(-forward);
+            rb.setPower(-forward);
+            lb.setPower(forward);
 
         }
         if ((forward < -0.25) && (B)) {
 
-            lf.setPower(1);
-            rf.setPower(-1 - 0.3);
-            rb.setPower(-1);
-            lb.setPower(1);
+            lf.setPower(-1);
+            rf.setPower(1);
+            rb.setPower(1);
+            lb.setPower(-1);
 
         }
         //backwards movement
-        /*if (turning > 0.25) {
 
-            lb.setPower(-turning);
-            lf.setPower(-turning);
-            rf.setPower(-turning - 0.3);
-            rb.setPower(-turning);
-
-       }*/
         if (turning > 0.25) {
 
-            lb.setPower(-1);
-            lf.setPower(-1);
-            rf.setPower(-1 -0.3);
-            rb.setPower(-1);
+            lb.setPower(1);
+            lf.setPower(1);
+            rf.setPower(1);
+            rb.setPower(1);
 
         }
         //turning right
@@ -140,13 +133,13 @@ public class FINALteleOp extends OpMode {
         }*/
         if (turning < -0.25) {
 
-            lb.setPower(1);
-            lf.setPower(1);
-            rf.setPower(1 + 0.3);
-            rb.setPower(1);
+            lb.setPower(-1);
+            lf.setPower(-1);
+            rf.setPower(-1);
+            rb.setPower(-1);
         }
         //turning left
-        if ((turning > -0.25 && turning < 0.25) || (forward > -0.25 && forward < 0.25)) {
+        if ((turning > -0.25 && turning < 0.25) || (forward > -0.25 && forward < 0.25 || (sideways < -0.25 && sideways > 0.25))) {
             lb.setPower(0);
             lf.setPower(0);
             rf.setPower(0);
@@ -166,8 +159,7 @@ public class FINALteleOp extends OpMode {
     }
 
     private double scaleInput(double dVal)  {
-        double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.,
-                0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
+        double[] scaleArray = { 0.0, 0.001, 0.005, 0.05, 0.075, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6 };
         /*
         values making sure the robot doesn't go to fast, and is uncontrollable. The values correspond with certain distances
         the stick is pushed or pulled
