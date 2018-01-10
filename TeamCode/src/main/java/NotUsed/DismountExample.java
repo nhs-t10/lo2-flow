@@ -10,7 +10,6 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
-//@Autonomous(name = "CurrentDismount")
 @SuppressWarnings("unused")
 public class DismountExample extends OpMode {
 

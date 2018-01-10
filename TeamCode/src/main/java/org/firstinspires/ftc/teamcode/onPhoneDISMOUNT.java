@@ -5,7 +5,7 @@ package org.firstinspires.ftc.teamcode;
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+//import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -39,6 +39,11 @@ public class onPhoneDISMOUNT extends AbstractSuper {
         color.enableLed(true);
 
     }
+    @Override
+    public void prepare(){
+
+    }
+
 
 
     public void loop() {
