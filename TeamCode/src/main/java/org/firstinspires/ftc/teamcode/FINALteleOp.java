@@ -39,18 +39,18 @@ public class FINALteleOp extends OpMode {
         double forward = gamepad1.left_stick_y;
         double turning = gamepad1.left_stick_x;
         double squeeze = gamepad1.right_trigger;
-        double topsqueeze = gamepad1.left_trigger;
+        //double topsqueeze = gamepad1.left_trigger;
         boolean B = gamepad1.b; /* speed boost **/
         boolean T = gamepad1.left_bumper; /* toggle switch for lifting the clamp */
 
         //parts of controller responsible for movement and clamp
         squeeze = Range.clip(squeeze, 0, 0.5);
-        forward = Range.clip(forward, -1, 2);
-        turning = Range.clip(turning, -1, 2);
+        forward = Range.clip(forward, -1, 1);
+        turning = Range.clip(turning, -1, 1);
         //topsqueeze = Range.clip(topsqueeze, -1, 1);
         //clipping range
 
-        forward = scaleInput(forward);
+        //forward = scaleInput(forward);
         //turning = scaleInput(turning);
         //refers to set values at the end of the code
 
@@ -77,13 +77,13 @@ public class FINALteleOp extends OpMode {
             rb.setPower(-1);
             lb.setPower(1);
         }
-        if (sideways > 0.85) {
+        if (sideways > 0.3) {
             lf.setPower(1);
             rf.setPower(1);
             lb.setPower(-1);
             rb.setPower(-1);
         }
-        if (sideways < -0.85) {
+        if (sideways < -0.3) {
             lf.setPower(-1);
             rf.setPower(-1);
             rb.setPower(1);
