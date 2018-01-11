@@ -1,18 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 
-/*
- * Created by tripszewczak on 10/10/17.
+/**
+ * Created by user on 1/2/18.
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-//import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @Autonomous(name = "Dismount")
 @SuppressWarnings("unused")
-public class onPhoneDISMOUNT extends AbstractSuper {
+public class FINALdismount extends OpMode {
 
 
     private ColorSensor color;
@@ -34,71 +34,60 @@ public class onPhoneDISMOUNT extends AbstractSuper {
         l2 = hardwareMap.servo.get("s2");
         l1 = hardwareMap.servo.get("s3");
         telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
-    //Here we are just simply declaring motors
+        //Here we are just simply declaring motors
 
         color.enableLed(true);
 
     }
-    @Override
-    public void prepare(){
-
-    }
-
 
 
     public void loop() {
 
 
-        if (color.blue()  >= 0 && time == 0){
+        if (color.blue() >= 0 && time == 0) {
             /*color sensor and time are used to intiate movement*/
-
             time = System.currentTimeMillis();
+            lc.setPosition(1);
+            rc.setPosition(1);
+        }
+        if (System.currentTimeMillis() >= time + 10) {
+            l1.setPosition(0.15);
+            l2.setPosition(0.15);
+        }
+        if (System.currentTimeMillis() >= time + 20) {
             lf.setPower(1);
             lb.setPower(1);
             rf.setPower(-1);
             rb.setPower(-1);
-            lc.setPosition(1);
-            rc.setPosition(Math.abs(0));
-            l1.setPosition(0.15);
-            l2.setPosition(0.15);
-
-
-        } else if(System.currentTimeMillis() >= time + 200) {
-            lf.setPower(0);
-            lb.setPower(0);
-            rf.setPower(0);
-            rb.setPower(0);
         }
-        if (color.blue() >= 0 && time == 220) {
-            lb.setPower(1);
-            lf.setPower(1);
-            rf.setPower(1);
-            rb.setPower(1);
-        }else if (System.currentTimeMillis() >= time + 40) {
+        if (System.currentTimeMillis() >= time + 220) {
             lf.setPower(0);
             lb.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
-            rc.setPosition(1);
+            l1.setPosition(0);
+            l2.setPosition(0);
+        }
+        if (System.currentTimeMillis() >= time + 230) {
             lc.setPosition(0);
+            rc.setPosition(0);
         }
-        if (color.blue() >= 0 && time == 260) {
+        if (System.currentTimeMillis() >= time + 240) {
             lf.setPower(-1);
             lb.setPower(-1);
             rf.setPower(1);
             rb.setPower(1);
-        }else if (System.currentTimeMillis() >= time + 10){
+        }
+        if (System.currentTimeMillis() >= time + 250) {
             lf.setPower(0);
+            lb.setPower(0);
             rf.setPower(0);
             rb.setPower(0);
-            lb.setPower(0);
         }
-            /* this program is very simple it goes and finds the system's
-             current time,and then moves forward for .2 seconds.*/
-
     }
     public void stop() {
 
     }
 }
+
 
