@@ -26,7 +26,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
 @Autonomous(name = "vuforia corner start red")
-class OpModeVuroriaCornerRed extends AbstractSuper{
+class OpModeVuforiaCornerRed extends AbstractSuper{
 
 
     private VuforiaLocalizer vuforia;
