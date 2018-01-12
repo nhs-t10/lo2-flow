@@ -26,7 +26,8 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
 @Autonomous(name = "vuforia corner start red")
-class OpModeVuforiaCornerRed extends AbstractSuper{
+class OpModeVuforiaCornerRed extends AbstractSuper
+{
 
 
     private VuforiaLocalizer vuforia;
@@ -34,7 +35,8 @@ class OpModeVuforiaCornerRed extends AbstractSuper{
     private long time = 0;
     //setup of all nessisary things for autonoumous
 
-    public void prepare(){
+    public void prepare()
+    {
 
 //        lf = hardwareMap.dcMotor.get("m0");
 //        rf = hardwareMap.dcMotor.get("m1");
@@ -67,16 +69,18 @@ class OpModeVuforiaCornerRed extends AbstractSuper{
 
     }
     @Override
-    public void loop(){
+    public void loop()
+    {
         //program actually starts
         VuforiaTrackables relicTrackables = this.vuforia.loadTrackablesFromAsset("RelicVuMark");
         VuforiaTrackable relicTemplate = relicTrackables.get(0);
         int xPassed = 0;
         int yPassed = 0;
         int which_vumark = 0;
-        //later for second glyph will use this to check position from start and to put it in correct bin
+//        //later for second glyph will use this to check position from start and to put it in correct bin
 //        colorArm.setPosition(0);
-//        if(color.red()>90){
+//        if(color.red()>90)
+//        {
 //            driveFor(100,1,1);
 //            telemetry.addData("codeStatus", "I see red");
 //            colorArm.setPosition(1);
@@ -91,11 +95,12 @@ class OpModeVuforiaCornerRed extends AbstractSuper{
 
         driveFor(200,1,1);
         driveFor(100,1,1);
-        //hopefully in front of vumark
+//        //hopefully in front of vumark
 //        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
 //
 //
-//        if (vuMark != RelicRecoveryVuMark.LEFT) {
+//        if (vuMark != RelicRecoveryVuMark.LEFT)
+//        {
 //            telemetry.addData("codeStatus", "left vumark found");
 //            driveFor(150);
 //            which_vumark = 1;
@@ -104,14 +109,16 @@ class OpModeVuforiaCornerRed extends AbstractSuper{
 //        }
 //
 //
-//        if (vuMark != RelicRecoveryVuMark.RIGHT){
+//        if (vuMark != RelicRecoveryVuMark.RIGHT)
+//        {
 //            telemetry.addData("codeStatus", "right vumark found");
 //            driveFor(50);
 //            which_vumark = 3;
 //            //right vumark found so go to right stack
 //        }
 //
-//        if (vuMark != RelicRecoveryVuMark.CENTER){
+//        if (vuMark != RelicRecoveryVuMark.CENTER)
+//        {
 //            telemetry.addData("codeStatus", "center vumark found");
 //            driveFor(100);
 //            which_vumark = 2;
