@@ -53,19 +53,23 @@ public abstract class AbstractSuper extends OpMode{
     public void driveFor(long durationInMillis, double lfPower, double rfPower, double lbPower, double rbPower){
         long timePassed = System.currentTimeMillis();
         while (System.currentTimeMillis()<timePassed + durationInMillis){
-            wheelSet(lfPower,rfPower,lbPower,rbPower);
+            drive(lfPower,rfPower,lbPower,rbPower);
         }
 
-        wheelSet(0,0,0,0);
+        drive(0,0,0,0);
     }
     @SuppressWarnings("all")
-    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower){
+    /*public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower){
         lf.setPower(lfPower);
         lb.setPower(lbPower);
         rf.setPower(rfPower);
         rb.setPower(rbPower);
-    }
+    }*/
     @SuppressWarnings("all")
+    public void drive(double left, double right){
+        lf.setPower(left); lb.setPower(right);
+        rf.setPower(right); rb.setPower(right);
+    }
 
     public void servoSet(double lMove, double rMove){
         l.setPosition(lMove);
