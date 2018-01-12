@@ -11,7 +11,7 @@ import com.qualcomm.robotcore.util.Range;
  * Created by tripszewczak on 10/5/17.
  */
 @TeleOp(name = "FINALteleOp")
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public class FINALteleOp extends OpMode {
     private DcMotor lf, rf, lb, rb;
     private Servo ll, lr, l1, l2;

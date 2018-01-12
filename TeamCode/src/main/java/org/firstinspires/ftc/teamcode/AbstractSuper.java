@@ -56,7 +56,7 @@ public abstract class AbstractSuper extends OpMode{
 
         }
 
-        drive(0,0);
+
     }
     @SuppressWarnings("all")
     public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower){
