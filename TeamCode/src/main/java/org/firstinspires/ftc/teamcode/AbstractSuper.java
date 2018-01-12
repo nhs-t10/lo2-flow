@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
@@ -23,6 +24,8 @@ public abstract class AbstractSuper extends OpMode{
         l1 = hardwareMap.servo.get("s3");
         colorArm = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
+        rf.setDirection(DcMotorSimple.Direction.REVERSE);
+        rb.setDirection(DcMotorSimple.Direction.REVERSE);
         prepare();
 
 
@@ -66,14 +69,12 @@ public abstract class AbstractSuper extends OpMode{
         rb.setPower(rbPower);
     }
     @SuppressWarnings("all")
-    public void drive(double inverse, double regular){
-        lf.setPower(regular); lb.setPower(regular);
-        rf.setPower(inverse); rb.setPower(inverse);
+    public void drive(double left, double right){
+        lf.setPower(left); lb.setPower(left);
+        rf.setPower(right); rb.setPower(right);
+
     }
-    public void drive2(double turn){
-        lf.setPower(turn); rb.setPower(turn);
-        lb.setPower(turn); rf.setPower(turn);
-    }
+
     @SuppressWarnings("all")
     public void servoSet(double lMove, double rMove){
         l.setPosition(lMove);
