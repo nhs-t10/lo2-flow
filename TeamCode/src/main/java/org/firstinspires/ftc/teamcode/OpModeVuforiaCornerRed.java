@@ -75,52 +75,52 @@ class OpModeVuforiaCornerRed extends AbstractSuper{
         int yPassed = 0;
         int which_vumark = 0;
         //later for second glyph will use this to check position from start and to put it in correct bin
-        colorArm.setPosition(0);
-        if(color.red()>90){
-            driveFor(100,1,1,1,1);
-            telemetry.addData("codeStatus", "I see red");
-            colorArm.setPosition(1);
-            //we saw red, knocked it off
-        }else if(color.blue()>90){
-            telemetry.addData("codeStatus", "I see blue");
-            driveFor(50,-1,-1,-1,-1);
-            colorArm.setPosition(1);
-            driveFor(50,1,1,1,1);
-            //we saw blue so the other one is red so we can knock it off
-        }
+//        colorArm.setPosition(0);
+//        if(color.red()>90){
+//            driveFor(100,1,1);
+//            telemetry.addData("codeStatus", "I see red");
+//            colorArm.setPosition(1);
+//            //we saw red, knocked it off
+//        }else if(color.blue()>90){
+//            telemetry.addData("codeStatus", "I see blue");
+//            driveFor(50,-1,-1);
+//            colorArm.setPosition(1);
+//            driveFor(50,1,1);
+//            //we saw blue so the other one is red so we can knock it off
+//        }
 
         driveFor(200,1,1);
-        driveFor(100,1,1,1,1);
-        //hopefully in front of vumark
-        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
-
-
-        if (vuMark != RelicRecoveryVuMark.LEFT) {
-            telemetry.addData("codeStatus", "left vumark found");
-            driveFor(150);
-            which_vumark = 1;
-            //left vumark spotted so that means we go to left stack
-
-        }
-
-
-        if (vuMark != RelicRecoveryVuMark.RIGHT){
-            telemetry.addData("codeStatus", "right vumark found");
-            driveFor(50);
-            which_vumark = 3;
-            //right vumark found so go to right stack
-        }
-
-        if (vuMark != RelicRecoveryVuMark.CENTER){
-            telemetry.addData("codeStatus", "center vumark found");
-            driveFor(100);
-            which_vumark = 2;
-            //middle vumark spotted so go to middle;
-        }
-
-        driveFor(100,1,1,-1,-1);
         driveFor(100,1,1);
-        driveFor(50,1,1,1,1);
+        //hopefully in front of vumark
+//        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
+//
+//
+//        if (vuMark != RelicRecoveryVuMark.LEFT) {
+//            telemetry.addData("codeStatus", "left vumark found");
+//            driveFor(150);
+//            which_vumark = 1;
+//            //left vumark spotted so that means we go to left stack
+//
+//        }
+//
+//
+//        if (vuMark != RelicRecoveryVuMark.RIGHT){
+//            telemetry.addData("codeStatus", "right vumark found");
+//            driveFor(50);
+//            which_vumark = 3;
+//            //right vumark found so go to right stack
+//        }
+//
+//        if (vuMark != RelicRecoveryVuMark.CENTER){
+//            telemetry.addData("codeStatus", "center vumark found");
+//            driveFor(100);
+//            which_vumark = 2;
+//            //middle vumark spotted so go to middle;
+//        }
+
+        /*driveFor(100,1,1,-1,-1) how to turn*/
+        driveFor(100,1,1);
+        driveFor(50,1,1);
         telemetry.addData("codeStatus", "dropping glyph of now");
         //glyph goes in here (hopefully)
         telemetry.addData("variableInfo", which_vumark);
