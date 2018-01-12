@@ -66,7 +66,7 @@ public abstract class AbstractSuper extends OpMode{
         rb.setPower(rbPower);
     }*/
     @SuppressWarnings("all")
-    public void drive(double left, double right){
+    public void drive(double left, double right, double turn){
         lf.setPower(right); lb.setPower(left);
         rf.setPower(left); rb.setPower(right);
     }
