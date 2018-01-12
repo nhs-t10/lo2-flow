@@ -74,7 +74,10 @@ public abstract class AbstractSuper extends OpMode{
         rf.setPower(right); rb.setPower(right);
 
     }
-
+    public void side(double side){
+        lf.setPower(-side); lb.setPower(side);
+        rf.setPower(side); rb.setPower(-side);
+    }
     @SuppressWarnings("all")
     public void servoSet(double lMove, double rMove){
         l.setPosition(lMove);
