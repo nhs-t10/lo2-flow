@@ -3,8 +3,9 @@ package org.firstinspires.ftc.teamcode;
 /*
  Created by tripszewczak on 1/12/18.
  */
+
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-@TeleOp(name = "NewTeleOp")
+@TeleOp(name = "NewTeleOp") @SuppressWarnings("all")
 public class NewTeleOp extends AbstractSuper{
     public void init(){
 
@@ -27,6 +28,7 @@ public class NewTeleOp extends AbstractSuper{
             rf.setPower(0);
             rb.setPower(0);
         }
+
     }
     public void stop(){
 
