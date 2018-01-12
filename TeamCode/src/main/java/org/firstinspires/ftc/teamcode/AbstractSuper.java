@@ -53,11 +53,7 @@ public abstract class AbstractSuper extends OpMode{
     public void driveFor(long durationInMillis, double lPower, double rPower){
         long timePassed = System.currentTimeMillis();
         while (System.currentTimeMillis()<timePassed + durationInMillis){
-<<<<<<< HEAD
-            wheelSet(lfPower,rfPower,lbPower,rbPower);
-=======
-            drive(lPower,rPower);
->>>>>>> 50e06bb8de32cb5f9dab85c91889e6175fed6b77
+
         }
 
         drive(0,0);
