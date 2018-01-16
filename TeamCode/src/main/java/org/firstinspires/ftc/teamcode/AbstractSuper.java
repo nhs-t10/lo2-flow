@@ -7,11 +7,11 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-
+@SuppressWarnings("all")
 public abstract class AbstractSuper extends OpMode
 {
-    public DcMotor lf, lb, rf, rb;
-    public Servo l, r, colorArm, ll, lr, l1, l2/* ,tl, tr*/;
+    public DcMotor lf, lb, rf, rb, rc, lc;
+    public Servo l, r, colorArm, ll, lr, l1, l2;
     public ColorSensor color;
     @Override
     public void init()
@@ -20,6 +20,8 @@ public abstract class AbstractSuper extends OpMode
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
+        rc = hardwareMap.dcMotor.get("l0");
+        lc = hardwareMap.dcMotor.get("l1");
         ll = hardwareMap.servo.get("s1");
         lr = hardwareMap.servo.get("s0");
         l2 = hardwareMap.servo.get("s2");
@@ -88,6 +90,11 @@ public abstract class AbstractSuper extends OpMode
     {
         lf.setPower(-side); lb.setPower(side);
         rf.setPower(side); rb.setPower(-side);
+    }
+    public void lift(double power)
+    {
+        rc.setPower(power);
+        lc.setPower(power);
     }
     @SuppressWarnings("all")
     public void servoSet(double lMove, double rMove)
