@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
-
+@SuppressWarnings("all")
 public abstract class AbstractSuper extends OpMode
 {
     public DcMotor lf, lb, rf, rb, rc, lc;
