@@ -10,7 +10,7 @@ import com.qualcomm.robotcore.util.Range;
 /*
  * Created by tripszewczak on 10/5/17.
  */
-@TeleOp(name = "teleop_DEPRECATED")
+//@TeleOp(name = "teleop_DEPRECATED")
 @SuppressWarnings("all")
 public class teleOp_DEPRECATED extends OpMode {
     private DcMotor lf, rf, lb, rb;
