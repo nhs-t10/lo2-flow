@@ -16,8 +16,8 @@ public class NewTeleOp extends AbstractSuper
     public void loop()
     {
         double linear = gamepad1.left_stick_y;
-        double rotation = gamepad1.left_stick_x;
-        double side = gamepad1.right_stick_x;
+        double rotation = gamepad1.right_stick_x;
+        double side = gamepad1.left_stick_x;
         boolean up = gamepad1.right_bumper;
         boolean down = gamepad1.left_bumper;
 
@@ -37,10 +37,10 @@ public class NewTeleOp extends AbstractSuper
         {
             side(side);
         }
-
-
-
-
+/*for touch sensor, remenber to include if (sensor)
+              {
+              setPower(0);
+*/
 
     }
 
