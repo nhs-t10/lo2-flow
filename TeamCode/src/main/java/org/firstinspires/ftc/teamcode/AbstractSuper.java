@@ -20,8 +20,8 @@ public abstract class AbstractSuper extends OpMode
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        rc = hardwareMap.dcMotor.get("c0");
-        lc = hardwareMap.dcMotor.get("c1");
+        rc = hardwareMap.dcMotor.get("l0");
+        lc = hardwareMap.dcMotor.get("l1");
         ll = hardwareMap.servo.get("s1");
         lr = hardwareMap.servo.get("s0");
         l2 = hardwareMap.servo.get("s2");
