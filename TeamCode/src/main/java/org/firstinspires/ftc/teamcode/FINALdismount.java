@@ -1,93 +1,25 @@
 package org.firstinspires.ftc.teamcode;
 
-/**
- * Created by Alex K on 1/2/18.
+/*
+ Created by Alex K on 1/2/18.
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.Servo;
-
 @Autonomous(name = "Dismount")
 @SuppressWarnings("unused")
-public class FINALdismount extends OpMode {
-
-
-    private ColorSensor color;
-    private DcMotor rf, lf, rb, lb;
-    private Servo lc, rc, l2, l1;
-
-
-    private long time = 0;
-
-    @Override
-    public synchronized void init() {
-        color = hardwareMap.colorSensor.get("color");
-        rf = hardwareMap.dcMotor.get("m1");
-        lf = hardwareMap.dcMotor.get("m0");
-        lb = hardwareMap.dcMotor.get("m2");
-        rb = hardwareMap.dcMotor.get("m3");
-        lc = hardwareMap.servo.get("s1");
-        rc = hardwareMap.servo.get("s0");
-        l2 = hardwareMap.servo.get("s2");
-        l1 = hardwareMap.servo.get("s3");
-        telemetry.addData("Hi!", "Servos, Motors and Sensors declared! All Systems go!");
-        //Here we are just simply declaring motors
-
-        color.enableLed(true);
+public class FINALdismount extends AbstractSuper
+{
+    public void prepare()
+    {
 
     }
-
-
-    public void loop() {
-
-
-        if (color.blue() >= 0 && time == 0) {
-            /*color sensor and time are used to intiate movement*/
-            time = System.currentTimeMillis();
-            lc.setPosition(1);
-            rc.setPosition(1);
-        }
-        if (System.currentTimeMillis() >= time + 10) {
-            l1.setPosition(0.15);
-            l2.setPosition(0.15);
-        }
-        if (System.currentTimeMillis() >= time + 20) {
-            lf.setPower(1);
-            lb.setPower(1);
-            rf.setPower(-1);
-            rb.setPower(-1);
-        }
-        if (System.currentTimeMillis() >= time + 220) {
-            lf.setPower(0);
-            lb.setPower(0);
-            rf.setPower(0);
-            rb.setPower(0);
-            l1.setPosition(0);
-            l2.setPosition(0);
-        }
-        if (System.currentTimeMillis() >= time + 230) {
-            lc.setPosition(0);
-            rc.setPosition(0);
-        }
-        if (System.currentTimeMillis() >= time + 240) {
-            lf.setPower(-1);
-            lb.setPower(-1);
-            rf.setPower(1);
-            rb.setPower(1);
-        }
-        if (System.currentTimeMillis() >= time + 250) {
-            lf.setPower(0);
-            lb.setPower(0);
-            rf.setPower(0);
-            rb.setPower(0);
-        }
+    public void loop()
+    {
+        driveFor(500);
+        stop();
     }
-    public void stop() {
+    public void stop()
+    {
 
     }
 }
-
-
