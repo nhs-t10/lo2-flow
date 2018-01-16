@@ -5,6 +5,8 @@ package org.firstinspires.ftc.teamcode;
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.util.Range;
+
 @TeleOp(name = "NewTeleOp")
 @SuppressWarnings("all")
 public class NewTeleOp extends AbstractSuper
@@ -20,22 +22,33 @@ public class NewTeleOp extends AbstractSuper
         double side = gamepad1.left_stick_x;
         boolean up = gamepad1.right_bumper;
         boolean down = gamepad1.left_bumper;
+        double top = gamepad1.right_trigger;
+        double bottom = gamepad1.left_trigger;
+        top = Range.clip(top, 0, 0.5);
+        bottom = Range.clip(bottom, 0, 0.5);
 
         if (side == 0)
         {
             drive(linear - rotation, linear + rotation);
         }
-        else if (up)
-        {
-            lift(0.5);
-        }
-        else if (down)
-        {
-            lift(-0.5);
-        }
         else
         {
             side(side);
+        }
+
+        if (up)
+        {
+            lift(0.5);
+        }
+
+        if (down)
+        {
+            lift(-0.5);
+        }
+
+        if (top > 0 || bottom > 0)
+        {
+            clamp(top, bottom);
         }
 /*for touch sensor, remenber to include if (sensor)
               {

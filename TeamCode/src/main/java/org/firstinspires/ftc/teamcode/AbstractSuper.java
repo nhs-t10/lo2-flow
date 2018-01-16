@@ -8,24 +8,23 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 
 @SuppressWarnings("all")
-public abstract class AbstractSuper extends OpMode
-{
+public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb, rc, lc;
-    public Servo l, r, colorArm, ll, lr, l1, l2;
+    public Servo l, r, colorArm, b2, b1, t1, t2;
     public ColorSensor color;
+
     @Override
-    public void init()
-    {
+    public void init() {
         lf = hardwareMap.dcMotor.get("m0");
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
         rc = hardwareMap.dcMotor.get("l0");
         lc = hardwareMap.dcMotor.get("l1");
-        ll = hardwareMap.servo.get("s1");
-        lr = hardwareMap.servo.get("s0");
-        l2 = hardwareMap.servo.get("s2");
-        l1 = hardwareMap.servo.get("s3");
+        t1 = hardwareMap.servo.get("c0");
+        t2 = hardwareMap.servo.get("c1");
+        b1 = hardwareMap.servo.get("c2");
+        b2 = hardwareMap.servo.get("c3");
         colorArm = hardwareMap.servo.get("s4");
         color = hardwareMap.colorSensor.get("color");
         rf.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -33,68 +32,74 @@ public abstract class AbstractSuper extends OpMode
         prepare();
 
 
-
     }
 
     public abstract void prepare();
+
     @SuppressWarnings("all")
 
-    public void driveFor(long durationInMillis)
-    {
+    public void driveFor(long durationInMillis) {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis()<timePassed + durationInMillis)
-        {
-             wheelSet(1,1,1,1);
+        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+            wheelSet(1, 1, 1, 1);
         }
 
-        wheelSet(0,0,0,0);
+        wheelSet(0, 0, 0, 0);
     }
+
     @SuppressWarnings("all")
-    public void servoFor(long durationInMillis, double rServo, double lServo)
-    {
+    public void servoFor(long durationInMillis, double rServo, double lServo) {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis()<timePassed + durationInMillis)
-        {
-            servoSet(lServo,rServo);
+        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+            servoSet(lServo, rServo);
         }
 
-        wheelSet(0,0,0,0);
+        wheelSet(0, 0, 0, 0);
     }
+
     @SuppressWarnings("all")
-    public void driveFor(long durationInMillis, double lPower, double rPower)
-    {
+    public void driveFor(long durationInMillis, double lPower, double rPower) {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis()<timePassed + durationInMillis)
-        {
+        while (System.currentTimeMillis() < timePassed + durationInMillis) {
 
         }
 
 
     }
+
     @SuppressWarnings("all")
-    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower)
-    {
+    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower) {
         lf.setPower(lfPower);
         lb.setPower(lbPower);
         rf.setPower(rfPower);
         rb.setPower(rbPower);
     }
+
     @SuppressWarnings("all")
-    public void drive(double left, double right)
-    {
-        lf.setPower(left); lb.setPower(left);
-        rf.setPower(right); rb.setPower(right);
+    public void drive(double left, double right) {
+        lf.setPower(left);
+        lb.setPower(left);
+        rf.setPower(right);
+        rb.setPower(right);
 
     }
-    public void side(double side)
-    {
-        lf.setPower(-side); lb.setPower(side);
-        rf.setPower(side); rb.setPower(-side);
+
+    public void side(double side) {
+        lf.setPower(-side);
+        lb.setPower(side);
+        rf.setPower(side);
+        rb.setPower(-side);
     }
-    public void lift(double power)
-    {
+
+    public void lift(double power) {
         rc.setPower(power);
         lc.setPower(power);
+    }
+
+    public void clamp(double top, double bottom)
+    {
+        t1.setPosition(Math.abs(top)); t2.setPosition(top);
+        b1.setPosition(Math.abs(bottom)); b2.setPosition(bottom);
     }
     @SuppressWarnings("all")
     public void servoSet(double lMove, double rMove)
