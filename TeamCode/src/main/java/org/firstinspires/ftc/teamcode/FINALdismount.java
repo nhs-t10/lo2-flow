@@ -15,7 +15,10 @@ public class FINALdismount extends AbstractSuper
     }
     public void loop()
     {
+        clamp(1,1);
         driveFor(500);
+        clamp(0,0);
+        driveFor(50,-1,-1)
         stop();
     }
     public void stop()
