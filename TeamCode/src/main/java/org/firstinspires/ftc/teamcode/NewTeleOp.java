@@ -19,32 +19,25 @@ public class NewTeleOp extends AbstractSuper
         double linear = gamepad1.left_stick_y;
         double rotation = gamepad1.left_stick_x;
         double side = gamepad1.right_stick_x;
-        boolean up = gamepad1.right_bumper;
-        boolean down = gamepad1.left_bumper;
+        double lift = gamepad2.left_stick_y;
         double top = gamepad1.right_trigger;
         double bottom = gamepad1.left_trigger;
         top = Range.clip(top, 0, 0.5);
         bottom = Range.clip(bottom, 0, 0.5);
 
-        if (side == 0) {
+        if (side == 0)
+        {
             drive(linear - rotation, linear + rotation);
-        } else {
+        }
+        else
+        {
             side(side);
         }
 
-        if (up) {
-            lift(0.25);
-        } else {
-            lift(0);
-        }
-
-        if (down) {
-            lift(-0.25);
-        } else
+        if (lift >= -1)
         {
-            lift(0);
+            lift(lift);
         }
-
         if (top >= 0 || bottom >= 0)
         {
             clamp(top, bottom);
