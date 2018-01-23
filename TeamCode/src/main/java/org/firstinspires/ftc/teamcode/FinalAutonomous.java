@@ -17,11 +17,6 @@ public class FinalAutonomous extends AbstractSuper
     {
         clamp(0,1);
         arm(1);
-        long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + 1000)
-        {
-
-        }
         //the next piece of code knocks off the blue ball (must be on red team outside)
         if (color.blue() > 90)
         {
