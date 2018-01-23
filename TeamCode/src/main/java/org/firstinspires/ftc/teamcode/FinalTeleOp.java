@@ -7,21 +7,20 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name = "NewTeleOp")
+@TeleOp(name = "FinalTeleOp")
 @SuppressWarnings("all")
-public class NewTeleOp extends AbstractSuper
+public class FinalTeleOp extends AbstractSuper
 {
     public void prepare()
     {
 
     }
     public void loop()
-    {
+        {
         double linear = gamepad1.left_stick_y;
-        double rotation = gamepad1.right_stick_x;
-        double side = gamepad1.left_stick_x;
-        boolean up = gamepad1.right_bumper;
-        boolean down = gamepad1.left_bumper;
+        double rotation = gamepad1.left_stick_x;
+        double side = gamepad1.right_stick_x;
+        double lift = gamepad2.left_stick_y;
         double top = gamepad1.right_trigger;
         double bottom = gamepad1.left_trigger;
         top = Range.clip(top, 0, 0.5);
@@ -36,17 +35,11 @@ public class NewTeleOp extends AbstractSuper
             side(side);
         }
 
-        if (up)
+        if (lift > 0)
         {
-            lift(0.5);
+            lift((1/2*lift));
         }
-
-        if (down)
-        {
-            lift(-0.5);
-        }
-
-        if (top > 0 || bottom > 0)
+        if (top >= 0 || bottom >= 0)
         {
             clamp(top, bottom);
         }
