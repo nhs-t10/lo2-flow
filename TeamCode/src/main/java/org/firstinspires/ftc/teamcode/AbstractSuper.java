@@ -100,9 +100,9 @@ public abstract class AbstractSuper extends OpMode {
     }
 
     public void clamp(double top, double bottom) {
-        t1.setPosition(Math.abs(top));
+        t1.setPosition(Math.abs(top-1));
         t2.setPosition(top);
-        b1.setPosition(Math.abs(bottom));
+        b1.setPosition(Math.abs(bottom-1));
         b2.setPosition(bottom);
     }
 

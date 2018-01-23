@@ -35,9 +35,9 @@ public class FinalTeleOp extends AbstractSuper
             side(side);
         }
 
-        if (lift > 0)
+        if (lift >= 0)
         {
-            lift((1/2*lift));
+            lift(lift/2);
         }
         if (top >= 0 || bottom >= 0)
         {
