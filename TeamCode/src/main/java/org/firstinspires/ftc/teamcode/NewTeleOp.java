@@ -37,7 +37,7 @@ public class NewTeleOp extends AbstractSuper
 
         if (lift >= -1)
         {
-            lift(lift);
+            lift(1/2*lift);
         }
         if (top >= 0 || bottom >= 0)
         {

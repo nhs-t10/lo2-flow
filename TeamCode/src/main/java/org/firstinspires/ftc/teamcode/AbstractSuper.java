@@ -9,8 +9,9 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @SuppressWarnings("all")
 public abstract class AbstractSuper extends OpMode {
-    public DcMotor lf, lb, rf, rb, /*l0,*/ l1;
-    public Servo l, r, colorArm, b2, b1, t1, t2;
+    public DcMotor lf, lb, rf, rb, /*l0,*/
+            l1;
+    public Servo l, r, colorArm, b2, b1, t1, t2, a0;
     public ColorSensor color;
 
     @Override
@@ -25,6 +26,7 @@ public abstract class AbstractSuper extends OpMode {
         t2 = hardwareMap.servo.get("c1");
         b1 = hardwareMap.servo.get("c2");
         b2 = hardwareMap.servo.get("c3");
+        a0 = hardwareMap.servo.get("c4");
         //colorArm = hardwareMap.servo.get("s4");
         //color = hardwareMap.colorSensor.get("color");
         rf.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -97,16 +99,22 @@ public abstract class AbstractSuper extends OpMode {
         l1.setPower(power);
     }
 
-    public void clamp(double top, double bottom)
-    {
-        t1.setPosition(Math.abs(top)); t2.setPosition(top);
-        b1.setPosition(Math.abs(bottom)); b2.setPosition(bottom);
+    public void clamp(double top, double bottom) {
+        t1.setPosition(Math.abs(top));
+        t2.setPosition(top);
+        b1.setPosition(Math.abs(bottom));
+        b2.setPosition(bottom);
     }
+
     @SuppressWarnings("all")
-    public void servoSet(double lMove, double rMove)
-    {
+    public void servoSet(double lMove, double rMove) {
         l.setPosition(lMove);
         r.setPosition(rMove);
+    }
+
+    public void arm(double arm)
+    {
+        a0.setPosition(arm);
     }
 
 
