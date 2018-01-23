@@ -20,7 +20,8 @@ public class FinalTeleOp extends AbstractSuper
         double linear = gamepad1.left_stick_y;
         double rotation = gamepad1.left_stick_x;
         double side = gamepad1.right_stick_x;
-        double lift = gamepad2.left_stick_y;
+        boolean up = gamepad1.right_bumper;
+        boolean down = gamepad1.left_bumper;
         double top = gamepad1.right_trigger;
         double bottom = gamepad1.left_trigger;
         top = Range.clip(top, 0, 0.5);
@@ -35,9 +36,17 @@ public class FinalTeleOp extends AbstractSuper
             side(side);
         }
 
-        if (lift >= 0)
+        if (up)
         {
-            lift(lift/2);
+            lift(0.4);
+        }
+        else if (down)
+        {
+            lift(-0.4);
+        }
+        else
+        {
+            lift(0.5);
         }
         if (top >= 0 || bottom >= 0)
         {

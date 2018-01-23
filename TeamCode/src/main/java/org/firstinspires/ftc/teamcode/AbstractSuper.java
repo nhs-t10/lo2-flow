@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -9,9 +10,10 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 @SuppressWarnings("all")
 public abstract class AbstractSuper extends OpMode {
-    public DcMotor lf, lb, rf, rb, /*l0,*/
-            l1;
+    public DcMotor lf, lb, rf, rb;
+
     public Servo l, r, colorArm, b2, b1, t1, t2, a0;
+    public CRServo l0;
     public ColorSensor color;
 
     @Override
@@ -20,8 +22,7 @@ public abstract class AbstractSuper extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        //l0 = hardwareMap.dcMotor.get("l0");
-        l1 = hardwareMap.dcMotor.get("l1");
+        l0 = hardwareMap.crservo.get("l0");
         t1 = hardwareMap.servo.get("c0");
         t2 = hardwareMap.servo.get("c1");
         b1 = hardwareMap.servo.get("c2");
@@ -31,7 +32,6 @@ public abstract class AbstractSuper extends OpMode {
         //color = hardwareMap.colorSensor.get("color");
         rf.setDirection(DcMotorSimple.Direction.REVERSE);
         rb.setDirection(DcMotorSimple.Direction.REVERSE);
-        l1.setDirection(DcMotorSimple.Direction.REVERSE);
         prepare();
 
 
@@ -95,8 +95,7 @@ public abstract class AbstractSuper extends OpMode {
     }
 
     public void lift(double power) {
-        //l0.setPower(power);
-        l1.setPower(power);
+        l0.setPower(power);
     }
 
     public void clamp(double top, double bottom) {
