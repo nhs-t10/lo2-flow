@@ -15,18 +15,29 @@ public class FinalAutonomous extends AbstractSuper
     }
     public void loop()
     {
-        clamp(1,1);
+        clamp(0,1);
         arm(1);
-        //the next piece of code knocks off the blue ball (must be on red team)
-        if (color.blue() > 90){
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + 1000)
+        {
+
+        }
+        //the next piece of code knocks off the blue ball (must be on red team outside)
+        if (color.blue() > 90)
+        {
             driveFor(50);
             arm(0);
-            driveFor(450);
+            driveFor(100);
+            SideFor(100,1);
+            driveFor(400);
         }
-        else if (color.red() > 90) {
-            driveFor(50,-1,-1)
+        else if (color.red() > 90)
+        {
+            driveFor(50,-1,-1);
             arm(0);
-            driveFor(600);
+            driveFor(200);
+            SideFor(100,1);
+            driveFor(400);
         }
         clamp(0, 0);
         driveFor(50, -1, -1);
