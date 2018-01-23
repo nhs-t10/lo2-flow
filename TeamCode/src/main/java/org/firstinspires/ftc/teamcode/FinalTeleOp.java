@@ -7,9 +7,9 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-@TeleOp(name = "NewTeleOp")
+@TeleOp(name = "FinalTeleOp")
 @SuppressWarnings("all")
-public class NewTeleOp extends AbstractSuper
+public class FinalTeleOp extends AbstractSuper
 {
     public void prepare()
     {
@@ -35,9 +35,9 @@ public class NewTeleOp extends AbstractSuper
             side(side);
         }
 
-        if (lift >= -1)
+        if (lift > 0)
         {
-            lift(1/2*lift);
+            lift((1/2*lift));
         }
         if (top >= 0 || bottom >= 0)
         {

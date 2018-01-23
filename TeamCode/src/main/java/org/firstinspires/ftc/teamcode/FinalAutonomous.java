@@ -7,7 +7,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 @Autonomous(name = "Dismount")
 @SuppressWarnings("unused")
-public class FINALdismount extends AbstractSuper
+public class FinalAutonomous extends AbstractSuper
 {
     public void prepare()
     {
