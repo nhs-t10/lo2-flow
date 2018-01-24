@@ -42,22 +42,24 @@ public abstract class AbstractSuper extends OpMode {
 
     @SuppressWarnings("all")
 
-    public void driveFor(long durationInMillis) {
+    public void driveFor(long durationInMillis)
+    {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
             wheelSet(1, 1, 1, 1);
         }
-
         wheelSet(0, 0, 0, 0);
     }
 
     @SuppressWarnings("all")
-    public void servoFor(long durationInMillis, double rServo, double lServo) {
+    public void servoFor(long durationInMillis, double rServo, double lServo)
+    {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
             servoSet(lServo, rServo);
         }
-
         wheelSet(0, 0, 0, 0);
     }
 
@@ -67,12 +69,11 @@ public abstract class AbstractSuper extends OpMode {
         while (System.currentTimeMillis() < timePassed + durationInMillis) {
 
         }
-
-
     }
 
     @SuppressWarnings("all")
-    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower) {
+    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower)
+    {
         lf.setPower(lfPower);
         lb.setPower(lbPower);
         rf.setPower(rfPower);
@@ -80,7 +81,8 @@ public abstract class AbstractSuper extends OpMode {
     }
 
     @SuppressWarnings("all")
-    public void drive(double left, double right) {
+    public void drive(double left, double right)
+    {
         lf.setPower(left);
         lb.setPower(left);
         rf.setPower(right);
@@ -88,7 +90,8 @@ public abstract class AbstractSuper extends OpMode {
 
     }
 
-    public void side(double side) {
+    public void side(double side)
+    {
         lf.setPower(-side);
         lb.setPower(side);
         rf.setPower(side);
@@ -117,7 +120,8 @@ public abstract class AbstractSuper extends OpMode {
         l0.setPower(l0.getPower());
     }
 
-    public void clamp(double top, double bottom) {
+    public void clamp(double top, double bottom)
+    {
         t1.setPosition(Math.abs(top-1));
         t2.setPosition(top);
         b1.setPosition(Math.abs(bottom-1));
@@ -125,7 +129,8 @@ public abstract class AbstractSuper extends OpMode {
     }
 
     @SuppressWarnings("all")
-    public void servoSet(double lMove, double rMove) {
+    public void servoSet(double lMove, double rMove)
+    {
         l.setPosition(lMove);
         r.setPosition(rMove);
     }
@@ -140,4 +145,12 @@ public abstract class AbstractSuper extends OpMode {
         }
     }
 
+    public void wait(long durationInMillis)
+    {
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
+
+        }
+    }
 }
