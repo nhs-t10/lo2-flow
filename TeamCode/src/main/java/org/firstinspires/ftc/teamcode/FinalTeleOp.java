@@ -43,7 +43,7 @@ public class FinalTeleOp extends AbstractSuper
         {
             lift(1);
         }
-        else
+
         {
             lift(0);
         }
@@ -52,7 +52,7 @@ public class FinalTeleOp extends AbstractSuper
         {
             lift(-1);
         }
-        else
+        if ((down = false) && (up = false))
         {
             lift(0);
         }
