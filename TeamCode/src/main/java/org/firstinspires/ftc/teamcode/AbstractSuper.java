@@ -93,6 +93,18 @@ public abstract class AbstractSuper extends OpMode {
         rb.setPower(-side);
     }
 
+    public void SideFor(long durationInMillis, double side)
+    {
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
+            lf.setPower(-side);
+            lb.setPower(side);
+            rf.setPower(side);
+            rb.setPower(-side);
+        }
+    }
+
     public void lift(double position) {
         l0.setPosition(position);
     }
@@ -118,7 +130,11 @@ public abstract class AbstractSuper extends OpMode {
     public void arm(double arm)
     {
         a0.setPosition(arm);
-    }
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + 1000)
+        {
 
+        }
+    }
 
 }
