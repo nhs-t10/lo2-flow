@@ -26,7 +26,6 @@ public class FinalTeleOp extends AbstractSuper
         double bottom = gamepad1.left_trigger;
         top = Range.clip(top, 0, 0.5);
         bottom = Range.clip(bottom, 0, 0.5);
-        l0 = Range.clip(0, 0, 1);
         lifthold();
 
         if (side == 0)
@@ -44,10 +43,18 @@ public class FinalTeleOp extends AbstractSuper
         {
             lift(1);
         }
+        else
+        {
+            lift(0);
+        }
 
         if (down)
         {
             lift(-1);
+        }
+        else
+        {
+            lift(0);
         }
         if (top >= 0 || bottom >= 0)
         {
