@@ -97,6 +97,11 @@ public abstract class AbstractSuper extends OpMode {
         l0.setPosition(position);
     }
 
+    public void lifthold()
+    {
+        l0.setPosition(l0.getPosition());
+    }
+
     public void clamp(double top, double bottom) {
         t1.setPosition(Math.abs(top-1));
         t2.setPosition(top);
