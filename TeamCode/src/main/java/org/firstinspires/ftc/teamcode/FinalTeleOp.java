@@ -38,15 +38,11 @@ public class FinalTeleOp extends AbstractSuper
 
         if (up)
         {
-            lift(0.4);
+            lift(1);
         }
         else if (down)
         {
-            lift(-0.4);
-        }
-        else
-        {
-            lift(0.5);
+            lift(-1);
         }
         if (top >= 0 || bottom >= 0)
         {
