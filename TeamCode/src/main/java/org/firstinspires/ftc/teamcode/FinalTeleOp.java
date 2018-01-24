@@ -43,18 +43,16 @@ public class FinalTeleOp extends AbstractSuper
             lift(1);
         }
 
-        {
-            lift(0);
-        }
-
         if (down)
         {
             lift(-1);
         }
+
         if ((down = false) && (up = false))
         {
             lift(0);
         }
+
         if (top >= 0 || bottom >= 0)
         {
             clamp(top, bottom);
