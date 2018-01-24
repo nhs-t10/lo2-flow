@@ -113,10 +113,6 @@ public abstract class AbstractSuper extends OpMode {
         l0.setPower(power);
     }
 
-    public void lifthold()
-    {
-        l0.setPower(l0.getPower());
-    }
 
     public void clamp(double top, double bottom)
     {
