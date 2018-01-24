@@ -139,7 +139,11 @@ public abstract class AbstractSuper extends OpMode {
         }
     }
 
+    public void WaitFor(long durationInMillis) {
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + durationInMillis) {
 
-
+        }
+    }
 
 }

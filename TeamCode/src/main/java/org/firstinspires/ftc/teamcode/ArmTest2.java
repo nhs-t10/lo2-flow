@@ -6,9 +6,9 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "Arm Test")
+@Autonomous(name = "Arm Test 2")
 @SuppressWarnings("unused")
-public class ArmTest extends AbstractSuper
+public class ArmTest2 extends AbstractSuper
 {
     public void prepare()
     {
@@ -17,17 +17,25 @@ public class ArmTest extends AbstractSuper
     public void loop()
     {
         arm(0);
-        wait(4000);
+        WaitFor(4000);
         arm(.1);
-        wait(4000);
+        WaitFor(4000);
         arm(.25);
-        wait(4000);
+        WaitFor(4000);
         arm(.5);
-        wait(4000);
+        WaitFor(4000);
         arm(.75);
-        wait(4000);
+        WaitFor(4000);
         arm(1);
-        wait(4000);
+        WaitFor(4000);
+        arm(0);
+        WaitFor(4000);
+        arm(-.1);
+        WaitFor(4000);
+        arm(-.25);
+        WaitFor(4000);
+        arm(-.5);
+        WaitFor(4000);
         arm(0);
         stop();
     }
