@@ -6,7 +6,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "Dismount")
+@Autonomous(name = "autonomous test")
 @SuppressWarnings("unused")
 public class FinalCorner extends AbstractSuper
 {
