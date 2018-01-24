@@ -5,8 +5,7 @@ package org.firstinspires.ftc.teamcode;
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-
-@Autonomous(name = "autonomous test")
+@Autonomous(name = "Red Corner")
 @SuppressWarnings("unused")
 public class FinalCorner extends AbstractSuper
 {
