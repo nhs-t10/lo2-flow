@@ -1,16 +1,18 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.CRServo;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.util.Range;
 
 
 @SuppressWarnings("all")
 public abstract class AbstractSuper extends OpMode {
-    public DcMotor lf, lb, rf, rb, rc, lc;
-    public Servo l, r, colorArm, b2, b1, t1, t2;
+    public DcMotor lf, lb, rf, rb;
+    public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
 
     @Override
@@ -19,16 +21,19 @@ public abstract class AbstractSuper extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        rc = hardwareMap.dcMotor.get("l0");
-        lc = hardwareMap.dcMotor.get("l1");
+        l0 = hardwareMap.servo.get("l0");
         t1 = hardwareMap.servo.get("c0");
         t2 = hardwareMap.servo.get("c1");
         b1 = hardwareMap.servo.get("c2");
         b2 = hardwareMap.servo.get("c3");
-        colorArm = hardwareMap.servo.get("s4");
-        color = hardwareMap.colorSensor.get("color");
+        a0 = hardwareMap.servo.get("c4");
         rf.setDirection(DcMotorSimple.Direction.REVERSE);
         rb.setDirection(DcMotorSimple.Direction.REVERSE);
+        b1.setDirection(Servo.Direction.REVERSE);
+        b2.setDirection(Servo.Direction.REVERSE);
+        t1.setDirection(Servo.Direction.REVERSE);
+        t2.setDirection(Servo.Direction.REVERSE);
+
         prepare();
 
 
@@ -38,22 +43,24 @@ public abstract class AbstractSuper extends OpMode {
 
     @SuppressWarnings("all")
 
-    public void driveFor(long durationInMillis) {
+    public void driveFor(long durationInMillis)
+    {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
             wheelSet(1, 1, 1, 1);
         }
-
         wheelSet(0, 0, 0, 0);
     }
 
     @SuppressWarnings("all")
-    public void servoFor(long durationInMillis, double rServo, double lServo) {
+    public void servoFor(long durationInMillis, double rServo, double lServo)
+    {
         long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
             servoSet(lServo, rServo);
         }
-
         wheelSet(0, 0, 0, 0);
     }
 
@@ -63,12 +70,11 @@ public abstract class AbstractSuper extends OpMode {
         while (System.currentTimeMillis() < timePassed + durationInMillis) {
 
         }
-
-
     }
 
     @SuppressWarnings("all")
-    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower) {
+    public void wheelSet(double lfPower, double rfPower, double lbPower, double rbPower)
+    {
         lf.setPower(lfPower);
         lb.setPower(lbPower);
         rf.setPower(rfPower);
@@ -76,7 +82,8 @@ public abstract class AbstractSuper extends OpMode {
     }
 
     @SuppressWarnings("all")
-    public void drive(double left, double right) {
+    public void drive(double left, double right)
+    {
         lf.setPower(left);
         lb.setPower(left);
         rf.setPower(right);
@@ -84,23 +91,45 @@ public abstract class AbstractSuper extends OpMode {
 
     }
 
-    public void side(double side) {
+    public void side(double side)
+    {
         lf.setPower(-side);
         lb.setPower(side);
         rf.setPower(side);
         rb.setPower(-side);
     }
 
-    public void lift(double power) {
-        rc.setPower(power);
-        lc.setPower(power);
+    public void SideFor(long durationInMillis, double side)
+    {
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        {
+            lf.setPower(-side);
+            lb.setPower(side);
+            rf.setPower(side);
+            rb.setPower(-side);
+        }
     }
+
+    public void lift(double positon)
+    {
+        l0.setPosition(positon);
+    }
+
+    public void lifthold()
+    {
+        l0.setPosition(l0.getPosition());
+    }
+
 
     public void clamp(double top, double bottom)
     {
-        t1.setPosition(Math.abs(top)); t2.setPosition(top);
-        b1.setPosition(Math.abs(bottom)); b2.setPosition(bottom);
+        t1.setPosition(Math.abs(top-1));
+        t2.setPosition(top);
+        b1.setPosition(Math.abs(bottom-1));
+        b2.setPosition(bottom);
     }
+
     @SuppressWarnings("all")
     public void servoSet(double lMove, double rMove)
     {
@@ -108,5 +137,21 @@ public abstract class AbstractSuper extends OpMode {
         r.setPosition(rMove);
     }
 
+    public void arm(double arm)
+    {
+        a0.setPosition(arm);
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + 1000)
+        {
+
+        }
+    }
+
+    public void WaitFor(long durationInMillis) {
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+
+        }
+    }
 
 }

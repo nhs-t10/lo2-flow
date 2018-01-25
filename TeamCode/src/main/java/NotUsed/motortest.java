@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 /**
  * Created by tripszewczak on 1/9/18.
  */
-@TeleOp (name = "ButtonTest")
+//@TeleOp (name = "ButtonTest")
 public class motortest extends OpMode {
     private DcMotor lf, rf, lb, rb;
     public void init (){

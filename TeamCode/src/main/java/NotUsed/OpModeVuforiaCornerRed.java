@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode;
+package NotUsed;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 //import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -19,13 +19,15 @@ import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackable;
 //import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackableDefaultListener;
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaTrackables;
+import org.firstinspires.ftc.teamcode.AbstractSuper;
+
 import com.qualcomm.robotcore.hardware.ColorSensor;
 //import com.qualcomm.robotcore.hardware.Servo;
 
 
 @SuppressWarnings("unused")
 //need extra color sensor and distance sensor of any kind for program
-@Autonomous(name = "vuforia corner start red")
+//@Autonomous(name = "vuforia corner start red")
 class OpModeVuforiaCornerRed extends AbstractSuper
 {
 
