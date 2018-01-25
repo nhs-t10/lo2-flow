@@ -22,8 +22,8 @@ public class FinalTeleOp extends AbstractSuper
         boolean down = gamepad1.left_bumper;
         double top = gamepad1.right_trigger;
         double bottom = gamepad1.left_trigger;
-        boolean A = gamepad1.a;
-        lifthold();
+        boolean B = gamepad1.b;
+        holdServos();
         top = Range.clip(top, 0, 0.13);
         bottom = Range.clip(bottom, 0, 0.13);
 
@@ -39,7 +39,7 @@ public class FinalTeleOp extends AbstractSuper
             lift(0.1);
         }
 
-        if ((up) && (A))
+        if ((up) && (B))
         {
             lift(0.3);
         }
