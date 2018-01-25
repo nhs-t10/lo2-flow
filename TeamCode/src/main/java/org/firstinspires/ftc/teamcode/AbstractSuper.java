@@ -12,8 +12,7 @@ import com.qualcomm.robotcore.util.Range;
 @SuppressWarnings("all")
 public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb;
-    public CRServo l0;
-    public Servo l, r, colorArm, b2, b1, t1, t2, a0;
+    public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
 
     @Override
@@ -22,7 +21,7 @@ public abstract class AbstractSuper extends OpMode {
         rf = hardwareMap.dcMotor.get("m1");
         lb = hardwareMap.dcMotor.get("m2");
         rb = hardwareMap.dcMotor.get("m3");
-        l0 = hardwareMap.crservo.get("l0");
+        l0 = hardwareMap.servo.get("l0");
         t1 = hardwareMap.servo.get("c0");
         t2 = hardwareMap.servo.get("c1");
         b1 = hardwareMap.servo.get("c2");
@@ -30,6 +29,10 @@ public abstract class AbstractSuper extends OpMode {
         a0 = hardwareMap.servo.get("c4");
         rf.setDirection(DcMotorSimple.Direction.REVERSE);
         rb.setDirection(DcMotorSimple.Direction.REVERSE);
+        b1.setDirection(Servo.Direction.REVERSE);
+        b2.setDirection(Servo.Direction.REVERSE);
+        t1.setDirection(Servo.Direction.REVERSE);
+        t2.setDirection(Servo.Direction.REVERSE);
 
         prepare();
 
@@ -108,9 +111,14 @@ public abstract class AbstractSuper extends OpMode {
         }
     }
 
-    public void lift(double power)
+    public void lift(double positon)
     {
-        l0.setPower(power);
+        l0.setPosition(positon);
+    }
+
+    public void lifthold()
+    {
+        l0.setPosition(l0.getPosition());
     }
 
 
