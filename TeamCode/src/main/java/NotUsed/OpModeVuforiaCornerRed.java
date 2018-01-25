@@ -31,7 +31,7 @@ import com.qualcomm.robotcore.hardware.ColorSensor;
 class OpModeVuforiaCornerRed extends AbstractSuper
 {
 
-
+    int TimeCounter = 0;
     private VuforiaLocalizer vuforia;
     private ColorSensor color;
     private long time = 0;
@@ -69,34 +69,35 @@ class OpModeVuforiaCornerRed extends AbstractSuper
         //vuforia settup
 
 
+
     }
     @Override
-    public void loop()
-    {
-        //program actually starts
-        VuforiaTrackables relicTrackables = this.vuforia.loadTrackablesFromAsset("RelicVuMark");
-        VuforiaTrackable relicTemplate = relicTrackables.get(0);
-        int xPassed = 0;
-        int yPassed = 0;
-        int which_vumark = 0;
-//        //later for second glyph will use this to check position from start and to put it in correct bin
-//        colorArm.setPosition(0);
-//        if(color.red()>90)
-//        {
-//            driveFor(100,1,1);
-//            telemetry.addData("codeStatus", "I see red");
-//            colorArm.setPosition(1);
-//            //we saw red, knocked it off
-//        }else if(color.blue()>90){
-//            telemetry.addData("codeStatus", "I see blue");
-//            driveFor(50,-1,-1);
-//            colorArm.setPosition(1);
-//            driveFor(50,1,1);
-//            //we saw blue so the other one is red so we can knock it off
-//        }
+    public void loop() {
+        while(TimeCounter<1){
+            //program actually starts
+            VuforiaTrackables relicTrackables = this.vuforia.loadTrackablesFromAsset("RelicVuMark");
+            VuforiaTrackable relicTemplate = relicTrackables.get(0);
+            int xPassed = 0;
+            int yPassed = 0;
+            int which_vumark = 0;
+        //later for second glyph will use this to check position from start and to put it in correct bin
+        colorArm.setPosition(0);
+        if(color.red()>90)
+        {
+            driveFor(100,1,1);
+            telemetry.addData("codeStatus", "I see red");
+            colorArm.setPosition(1);
+            //we saw red, knocked it off
+        }else if(color.blue()>90){
+            telemetry.addData("codeStatus", "I see blue");
+            driveFor(50,-1,-1);
+            colorArm.setPosition(1);
+            driveFor(50,1,1);
+            //we saw blue so the other one is red so we can knock it off
+        }
 
-        driveFor(200,1,1);
-        driveFor(100,1,1);
+            driveFor(200, 1, 1);
+            driveFor(100, 1, 1);
 //        //hopefully in front of vumark
 //        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
 //
@@ -128,18 +129,20 @@ class OpModeVuforiaCornerRed extends AbstractSuper
 //        }
 
         /*driveFor(100,1,1,-1,-1) how to turn*/
-        driveFor(100,1,1);
-        driveFor(50,1,1);
-        telemetry.addData("codeStatus", "dropping glyph of now");
-        //glyph goes in here (hopefully)
-        telemetry.addData("variableInfo", which_vumark);
+            driveFor(100, 1, 1);
+            driveFor(50, 1, 1);
+            telemetry.addData("codeStatus", "dropping glyph of now");
+            //glyph goes in here (hopefully)
+            telemetry.addData("variableInfo", which_vumark);
 
-        //driveFor(200,1,1,-1,-1);
-        //driveFor(1);
-        //driveFor(100,1,1);
-        //going towards second glyph
-        stop();
+            //driveFor(200,1,1,-1,-1);
+            //driveFor(1);
+            //driveFor(100,1,1);
+            //going towards second glyph
+            TimeCounter++;
 
+
+        }
     }
 
 }
