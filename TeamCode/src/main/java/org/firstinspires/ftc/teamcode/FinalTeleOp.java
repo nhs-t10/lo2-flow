@@ -23,7 +23,7 @@ public class FinalTeleOp extends AbstractSuper
         double top = gamepad1.right_trigger;
         double bottom = gamepad1.left_trigger;
         boolean B = gamepad1.b;
-        servohold();
+        lifthold();
         top = Range.clip(top, 0, 0.13);
         bottom = Range.clip(bottom, 0, 0.13);
 
