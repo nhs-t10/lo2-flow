@@ -6,7 +6,7 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 
-@Autonomous(name = "Red Middle")
+@Autonomous(name = "Blue Middle")
 @SuppressWarnings("unused")
 public class BlueMiddle extends AbstractSuper
 {
