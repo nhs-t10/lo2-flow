@@ -143,6 +143,11 @@ public abstract class AbstractSuper extends OpMode {
     public void arm(double arm)
     {
         a0.setPosition(arm);
+        long timePassed = System.currentTimeMillis();
+        while (System.currentTimeMillis() < timePassed + 500)
+        {
+
+        }
     }
 
 }
