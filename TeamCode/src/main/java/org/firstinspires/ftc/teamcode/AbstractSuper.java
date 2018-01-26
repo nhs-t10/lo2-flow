@@ -27,6 +27,7 @@ public abstract class AbstractSuper extends OpMode {
         b1 = hardwareMap.servo.get("c2");
         b2 = hardwareMap.servo.get("c3");
         a0 = hardwareMap.servo.get("c4");
+        color = hardwareMap.colorSensor.get("color");
         rf.setDirection(DcMotorSimple.Direction.REVERSE);
         rb.setDirection(DcMotorSimple.Direction.REVERSE);
         b1.setDirection(Servo.Direction.REVERSE);
@@ -34,6 +35,7 @@ public abstract class AbstractSuper extends OpMode {
         t1.setDirection(Servo.Direction.REVERSE);
         t2.setDirection(Servo.Direction.REVERSE);
         l0.setPosition(0);
+        a0.setPosition(0);
         prepare();
 
 
@@ -116,15 +118,10 @@ public abstract class AbstractSuper extends OpMode {
         l0.setPosition(positon);
     }
 
-    public void servohold()
+    public void lifthold()
     {
-
         l0.setPosition(l0.getPosition());
         a0.setPosition(a0.getPosition());
-        t1.setPosition(t1.getPosition());
-        t2.setPosition(t1.getPosition());
-        b1.setPosition(b1.getPosition());
-        b2.setPosition(b2.getPosition());
     }
 
 
