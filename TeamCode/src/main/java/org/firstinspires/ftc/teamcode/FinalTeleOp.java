@@ -29,19 +29,19 @@ public class FinalTeleOp extends AbstractSuper
 
 
         if (side == 0) {
-            drive(linear - rotation, linear + rotation);
+            drive(.75*(linear - rotation), .75*(linear + rotation));
         } else {
-            side(side);
+            side(.75*side);
         }
 
         if (up)
         {
-            lift(0.1);
+            lift(0.15);
         }
 
         if (B)
         {
-            lift(0.3);
+            lift(0.35);
         }
 
         if (down) { lift(-0.1); }
