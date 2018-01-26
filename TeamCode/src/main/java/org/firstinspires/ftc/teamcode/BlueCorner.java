@@ -5,9 +5,10 @@ package org.firstinspires.ftc.teamcode;
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+
 @Autonomous(name = "Red Middle")
 @SuppressWarnings("unused")
-public class FinalAutonomous extends AbstractSuper
+public class BlueCorner extends AbstractSuper
 {
     public void prepare()
     {
@@ -15,23 +16,23 @@ public class FinalAutonomous extends AbstractSuper
     }
     public void loop()
     {
-        clamp(0,1);
+        clamp(0,.13);
         arm(1);
-        //the next piece of code knocks off the blue ball (must be on red team outside)
+        //the next piece of code knocks off the red ball (must be on Blue team middle)
         if (color.blue() > 90)
         {
             driveFor(50);
             arm(0);
-            driveFor(100);
-            SideFor(100,1);
+            driveFor(200,-1,-1);
+            driveFor(200,-1,1);
             driveFor(400);
         }
         else if (color.red() > 90)
         {
             driveFor(50,-1,-1);
             arm(0);
-            driveFor(200);
-            SideFor(100,1);
+            driveFor(100,-1,-1);
+            driveFor(200,-1,1);
             driveFor(400);
         }
         clamp(0, 0);
