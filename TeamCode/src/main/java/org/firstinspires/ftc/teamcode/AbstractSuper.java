@@ -14,7 +14,10 @@ public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb;
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
-    int time = 0;
+    int drivetime = 0;
+    int sidetime = 0;
+    int clamptime = 0;
+    int lifttime = 0;
 
     @Override
     public void init() {
@@ -58,19 +61,20 @@ public abstract class AbstractSuper extends OpMode {
 
     }
 
-    public void driveFor(double duration)
+    public void drivefor(double driveduration)
     {
-        if (time > duration)
+        if (drivetime >= driveduration)
         {
             drive(0, 0);
-            time = 0;
+            drivetime = 0;
+            driveduration = 0;
         }
         else
         {
-            drive(1, 1);
+            drive(1, 1); drivetime ++;
 
         }
-        time ++;
+
     }
 
     public void side(double side)
@@ -80,8 +84,55 @@ public abstract class AbstractSuper extends OpMode {
         rf.setPower(side);
         rb.setPower(-side);
     }
+    public void sidefor(double sideduration)
+    {
+        if (sidetime >= sideduration)
+        {
+            side(0);
+            sidetime = 0;
+            sideduration = 0;
+        }
+        else
+        {
+            side(1); sidetime++;
+        }
+    }
 
+    public void clamp(double top, double bottom)
+    {
+        t1.setPosition(Math.abs(top-1));
+        t2.setPosition(top);
+        b1.setPosition(Math.abs(bottom-1));
+        b2.setPosition(bottom);
+    }
+    public void clampfor(double clampduration)
+    {
+        if (clamptime >= clampduration)
+        {
+            clamp(0, 0);
+            clamptime = 0;
+            clampduration = 0;
+        }
+        else
+        {
+            clamp(0.13, 0.13); clamptime++;
+        }
+    }
 
+    public void liftfor(double liftduration)
+    {
+        if (lifttime >= liftduration)
+        {
+            lift(0);
+            lifttime = 0;
+            liftduration = 0;
+        }
+        else
+        {
+            lift(-0.1); lifttime++;
+        }
+
+    }
 
 
     public void lift(double positon)
@@ -96,13 +147,7 @@ public abstract class AbstractSuper extends OpMode {
     }
 
 
-    public void clamp(double top, double bottom)
-    {
-        t1.setPosition(Math.abs(top-1));
-        t2.setPosition(top);
-        b1.setPosition(Math.abs(bottom-1));
-        b2.setPosition(bottom);
-    }
+
 
     @SuppressWarnings("all")
 
@@ -110,5 +155,6 @@ public abstract class AbstractSuper extends OpMode {
     {
         a0.setPosition(arm);
     }
+
 
 }
