@@ -37,6 +37,8 @@ public abstract class AbstractSuper extends OpMode {
         a0.setDirection((Servo.Direction.REVERSE));
         l0.setPosition(0);
         a0.setPosition(0);
+        long time = 0;
+        color.enableLed(true);
         prepare();
 
 
@@ -50,22 +52,33 @@ public abstract class AbstractSuper extends OpMode {
 
     public void clampFor(long durationInMillis, double top, double bottom)
     {
-        long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        long time = System.currentTimeMillis();
+        if (System.currentTimeMillis() < time + durationInMillis)
         {
             b1.setPosition(bottom); b2.setPosition(bottom);
             t1.setPosition(top); t2.setPosition(top);
+        }
+        if (System.currentTimeMillis() >= time + durationInMillis)
+        {
+            b1.setPosition(0); b2.setPosition(0);
+            t1.setPosition(0); t2.setPosition(0);
         }
     }
 
     @SuppressWarnings("all")
     public void driveFor(long durationInMillis, double left, double right) {
-        long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis) {
+        time = System.currentTimeMillis();
+        if (System.currentTimeMillis() < time + durationInMillis) {
             lf.setPower(-left);
             lb.setPower(-left);
             rf.setPower(-right);
             rb.setPower(-right);
+        }
+        if (System.currentTimeMillis() >= time + durationInMillis){
+            lf.setPower(0);
+            lb.setPower(0);
+            rf.setPower(0);
+            rb.setPower(0);
         }
     }
 
@@ -91,13 +104,19 @@ public abstract class AbstractSuper extends OpMode {
 
     public void sideFor(long durationInMillis, double side)
     {
-        long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + durationInMillis)
+        long time = System.currentTimeMillis();
+        if (System.currentTimeMillis() < time + durationInMillis)
         {
             lf.setPower(-side);
             lb.setPower(side);
             rf.setPower(side);
             rb.setPower(-side);
+        }
+        if (System.currentTimeMillis() >= time + durationInMillis){
+            lf.setPower(0);
+            lb.setPower(0);
+            rf.setPower(0);
+            rb.setPower(0);
         }
     }
 
@@ -126,11 +145,6 @@ public abstract class AbstractSuper extends OpMode {
     public void arm(double arm)
     {
         a0.setPosition(arm);
-        long timePassed = System.currentTimeMillis();
-        while (System.currentTimeMillis() < timePassed + 500)
-        {
-
-        }
     }
 
 }
