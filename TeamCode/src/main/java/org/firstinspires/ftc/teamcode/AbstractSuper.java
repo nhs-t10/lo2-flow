@@ -71,10 +71,10 @@ public abstract class AbstractSuper extends OpMode {
         }
         else
         {
-            drive(1, 1); drivetime ++;
+            drive(1, 1);
 
         }
-
+        drivetime ++;
     }
 
     public void side(double side)
@@ -94,8 +94,9 @@ public abstract class AbstractSuper extends OpMode {
         }
         else
         {
-            side(1); sidetime++;
+            side(1);
         }
+        sidetime++;
     }
 
     public void clamp(double top, double bottom)
@@ -105,20 +106,16 @@ public abstract class AbstractSuper extends OpMode {
         b1.setPosition(Math.abs(bottom-1));
         b2.setPosition(bottom);
     }
-    public void clampfor(double clampduration)
-    {
-        if (clamptime >= clampduration)
-        {
+    public void clampfor(double clampduration) {
+        if (clamptime >= clampduration) {
             clamp(0, 0);
             clamptime = 0;
             clampduration = 0;
+        } else {
+            clamp(0.13, 0.13);
         }
-        else
-        {
-            clamp(0.13, 0.13); clamptime++;
-        }
+        clamptime++;
     }
-
     public void liftfor(double liftduration)
     {
         if (lifttime >= liftduration)
@@ -129,9 +126,9 @@ public abstract class AbstractSuper extends OpMode {
         }
         else
         {
-            lift(-0.1); lifttime++;
+            lift(-0.1);
         }
-
+        lifttime++;
     }
 
 
