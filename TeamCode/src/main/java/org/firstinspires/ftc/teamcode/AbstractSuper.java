@@ -15,7 +15,6 @@ public abstract class AbstractSuper extends OpMode {
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
     int time = 0;
-    long timepassed = System.currentTimeMillis();
 
     @Override
     public void init() {
@@ -61,9 +60,13 @@ public abstract class AbstractSuper extends OpMode {
 
     public void driveFor(double duration)
     {
-        if (time > duration + timepassed) {
+        if (time > duration)
+        {
             drive(0, 0);
-        }else{
+            time = 0;
+        }
+        else
+        {
             drive(1, 1);
 
         }
