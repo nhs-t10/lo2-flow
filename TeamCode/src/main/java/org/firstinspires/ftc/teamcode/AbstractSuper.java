@@ -14,6 +14,8 @@ public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb;
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
+    int time = 0;
+    long timepassed = System.currentTimeMillis();
 
     @Override
     public void init() {
@@ -37,61 +39,35 @@ public abstract class AbstractSuper extends OpMode {
         a0.setDirection((Servo.Direction.REVERSE));
         l0.setPosition(0);
         a0.setPosition(0);
-        long time = 0;
         color.enableLed(true);
         prepare();
-
 
 
     }
 
     public abstract void prepare();
 
-    @SuppressWarnings("all")
-
-
-    public void clampFor(long durationInMillis, double top, double bottom)
-    {
-        long time = System.currentTimeMillis();
-        if (System.currentTimeMillis() < time + durationInMillis)
-        {
-            b1.setPosition(bottom); b2.setPosition(bottom);
-            t1.setPosition(top); t2.setPosition(top);
-        }
-        if (System.currentTimeMillis() >= time + durationInMillis)
-        {
-            b1.setPosition(0); b2.setPosition(0);
-            t1.setPosition(0); t2.setPosition(0);
-        }
-    }
-
-    @SuppressWarnings("all")
-    public void driveFor(long durationInMillis, double left, double right) {
-        time = System.currentTimeMillis();
-        if (System.currentTimeMillis() < time + durationInMillis) {
-            lf.setPower(-left);
-            lb.setPower(-left);
-            rf.setPower(-right);
-            rb.setPower(-right);
-        }
-        if (System.currentTimeMillis() >= time + durationInMillis){
-            lf.setPower(0);
-            lb.setPower(0);
-            rf.setPower(0);
-            rb.setPower(0);
-        }
-    }
 
     @SuppressWarnings("all")
 
 
-    public void drive(double left, double right)
-    {
+    public void drive(double left, double right) {
         lf.setPower(left);
         lb.setPower(left);
         rf.setPower(right);
         rb.setPower(right);
 
+    }
+
+    public void driveFor(double duration)
+    {
+        if (time > duration + timepassed) {
+            drive(0, 0);
+        }else{
+            drive(1, 1);
+
+        }
+        time ++;
     }
 
     public void side(double side)
@@ -102,23 +78,8 @@ public abstract class AbstractSuper extends OpMode {
         rb.setPower(-side);
     }
 
-    public void sideFor(long durationInMillis, double side)
-    {
-        long time = System.currentTimeMillis();
-        if (System.currentTimeMillis() < time + durationInMillis)
-        {
-            lf.setPower(-side);
-            lb.setPower(side);
-            rf.setPower(side);
-            rb.setPower(-side);
-        }
-        if (System.currentTimeMillis() >= time + durationInMillis){
-            lf.setPower(0);
-            lb.setPower(0);
-            rf.setPower(0);
-            rb.setPower(0);
-        }
-    }
+
+
 
     public void lift(double positon)
     {
