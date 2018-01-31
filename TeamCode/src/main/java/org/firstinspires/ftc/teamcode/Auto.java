@@ -6,10 +6,8 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 @Autonomous(name = "Auto")
-@SuppressWarnings("unused")
+@SuppressWarnings("all")
 public class Auto extends AbstractSuper {
-    private int timecount = 0;
-    int time = 0;
 
 
     @Override
@@ -20,31 +18,10 @@ public class Auto extends AbstractSuper {
 
 
 
-    public void loop() {
-        if (time > 75) {
-            drive(0, 0);
-        }else{
-            drive(1, 1);
-
-        }
-           time ++;
-
-
-
-
-
-
-
-
-
-
-
-
+    public void loop()
+    {
+        drivefor(75);
     }
-
-
-
-
 
     public void stop() {
 
