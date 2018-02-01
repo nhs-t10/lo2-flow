@@ -15,6 +15,10 @@ public abstract class AbstractSuper extends OpMode {
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
     long time = System.currentTimeMillis();
+    double forward = 1;
+    double back = -1;
+    double left = -1;
+    double right = 1;
 
     @Override
     public void init() {
