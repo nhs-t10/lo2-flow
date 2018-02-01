@@ -58,12 +58,12 @@ public abstract class AbstractSuper extends OpMode {
 
     }
 
-    public void drivefor(double driveduration)
+    public void drivefor(double driveduration, double left, double right)
     {
         final double driveendtime = time + driveduration;
         while (time <= driveendtime)
         {
-            drive(1, 1);
+            drive(left, right);
         }
         drive(0, 0);
 
@@ -76,16 +76,17 @@ public abstract class AbstractSuper extends OpMode {
         rf.setPower(side);
         rb.setPower(-side);
     }
-    public void sidefor(double sideduration)
+    public void sidefor(double sideduration, double direction)
     {
         final double sideendtime = time + sideduration;
         while (time <= sideendtime)
         {
-            side(1);
+            side(direction);
         }
         side(0);
 
     }
+
 
     public void clamp(double top, double bottom)
     {
@@ -110,7 +111,7 @@ public abstract class AbstractSuper extends OpMode {
         {
             lift(0.15);
         }
-        lift(0);
+        lift(-0.1);
     }
 
 
