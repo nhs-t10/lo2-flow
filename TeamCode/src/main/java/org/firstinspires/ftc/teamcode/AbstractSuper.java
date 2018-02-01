@@ -14,10 +14,7 @@ public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb;
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
-    int drivetime = 0;
-    int sidetime = 0;
-    int clamptime = 0;
-    int lifttime = 0;
+    long time = System.currentTimeMillis();
 
     @Override
     public void init() {
@@ -63,18 +60,13 @@ public abstract class AbstractSuper extends OpMode {
 
     public void drivefor(double driveduration)
     {
-        if (drivetime >= driveduration)
-        {
-            drive(0, 0);
-            drivetime = 0;
-            driveduration = 0;
-        }
-        else
+        final double driveendtime = time + driveduration;
+        while (time <= driveendtime)
         {
             drive(1, 1);
-
         }
-        drivetime ++;
+        drive(0, 0);
+
     }
 
     public void side(double side)
@@ -86,17 +78,13 @@ public abstract class AbstractSuper extends OpMode {
     }
     public void sidefor(double sideduration)
     {
-        if (sidetime >= sideduration)
-        {
-            side(0);
-            sidetime = 0;
-            sideduration = 0;
-        }
-        else
+        final double sideendtime = time + sideduration;
+        while (time <= sideendtime)
         {
             side(1);
         }
-        sidetime++;
+        side(0);
+
     }
 
     public void clamp(double top, double bottom)
@@ -106,29 +94,23 @@ public abstract class AbstractSuper extends OpMode {
         b1.setPosition(Math.abs(bottom-1));
         b2.setPosition(bottom);
     }
-    public void clampfor(double clampduration) {
-        if (clamptime >= clampduration) {
-            clamp(0, 0);
-            clamptime = 0;
-            clampduration = 0;
-        } else {
+    public void clampfor(double clampduration)
+    {
+        final double clampendtime = time + clampduration;
+        while (time <= clampendtime)
+        {
             clamp(0.13, 0.13);
         }
-        clamptime++;
+        clamp(0, 0);
     }
     public void liftfor(double liftduration)
     {
-        if (lifttime >= liftduration)
+        final double liftendtime = time + liftduration;
+        while (time <= liftendtime)
         {
-            lift(0);
-            lifttime = 0;
-            liftduration = 0;
+            lift(0.15);
         }
-        else
-        {
-            lift(-0.1);
-        }
-        lifttime++;
+        lift(0);
     }
 
 
