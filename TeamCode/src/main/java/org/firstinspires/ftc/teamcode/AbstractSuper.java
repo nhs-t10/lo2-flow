@@ -7,6 +7,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.Range;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 @SuppressWarnings("all")
@@ -14,11 +16,13 @@ public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb;
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
-    public long time = System.currentTimeMillis();
-    public double forward = 1;
-    public double back = -1;
-    public double left = -1;
-    public double right = 1;
+    private long time = System.currentTimeMillis();
+    private double forward = 1;
+    private double back = -1;
+    private double left = -1;
+    private double right = 1;
+    private Timer timer;
+    private double interval;
 
     @Override
     public void init() {
@@ -50,10 +54,6 @@ public abstract class AbstractSuper extends OpMode {
 
     public abstract void prepare();
 
-
-    @SuppressWarnings("all")
-
-
     public void drive(double left, double right) {
         lf.setPower(left);
         lb.setPower(left);
@@ -64,13 +64,25 @@ public abstract class AbstractSuper extends OpMode {
 
     public void drivefor(double driveduration, double left, double right)
     {
-        final double driveendtime = time + driveduration;
-        while (time <= driveendtime)
-        {
-            drive(left, right);
-        }
-        drive(0, 0);
+        int delay = 1000;
+        int period = 1000;
+        timer = new Timer();
+        interval = driveduration;
+        System.out.println(driveduration);
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                drive(left, right);
+                setInterval();
+            }
+        }, delay, period);
 
+    }
+
+    private final double setInterval() {
+        if (interval <= 1.0)
+            timer.cancel();
+        return --interval;
     }
 
     public void side(double side)
