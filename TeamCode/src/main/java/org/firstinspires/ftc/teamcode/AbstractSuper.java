@@ -17,10 +17,10 @@ public abstract class AbstractSuper extends OpMode {
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
     private long time = System.currentTimeMillis();
-    private double forward = 1;
-    private double back = -1;
-    private double left = -1;
-    private double right = 1;
+    public double forwardA = 1;
+    public double backA = -1;
+    public double leftA = -1;
+    public double rightA = 1;
     private Timer timer;
     private double interval;
 
@@ -62,7 +62,7 @@ public abstract class AbstractSuper extends OpMode {
 
     }
 
-    public void drivefor(double driveduration, double left, double right)
+    public void drivefor(double driveduration, final double left, final double right)
     {
         int delay = 1000;
         int period = 1000;
@@ -92,7 +92,7 @@ public abstract class AbstractSuper extends OpMode {
         rf.setPower(side);
         rb.setPower(-side);
     }
-    public void sidefor(double sideduration, double direction)
+    /*public void sidefor(double sideduration, double direction)
     {
         final double sideendtime = time + sideduration;
         while (time <= sideendtime)
@@ -101,7 +101,7 @@ public abstract class AbstractSuper extends OpMode {
         }
         side(0);
 
-    }
+    }*/
 
 
     public void clamp(double top, double bottom)
@@ -111,7 +111,7 @@ public abstract class AbstractSuper extends OpMode {
         b1.setPosition(Math.abs(bottom-1));
         b2.setPosition(bottom);
     }
-    public void clampfor(double clampduration)
+    /*public void clampfor(double clampduration)
     {
         final double clampendtime = time + clampduration;
         while (time <= clampendtime)
@@ -128,7 +128,7 @@ public abstract class AbstractSuper extends OpMode {
             lift(0.15);
         }
         lift(-0.1);
-    }
+    }*/
 
 
     public void lift(double positon)

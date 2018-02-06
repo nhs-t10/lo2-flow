@@ -20,7 +20,7 @@ public class Auto extends AbstractSuper {
 
     public void loop()
     {
-        drivefor(250, forward,back );
+        drivefor(250, forwardA,backA );
     }
 
     public void stop() {
