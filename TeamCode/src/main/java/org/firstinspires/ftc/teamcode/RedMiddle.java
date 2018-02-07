@@ -19,7 +19,7 @@ public class RedMiddle extends AbstractSuper {
         //the next piece of code knocks off the blue ball (must be on red team middle)
         if (color.blue() > color.red())
         {
-            drivefor(700, forwardA, forwardA);
+            drivefor(1000, forwardA, forwardA);
             arm(0);
             stop();
         }
@@ -27,7 +27,7 @@ public class RedMiddle extends AbstractSuper {
         {
             if (color.red() < color.blue())
             {
-                drivefor(700, backA, backA);
+                drivefor(1000, backA, backA);
                 arm(0);
                 stop();
             }

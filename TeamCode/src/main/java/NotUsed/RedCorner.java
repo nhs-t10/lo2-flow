@@ -23,24 +23,24 @@ public class RedCorner extends AbstractSuper
         //the next piece of code knocks off the blue ball (must be on red team corner)
         if (color.red() > 20)
         {
-            driveFor(50, -1, -1);
+            drivefor(50, -1, -1);
             arm(0);
-            driveFor(100, 0, 0);
-            sideFor(500,1);
-            driveFor(400, 1 ,-1);
-            driveFor(600, 1, 1);
+            drivefor(100, 0, 0);
+            //sideFor(500,1);
+            drivefor(400, 1 ,-1);
+            drivefor(600, 1, 1);
         }
         else if (color.blue() > 20)
         {
-            driveFor(50,1,1);
+            drivefor(50,1,1);
             arm(0);
-            driveFor(200, 0, 0);
-            sideFor(500,1);
-            driveFor(400, 1,-1);
-            driveFor(600, 0 , 0);
+            drivefor(200, 0, 0);
+            //sideFor(500,1);
+            drivefor(400, 1,-1);
+            drivefor(600, 0 , 0);
         }
         clamp(0, 0);
-        driveFor(50, -1, -1);
+        drivefor(50, -1, -1);
         stop();
     }
     public void stop()

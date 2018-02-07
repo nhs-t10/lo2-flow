@@ -23,24 +23,24 @@ public class BlueMiddle extends AbstractSuper
         //the next piece of code knocks off the red ball (must be on Blue team middle)
         if (color.blue() > 20)
         {
-            driveFor(50, -1, -1);
+            drivefor(50, -1, -1);
             arm(0);
-            driveFor(200,-1,-1);
-            sideFor(100,-1);
-            driveFor(400,-1,1);
-            driveFor(400, 0, 0);
+            drivefor(200,-1,-1);
+            //sideFor(100,-1);
+            drivefor(400,-1,1);
+            drivefor(400, 0, 0);
         }
         else if (color.red() > 20)
         {
-            driveFor(50,1,1);
+            drivefor(50,1,1);
             arm(0);
-            driveFor(100,-1,-1);
-            sideFor(100,-1);
-            driveFor(400,-1,1);
-            driveFor(400, 0, 0);
+            drivefor(100,-1,-1);
+            //sideFor(100,-1);
+            drivefor(400,-1,1);
+            drivefor(400, 0, 0);
         }
         clamp(0, 0);
-        driveFor(50, -1, -1);
+        drivefor(50, -1, -1);
         stop();
     }
     public void stop()

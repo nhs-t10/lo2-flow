@@ -84,20 +84,20 @@ class OpModeVuforiaCornerRed extends AbstractSuper
         colorArm.setPosition(0);
         if(color.red()>90)
         {
-            driveFor(100,1,1);
+            drivefor(100,1,1);
             telemetry.addData("codeStatus", "I see red");
             colorArm.setPosition(1);
             //we saw red, knocked it off
         }else if(color.blue()>90){
             telemetry.addData("codeStatus", "I see blue");
-            driveFor(50,-1,-1);
+            drivefor(50,-1,-1);
             colorArm.setPosition(1);
-            driveFor(50,1,1);
+            drivefor(50,1,1);
             //we saw blue so the other one is red so we can knock it off
         }
 
-            driveFor(200, 1, 1);
-            driveFor(100, 1, 1);
+            drivefor(200, 1, 1);
+            drivefor(100, 1, 1);
 //        //hopefully in front of vumark
 //        RelicRecoveryVuMark vuMark = RelicRecoveryVuMark.from(relicTemplate);
 //
@@ -129,8 +129,8 @@ class OpModeVuforiaCornerRed extends AbstractSuper
 //        }
 
         /*driveFor(100,1,1,-1,-1) how to turn*/
-            driveFor(100, 1, 1);
-            driveFor(50, 1, 1);
+            drivefor(100, 1, 1);
+            drivefor(50, 1, 1);
             telemetry.addData("codeStatus", "dropping glyph of now");
             //glyph goes in here (hopefully)
             telemetry.addData("variableInfo", which_vumark);
