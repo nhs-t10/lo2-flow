@@ -16,13 +16,15 @@ public abstract class AbstractSuper extends OpMode {
     public DcMotor lf, lb, rf, rb;
     public Servo l, r, colorArm, b2, b1, t1, t2, a0, l0;
     public ColorSensor color;
-    private long time = System.currentTimeMillis();
-    public double forwardA = 1;
-    public double backA = -1;
+    //private long time = System.currentTimeMillis();
+    public double forwardA = -1;
+    public double backA = 1;
     public double leftA = -1;
     public double rightA = 1;
     private Timer timer;
     private double interval;
+    double time = 0;
+
 
     @Override
     public void init() {
@@ -62,7 +64,7 @@ public abstract class AbstractSuper extends OpMode {
 
     }
 
-    public void drivefor(double driveduration, final double left, final double right)
+    /*public void drivefor(double driveduration, final double left, final double right)
     {
         int delay = 1000;
         int period = 1000;
@@ -73,16 +75,32 @@ public abstract class AbstractSuper extends OpMode {
             @Override
             public void run() {
                 drive(left, right);
-                setInterval();
+
             }
         }, delay, period);
 
+    }*/
+    public void drivefor(double driveduration, double left, double right)
+    {
+        if (time >= driveduration)
+
+        {
+            drive(0, 0);
+        }
+        else
+        {
+            drive(left, right);
+            time++;
+        }
+
     }
+
 
     private final double setInterval() {
         if (interval <= 1.0)
             timer.cancel();
         return --interval;
+        //telemetry.addData("Interval: " , String.valueOf(interval));
     }
 
     public void side(double side)

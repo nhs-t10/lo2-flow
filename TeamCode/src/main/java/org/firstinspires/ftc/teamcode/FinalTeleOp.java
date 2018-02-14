@@ -20,8 +20,8 @@ public class FinalTeleOp extends AbstractSuper
         double side = gamepad1.right_stick_x;
         boolean up = gamepad1.right_bumper;
         boolean down = gamepad1.left_bumper;
-        double top = gamepad1.right_trigger;
-        double bottom = gamepad1.left_trigger;
+        double top = gamepad1.left_trigger;
+        double bottom = gamepad1.right_trigger;
         boolean B = gamepad1.b;
         lifthold();
 
