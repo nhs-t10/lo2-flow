@@ -24,6 +24,8 @@ public abstract class testsuper extends OpMode {
     double time = 0;
 
 
+
+    
     @Override
     public void init() {
         spin = hardwareMap.dcMotor.get("m0");
