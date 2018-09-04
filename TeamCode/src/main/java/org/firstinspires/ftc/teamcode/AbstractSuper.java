@@ -80,7 +80,7 @@ public abstract class AbstractSuper extends OpMode {
         }, delay, period);
 
     }*/
-    public void drivefor(double driveduration, double left, double right)
+    /*public void drivefor(double driveduration, double left, double right)
     {
         if (time >= driveduration)
 
@@ -93,7 +93,7 @@ public abstract class AbstractSuper extends OpMode {
             time++;
         }
 
-    }
+    }*/
 
 
     private final double setInterval() {

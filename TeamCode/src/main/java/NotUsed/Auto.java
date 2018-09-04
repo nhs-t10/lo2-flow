@@ -1,11 +1,14 @@
-package org.firstinspires.ftc.teamcode;
+package NotUsed;
 
 /*
  * Created by tripszewczak on 10/10/17.
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-@Autonomous(name = "Auto")
+
+import org.firstinspires.ftc.teamcode.AbstractSuper;
+
+//@Autonomous(name = "Auto")
 @SuppressWarnings("all")
 public class Auto extends AbstractSuper {
 
