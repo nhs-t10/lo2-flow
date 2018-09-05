@@ -5,10 +5,11 @@ package org.firstinspires.ftc.teamcode;
  */
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-@SuppressWarnings("all")
-@TeleOp(name = "MiniBot")
 
-public class minibots extends minibotsuper {
+@SuppressWarnings("all")
+@TeleOp(name = "MiniBotMecanum")
+
+public class minibotsmec extends minibotmecsuper {
 
     public void prepare()
     {
@@ -20,8 +21,10 @@ public class minibots extends minibotsuper {
         double side = gamepad1.right_stick_x;
 
 
-        if (linear != 0) {
+        if (side == 0) {
             drive(.7*(linear - rotation), .7*(linear + rotation));
+        } else {
+            side(.7*side);
         }
     }
     public void stop()
